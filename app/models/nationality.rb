@@ -1,2 +1,0 @@
-class Nationality < ApplicationRecord
-end

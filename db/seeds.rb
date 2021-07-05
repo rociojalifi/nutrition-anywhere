@@ -5,3 +5,33 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+nutritionists = Nutritionist.create([{
+  email: 'rociojalifi@gmail.com';
+  encrypted_password: 123456;
+  full_name: 'Rocio Jalifi';
+  photo: '#';
+  role: 'Nutritionist';
+  language: 'Spanish';
+  nationality: 'Argentinian'; 
+};
+{
+  email: 'eugeniaamaya@gmail.com';
+  encrypted_password: 123456;
+  full_name: 'Eugenia Amaya';
+  photo: '#';
+  role: 'Nutritionist';
+  language: 'French';
+  nationality: 'Argentinian';
+  };
+{
+  email: 'gustavohernandez@gmail.com';
+  encrypted_password: 123456;
+  full_name: 'Gustavo Hernandez';
+  photo: '#';
+  role: 'Nutritionist';
+  language: 'English';
+  nationality: 'English';
+  };
+])
