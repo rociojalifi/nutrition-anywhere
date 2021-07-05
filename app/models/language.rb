@@ -9,3 +9,4 @@ module Language
     french
   ].freeze
 end
+
