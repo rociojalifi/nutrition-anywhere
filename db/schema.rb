@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_05_180345) do
+ActiveRecord::Schema.define(version: 2021_07_05_185846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,14 +26,12 @@ ActiveRecord::Schema.define(version: 2021_07_05_180345) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
-  create_table "languages", force: :cascade do |t|
-    t.string "language"
+  create_table "nutritionists", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "nationalities", force: :cascade do |t|
-    t.string "name"
+  create_table "patients", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -69,11 +67,9 @@ ActiveRecord::Schema.define(version: 2021_07_05_180345) do
     t.string "full_name"
     t.string "photo"
     t.string "role"
-    t.bigint "language_id", null: false
-    t.bigint "nationality_id", null: false
+    t.string "language"
+    t.string "nationality"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["language_id"], name: "index_users_on_language_id"
-    t.index ["nationality_id"], name: "index_users_on_nationality_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -82,6 +78,4 @@ ActiveRecord::Schema.define(version: 2021_07_05_180345) do
   add_foreign_key "reviews", "services"
   add_foreign_key "reviews", "users"
   add_foreign_key "services", "users"
-  add_foreign_key "users", "languages"
-  add_foreign_key "users", "nationalities"
 end

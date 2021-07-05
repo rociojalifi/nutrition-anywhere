@@ -7,4 +7,12 @@ class User < ApplicationRecord
   has_many :services
   has_many :reviews
   has_many :bookings
+
+  def nutritionist?
+    role == "Nutritionist"
+  end
+
+  def patient?
+    role == "Patient"
+  end
 end
