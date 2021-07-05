@@ -3,4 +3,16 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  
+  has_many :services
+  has_many :reviews
+  has_many :bookings
+
+  def nutritionist?
+    role == "Nutritionist"
+  end
+
+  def patient?
+    role == "Patient"
+  end
 end
