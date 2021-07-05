@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2021_07_05_185846) do
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
-  
+
   create_table "bookings", force: :cascade do |t|
     t.string "location"
     t.datetime "booking_date"
