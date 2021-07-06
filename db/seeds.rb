@@ -5,209 +5,63 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
+require 'json'
+puts 'Deleting seeds'
+
+Service.delete_all
+Booking.delete_all
+User.delete_all
+
+puts 'Creating new seeds'
 
 
-nutritionists = Nutritionist.create([{
-  email: 'rociojalifi@gmail.com';
-  encrypted_password: 123456;
-  full_name: 'Rocio Jalifi';
-  photo: '#';
-  role: 'Nutritionist';
-  language: 'Spanish';
-  nationality: 'Argentinian'; 
-},
-{
-  email: 'eugeniaamaya@gmail.com';
-  encrypted_password: 123456;
-  full_name: 'Eugenia Amaya';
-  photo: '#';
-  role: 'Nutritionist';
-  language: 'French';
-  nationality: 'French';
-},
-{
-  email: 'gustavohernandez@gmail.com';
-  encrypted_password: 123456;
-  full_name: 'Gustavo Hernandez';
-  photo: '#';
-  role: 'Nutritionist';
-  language: 'English';
-  nationality: 'English';
-},
-{
-  email: 'pablominetto@gmail.com';
-  encrypted_password: 123456;
-  full_name: 'Pablo Minetto';
-  photo: '#';
-  role: 'Nutritionist';
-  language: 'Arabic';
-  nationality: 'Arabic';
-},
-{
-  email: 'xingxao@gmail.com';
-  encrypted_password: 123456;
-  full_name: 'Xing Xao';
-  photo: '#';
-  role: 'Nutritionist';
-  language: 'Chinese Mandarin';
-  nationality: 'Chinese';
-  },
-  {
-  email: 'abdaluzza@gmail.com';
-  encrypted_password: 123456;
-  full_name: 'Abd al-Uzza';
-  photo: '#';
-  role: 'Nutritionist';
-  language: 'Arabic';
-  nationality: 'Arabic';
-  },
-  {
-  email: 'emiliaguiñazu@gmail.com';
-  encrypted_password: 123456;
-  full_name: 'Emilia Guiñazu';
-  photo: '#';
-  role: 'Nutritionist';
-  language: 'Spanish';
-  nationality: 'Argentinian'; 
-},
-{
-  email: 'delphincorentine@gmail.com';
-  encrypted_password: 123456;
-  full_name: 'Delfine Corentine';
-  photo: '#';
-  role: 'Nutritionist';
-  language: 'French';
-  nationality: 'French';
-},
-{
-  email: 'jhonpaul@gmail.com';
-  encrypted_password: 123456;
-  full_name: 'Jhon Paul';
-  photo: '#';
-  role: 'Nutritionist';
-  language: 'English';
-  nationality: 'English';
-},
-{
-  email: 'maotzetung@gmail.com';
-  encrypted_password: 123456;
-  full_name: 'Mao Tze Tung';
-  photo: '#';
-  role: 'Nutritionist';
-  language: 'Chinese Mandarin';
-  nationality: 'Chinese';
-  },
-  {
-  email: 'abdelfattah@gmail.com';
-  encrypted_password: 123456;
-  full_name: 'Abdel Fattah';
-  photo: '#';
-  role: 'Nutritionist';
-  language: 'Arabic';
-  nationality: 'Arabic';
-  },
-  {
-  email: 'marcopolo@gmail.com';
-  encrypted_password: 123456;
-  full_name: 'Marco Polo';
-  photo: '#';
-  role: 'Nutritionist';
-  language: 'Italian';
-  nationality: 'Italian';
-  },
-  {
-  email: 'joaosilva@gmail.com';
-  encrypted_password: 123456;
-  full_name: 'Joao Silva';
-  photo: '#';
-  role: 'Nutritionist';
-  language: 'Portuguese';
-  nationality: 'Portuguese';
-  }
-]);
+file_1 = URI.open('https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60')
+user_1 = User.create!(
+  email: 'rociojalifi@gmail.com',
+  password: '123456',
+  full_name: 'Rocio Jalifi',
+  role: 'Nutritionist',
+  language: 'Spanish',
+  nationality: 'Argentinian' 
+)
+user_1.photo.attach(io: file_1, filename: 'nes_1.jpg', content_type: 'image/jpg')
+user_1.save
 
-services = Service.create([{ 
-  speciality: 'Sports Nutritionist';
-  price: 100;
-  user_id: 1;
-  },
-  { 
-  speciality: 'Vegan Nutritionist';
-  price: 100;
-  user_id: 2;
-  },
-  { 
-  speciality: 'Keto Nutritionist';
-  price: 100;
-  user_id: 3;
-  },
-  { 
-  speciality: 'Pediatric Nutritionist';
-  price: 100;
-  user_id: 4;
-  },
-  { 
-  speciality: 'Oncology Nutritionist';
-  price: 100;
-  user_id: 5;
-  },
-  { 
-  speciality: 'Eating Disorder Nutritionist';
-  price: 100;
-  user_id: 6;
-  }
-]);
+file_2 = URI.open('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60')
+user_2 = User.create!(
+  email: 'pablominetto@gmail.com',
+  password: '123456',
+  full_name: 'Pablo Minetto',
+  role: 'Nutritionist',
+  language: 'Arabic',
+  nationality: 'Arabic'
+)
+user_2.photo.attach(io: file_2, filename: 'nes_2.jpg', content_type: 'image/jpg')
+user_2.save
 
-bookings = Booking.create([{ 
-  location: 'Amsterdam';
-  booking_date: '2021-07-30 14:00:00 UTC';
-  user_id: '1';
-  service_id: '1';
-  },
-  { 
-  location: 'Madrid';
-  booking_date: '2021-07-30 14:00:00 UTC';
-  user_id: '2';
-  service_id: '3';
-  },
-  { 
-  location: 'Berlin';
-  booking_date: '2021-07-30 14:00:00 UTC';
-  user_id: '4';
-  service_id: '5';
-  },
-  { 
-  location: 'Paris';
-  booking_date: '2021-07-30 14:00:00 UTC';
-  user_id: '5';
-  service_id: '6';
-  }]);
+service_1 = Service.create!(
+  speciality: 'Sports Nutritionist',
+  price: 100,
+  user: user_1,
+)
 
-  patients = Patient.create([{
-    email: 'abdelfattah@gmail.com';
-    encrypted_password: 123456;
-    full_name: 'Abdel Fattah';
-    photo: '#';
-    role: 'Patient';
-    language: 'Arabic';
-    nationality: 'Arabic';
-    },
-    {
-    email: 'marcopolo@gmail.com';
-    encrypted_password: 123456;
-    full_name: 'Marco Polo';
-    photo: '#';
-    role: 'Patient';
-    language: 'Italian';
-    nationality: 'Italian';
-    },
-    {
-    email: 'joaosilva@gmail.com';
-    encrypted_password: 123456;
-    full_name: 'Joao Silva';
-    photo: '#';
-    role: 'Patient';
-    language: 'Portuguese';
-    nationality: 'Portuguese';
-    }
-  ]);
+service_2 = Service.create!(
+  speciality: 'Sports Nutritionist',
+  price: 100,
+  user: user_2,
+)
+
+booking_1 = Booking.create!(
+  location: 'Amsterdam',
+  booking_date: '2021-07-30 14:00:00 UTC',
+  user: user_2,
+  service: service_1,
+)
+
+booking_2 = Booking.create!(
+  location: 'Madrid',
+  booking_date: '2021-07-25 15:00:00 UTC',
+  user: user_1,
+  service: service_2,
+)
