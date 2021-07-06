@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :bookings
   has_one_attached :photo
 
+  validates :role, presence: true
+
   def nutritionist?
     role == "Nutritionist"
   end
