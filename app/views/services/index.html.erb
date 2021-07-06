@@ -1,6 +1,6 @@
 <h1> Services </h2>
    
-      <% @service.each do |service| %>
+      <% @services.each do |service| %>
       <div class="card-service-container">
         <div class="card-service">
           <div class="card-content">
@@ -11,7 +11,7 @@
               </h5>
             </div>
 
-            <p id="city"><%= service.user.location %></p>
+            <p id="city"><%= service.booking.location %></p>
             <p>Contact: <%= service.user.full_name %></p>
             <p>Review: <%= service.review.rating %></p>
             <p>Review: <%= service.review.content %></p>
