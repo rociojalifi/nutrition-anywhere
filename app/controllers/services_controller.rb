@@ -1,8 +1,13 @@
 class ServicesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_service, only: [:show, :edit, :update, :destroy]
+
   def index
-    @services = Service.all
+    if user.role == "Nutritionist"
+      @services = Service.all.current_user
+    else
+      @services = Service.all
+    end
   end
 
   def show

@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   resources :services do
     resources :bookings, only: [:create]
     get '/bookings', to: 'bookings#service_bookings', as: :service_bookings
+
     resources :reviews, only: [:create]
   end
+  get '/services', to: 'services#my_services', as: :my_services
   resources :bookings, only: [:index, :show]
   resources :reviews, only: [:destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
