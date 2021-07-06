@@ -40,11 +40,14 @@ class BookingsController < ApplicationController
     end
   end
 
+  # me trae todos los bookings del usuario
   def service_bookings
     @service_bookings = current_user.services.map do |service|
       service.bookings
     end
   end
+
+  
 
   private
   def booking_params

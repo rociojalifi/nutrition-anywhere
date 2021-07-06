@@ -1,0 +1,10 @@
+
+  <div>
+  <%= simple_form_for @service do |f| %>
+    <%= f.input :speciality, collection: Category.categories %>
+    <%= f.input :price, label: "Price (EURO/ hour)" %>
+    <%= f.button :submit, "Submit information", class: "text-white" %>
+
+  <% end %>
+
+  </div>

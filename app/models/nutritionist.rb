@@ -1,3 +1,0 @@
-class Nutritionist < User
-  
-end

@@ -9,11 +9,7 @@
 <p>Professional <%= service_booking.user.full_name %></p>
 <p>Value: <%= service_booking.service.price %>/per hour</p>
 <p>Date: <%= service_booking.booking.booking_date %></p>
-<p>Location: <% if service_booking.booking.location.present?  %></p>
-<%= service_booking.location %>
-<% else "Link-zoom"%>
-  <% end %>
-<p></p>
+<p>Location: <%= service_booking.booking.location.present? ? service_booking.location : "Link-zoom"%></p>
 <%= link_to "Delete this booking", booking_path(service_booking), method: :delete, data: { confirm: "Are you sure you want to delete this booking?" } %>
 <% end %>
 <% end %>
