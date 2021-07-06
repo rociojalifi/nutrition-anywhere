@@ -9,8 +9,9 @@ require 'open-uri'
 require 'json'
 puts 'Deleting seeds'
 
-Service.delete_all
+
 Booking.delete_all
+Service.delete_all
 User.delete_all
 
 puts 'Creating new seeds'
