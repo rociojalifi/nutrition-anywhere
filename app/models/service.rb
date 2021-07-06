@@ -5,4 +5,11 @@ class Service < ApplicationRecord
   belongs_to :user
   has_many :reviews
   has_many :bookings
+
+  include PgSearch::Model
+  pg_search_scope :search_by_speciality_and_price,
+    against: [ :speciality, :price ],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
 end
