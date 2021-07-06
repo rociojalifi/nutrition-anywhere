@@ -3,6 +3,7 @@ class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
 
   def index
+    @services = policy_scope(Service)
     @markers = @services.geocoded.map do |service|
       {
         lat: service.latitude,
@@ -19,8 +20,8 @@ class ServicesController < ApplicationController
   end
 
   def show
+    authorize @service
     @booking = Booking.new
-    @service = Service.find(params[:id])
     @review = Review.new 
   end
 
@@ -66,6 +67,5 @@ class ServicesController < ApplicationController
 
   def set_service
     @service = Service.find(params[:id])
-    authorize @service
   end
 end
