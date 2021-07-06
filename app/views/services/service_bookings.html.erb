@@ -2,8 +2,8 @@
 
 <%= @service_bookings.each do |service_bookings|  %>
 <% service_bookings.each do |service_booking|  %>
-<%= link_to service_path(service_booking.servive) do %>
-<%= cl_image_tag service_booking.service,image_url.key, class: "img-fluid rounded-start" %>
+<%= link_to service_path(service_booking.service) do %>
+<%= cl_image_tag service_booking.service.user.image_url.key, class: "img-fluid rounded-start" %>
 <% end %>
 <h5><%= service_booking.service.speciality %> <%= service_booking.service.price %></h5>
 <p>Professional <%= service_booking.user.full_name %></p>

@@ -47,6 +47,12 @@ class BookingsController < ApplicationController
     end
   end
 
+  def my_bookings
+    @my_bookings = current_user.services.map do |service|
+      service.bookings
+    end
+  end
+
   
 
   private
