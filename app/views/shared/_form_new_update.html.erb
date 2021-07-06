@@ -1,8 +1,12 @@
 
   <div>
   <%= simple_form_for @service do |f| %>
-    <%= f.input :speciality, collection: Category.categories %>
-    <%= f.input :price, label: "Price (EURO/ hour)" %>
+     <%= f.input :price, label: "Price (EURO/ hour)" %>
+     <%= f.input :speciality, collection: ['vegan', 'keto'] %>
+
+      <%= f.simple_fields_for :users do |posts_form| %>
+      <%= posts_form.input :full_name %>
+      <% end %>
     <%= f.button :submit, "Submit information", class: "text-white" %>
 
   <% end %>
