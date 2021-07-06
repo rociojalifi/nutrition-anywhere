@@ -34,6 +34,7 @@ class ServicesController < ApplicationController
     @service = Service.new(service_params)
     @service.user = current_user
     authorize @service
+    current_user.update(user_params)
     if @service.save
       redirect_to services_path
     else
@@ -62,8 +63,12 @@ class ServicesController < ApplicationController
 
   private
   def service_params
-    params.require(:service).permit(:speciality, :price)
+    params.require(:service).permit(:price, :speciality)
   end
+
+  # def user_params
+  #   params[:service].require(:users).permit(:full_name, :photo, :role)
+  # end
 
   def set_service
     @service = Service.find(params[:id])
