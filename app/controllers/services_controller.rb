@@ -66,9 +66,9 @@ class ServicesController < ApplicationController
     params.require(:service).permit(:price, :speciality)
   end
 
-  # def user_params
-  #   params[:service].require(:users).permit(:full_name, :photo, :role)
-  # end
+  def user_params
+    params[:service].require(:users).permit(:full_name, :photo, :role)
+  end
 
   def set_service
     @service = Service.find(params[:id])
