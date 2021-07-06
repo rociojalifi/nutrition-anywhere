@@ -3,20 +3,19 @@ class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
 
   def index
-    @services = Service.all
     @markers = @services.geocoded.map do |service|
       {
         lat: service.latitude,
         lng: service.longitude,
         info_window: render_to_string(partial: "info_window", locals: { service: service }),
-        image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+        image_url: helpers.asset_url(service.user.photo)
       }
     end
-    # if user.role == "Nutritionist"
-    #   @services = Service.all.current_user
-    # else
-    #   @services = Service.all
-    # end
+    if current_user.nutritionist?
+      @services = current_user.services
+    else
+      @services = Service.all
+    end
   end
 
   def show
