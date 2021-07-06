@@ -44,24 +44,24 @@ user_2.save
 service_1 = Service.create!(
   speciality: 'Sports Nutritionist',
   price: 100,
+  location: 'Madrid',
   user: user_1,
 )
 
 service_2 = Service.create!(
   speciality: 'Sports Nutritionist',
   price: 100,
+  location: 'Amsterdam',
   user: user_2,
 )
 
 booking_1 = Booking.create!(
-  location: 'Amsterdam',
   booking_date: '2021-07-30 14:00:00 UTC',
   user: user_2,
   service: service_1,
 )
 
 booking_2 = Booking.create!(
-  location: 'Madrid',
   booking_date: '2021-07-25 15:00:00 UTC',
   user: user_1,
   service: service_2,
