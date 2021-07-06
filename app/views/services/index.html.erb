@@ -13,8 +13,10 @@
 
             <p id="city"><%= service.location %></p>
             <p>Contact: <%= service.user.full_name %></p>
-            <p>Review: <%= service.review.rating %></p>
-            <p>Review: <%= service.review.content %></p>
+            <% service.reviews.each do |review| %>
+            <p>Review: <%= review.rating %></p>
+            <p>Review: <%= review.content %></p>
+            <% end %>
 
 
             <div class="user-button">

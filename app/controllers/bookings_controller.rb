@@ -41,16 +41,19 @@ class BookingsController < ApplicationController
   end
 
   # me trae todos los bookings del usuario
-  def service_bookings
-    @service_bookings = current_user.services.map do |service|
-      service.bookings
-    end
+  def bookings_requested
+    # select * from bookings where patient_id = current_user.id
+    @bookings_requested = current_user.bookings
   end
 
-  def my_bookings
-    @my_bookings = current_user.services.map do |service|
-      service.bookings
-    end
+  def bookings_given
+      # select * from bookings where nutritionist_id = current_user.id
+      @bookings_given = []
+      current_user.services.each do |service|
+        service.bookings.each do |booking|
+          @bookings_given << booking
+        end
+      end
   end
 
   
