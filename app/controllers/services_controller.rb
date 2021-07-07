@@ -52,9 +52,11 @@ class ServicesController < ApplicationController
   end
 
   def edit 
+    authorize @service
   end
 
   def update 
+    authorize @service
     if @service.update(service_params)
       redirect_to services_path
     else
@@ -76,7 +78,7 @@ class ServicesController < ApplicationController
   end
 
   def user_params
-    params[:service].require(:users).permit(:full_name, :photo, :role)
+    params[:service].require(:users).permit(:full_name, :role, :nationality, :language)
   end
 
   def set_service
