@@ -1,8 +1,8 @@
-<%= form_tag services_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a nutritionist"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
+
+<%= simple_form_for :search, url: services_path, method: :get  do |form| %>
+       <%= form.input :speciality, label: 'Speciality' , collection: ['Sport Nutritionist', 'Pediatric Nutritionist', 'Vegan Nutritionist', 'Keto Nutritionist',  'Oncology Nutritionist', 'Eating Disorder Nutritionist'],  placeholder: 'Choose an option or leave this filter for now' %>
+       <%= form.input :price, as: :integer, label: 'Max Price' , placeholder: 'EUR per one-hour consultation' %>
+       <%= form.input :nationality, label: 'Nutritionist Nationality', collection: ['Argentinian', 'Spanish', 'French', 'Italian', 'Portuguese', 'Chinese'] %>
+       <%= form.input :language, label: 'Nutritionist Language', collection: ['Spanish', 'French', 'Italian', 'Portuguese', 'Mandarin Chinese'] %>
+       <%= form.submit "Find a nutritionist", class: 'btn btn-primary' %>
+<%end%>

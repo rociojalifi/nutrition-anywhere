@@ -31,15 +31,28 @@ user_1.save
 
 file_2 = URI.open('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60')
 user_2 = User.create!(
-  email: 'pablominetto@gmail.com',
+  email: 'abdelfattah@gmail.com',
   password: '123456',
-  full_name: 'Pablo Minetto',
+  full_name: 'Abdel Fattah',
   role: 'Nutritionist',
   language: 'Arabic',
   nationality: 'Arabic'
 )
 user_2.photo.attach(io: file_2, filename: 'nes_2.jpg', content_type: 'image/jpg')
 user_2.save
+
+file_3 = URI.open('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60')
+user_3 = User.create!(
+  email: 'joaosilva@gmail.com',
+  password: '123456',
+  full_name: 'Joao Silva',
+  role: 'Nutritionist',
+  language: 'Portuguese',
+  nationality: 'Portuguese'
+)
+user_3.photo.attach(io: file_3, filename: 'nes_3.jpg', content_type: 'image/jpg')
+user_3.save
+
 
 service_1 = Service.create!(
   speciality: 'Sports Nutritionist',
@@ -49,8 +62,36 @@ service_1 = Service.create!(
 )
 
 service_2 = Service.create!(
-  speciality: 'Sports Nutritionist',
-  price: 100,
+  speciality: 'Vegan Nutritionist',
+  price: 70,
+  location: 'Amsterdam',
+  user: user_2,
+)
+
+service_3 = Service.create!(
+  speciality: 'Eating Disorder Nutritionist',
+  price: 90,
+  location: 'Madrid',
+  user: user_1,
+)
+
+service_4 = Service.create!(
+  speciality: 'Oncology Nutritionist',
+  price: 150,
+  location: 'Amsterdam',
+  user: user_2,
+)
+
+service_5 = Service.create!(
+  speciality: 'Keto Nutritionist',
+  price: 120,
+  location: 'Amsterdam',
+  user: user_2,
+)
+
+service_6 = Service.create!(
+  speciality: 'Pediatric Nutritionist',
+  price: 70,
   location: 'Amsterdam',
   user: user_2,
 )

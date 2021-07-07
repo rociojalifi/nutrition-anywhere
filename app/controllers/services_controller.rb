@@ -3,15 +3,23 @@ class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
 
   def index
-    @services = policy_scope(Service)
-    @markers = @services.geocoded.map do |service|
-      {
-        lat: service.latitude,
-        lng: service.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { service: service }),
-        image_url: helpers.asset_url(service.user.photo)
-      }
+    if params[:query].present?
+      @users = policy_scope(User).where(nationality: params[:query][:user_nationality]).where(language: params[:query][:user_language])
+        @users.each do |user|
+          user.services.where(speciality: params[:search][:service_speciality])
+        end
+    else
+      @services = policy_scope(Service)
+      @markers = @services.geocoded.map do |service|
+        {
+          lat: service.latitude,
+          lng: service.longitude,
+          info_window: render_to_string(partial: "info_window", locals: { service: service }),
+          # image_url: helpers.asset_url(service.user.photo)
+        }
+      end
     end
+
     if current_user.nutritionist?
       @services = current_user.services
     else
