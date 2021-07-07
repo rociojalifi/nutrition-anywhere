@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get '/bookings_requested', to: 'bookings#bookings_requested'
+  get '/bookings_given', to: 'bookings#bookings_given'
   resources :services do
     resources :bookings, only: [:create]
-    get '/patient/bookings', to: 'bookings#bookings_requested'
-    get '/nutri/bookings', to: 'bookings#bookings_given'
     resources :reviews, only: [:create]
   end
   resources :bookings, only: [:index, :show]

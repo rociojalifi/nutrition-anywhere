@@ -28,7 +28,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @service = Service.find(params[:bike_id])
+    @service = Service.find(params[:service_id])
     @booking = Booking.new(booking_params)
     authorize @booking
     @booking.service = @service
@@ -51,7 +51,7 @@ class BookingsController < ApplicationController
       @bookings_given = []
       current_user.services.each do |service|
         service.bookings.each do |booking|
-          @bookings_given << booking
+          @bookings_given << booking 
         end
       end
   end
@@ -68,7 +68,7 @@ class BookingsController < ApplicationController
   end
 
   def set_service
-    @service = Service.find(params[:bike_id])
+    @service = Service.find(params[:service_id])
   end
 
 end

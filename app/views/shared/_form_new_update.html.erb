@@ -5,7 +5,12 @@
      <%= f.input :speciality, collection: ['vegan', 'keto'] %>
 
       <%= f.simple_fields_for :users do |posts_form| %>
+      <%= posts_form.input :photo, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'},
+          label: '📷 Upload a photo' %>
       <%= posts_form.input :full_name %>
+      <%= posts_form.input :nationality %>
+      <%= posts_form.input :language %>
+
       <% end %>
     <%= f.button :submit, "Submit information", class: "text-white" %>
 

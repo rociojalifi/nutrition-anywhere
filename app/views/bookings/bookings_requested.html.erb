@@ -1,6 +1,6 @@
 <h1>Your bookings </h1>
 
-<%= @bookings_requeste.each do |booking_requested|  %>
+<%= @bookings_requested.each do |booking_requested|  %>
 <%= link_to service_path(booking_requested.service) do %>
 <%= cl_image_tag booking_requested.service.user.photo.key, class: "img-fluid rounded-start" %>
 <% end %>
