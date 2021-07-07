@@ -18,6 +18,8 @@
     <%= f.input :role,
                 required: true,
                 collection: ["Nutritionist", "Patient"] %>
+    <%= f.input :photo, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'},
+          label: '📷 Upload a photo' %>
   </div>
 
   <div class="form-actions">
@@ -26,3 +28,19 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+
+<style>
+  .upload-photo {
+    border: 1px solid #d3d3d3;
+    padding: 16px 24px;
+    cursor: pointer;
+    font-weight: 500;
+    background: white;
+    border-radius: 5px;
+  }
+  .form-style{
+    width: 800px;
+  }
+
+</style>

@@ -1,4 +1,47 @@
-<h1>This is a service </h1>
+
+<div class="pt-5 pb-5 px-5">
+  <div class="d-flex justify-content-between booking-content">
+  <div class="booking-info container-listing">
+    <%= pluralize @service.reviews.size, "review" %>
+    </div>
+    <div class="booking-form d-flex align-items-center justify-content-center">
+    <div>
+      <%= simple_form_for [@service, @booking] do |form| %>
+       <%= form.input :booking_date
+      %>
+      <div class="user-button">
+        <%= form.submit class:'btn btn-primary' %>
+        <% end %> 
+        <%= link_to "Cancel", service_path, class:'btn btn-primary user-button-actions' %>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <div id="reviews">
+    <% if @service.reviews.blank? %>
+      <div class="reviews-title">
+        <strong>Be the first to leave a review for <%= @service.speciality %></strong>
+      </div>
+    <% else %>
+      <div>
+        <%= @service.speciality %>
+        <% @service.reviews.each do |review| %>
+          <div class="review card-product d-flex justify-content-between flex-column" >
+            <p id="review-<%= review.id %>" style="font-size: 20px; padding-top:10px"><%= review.content %> <%= review.rating %></p>
+          </div> 
+        <% end %>
+      </div>
+    <% end %>
+  </div class="reviews-form">
+  <%= simple_form_for [ @service, @review ] do |f| %>
+    <%= f.input :content, as: :text, label:"Write a review", style: "font-size:20px", input_html: {rows: 5} %>
+    <%= f.input :rating, as: :float%>
+
+    <%= f.button :submit, class:'btn btn-primary' %>
+  <% end %>
+</div>
+
 
 <div
     id="map"
