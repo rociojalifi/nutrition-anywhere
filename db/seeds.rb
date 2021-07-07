@@ -9,6 +9,7 @@ require 'open-uri'
 require 'json'
 puts 'Deleting seeds'
 
+Review.delete_all
 Service.delete_all
 Booking.delete_all
 User.delete_all
