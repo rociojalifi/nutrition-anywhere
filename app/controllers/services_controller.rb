@@ -3,22 +3,57 @@ class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
 
   def index
-    params[:search].present?
-      @users = policy_scope(User).where(nationality: params[:search][:user_nationality])
-        @users.each do |user|
-          user.services.where(speciality: params[:search][:service_speciality])
+    @users = policy_scope(User)
+    @services = policy_scope(Service)
+    @search = params["search"]
+    if @search.present?
+      @nationality = @search["nationality"]
+      @language = @search["language"]
+      @speciality = @search["speciality"]
+      @price = @search["price"]
+      
+      if !@nationality.empty? && !@language.empty?
+        @users = User.where(nationality: @nationality, language: @language)
+      elsif !@nationality.empty?
+        @users = User.where(nationality: @nationality)
+      elsif !@language.empty?
+        @users = User.where(language: @language)
+      else
+        @users = User.all
+      end
+
+      @services = []
+
+      @users.each do |user|
+        if !@speciality.empty? && !@price.empty?
+          user.services.where(speciality: @speciality, price: @price).each do |service|
+            @services << service
+          end
+        elsif !@speciality.empty?
+          user.services.where(speciality: @speciality).each do |service|
+            @services << service
+          end
+        elsif !@price.empty?
+          user.services.where(price: @price).each do |service|
+            @services << service
+          end
+        else
+          user.services.each do |service|
+            @services << service
+          end
         end
-    # else
-    #   @services = policy_scope(Service)
-    #   @markers = @services.geocoded.map do |service|
-    #     {
-    #       lat: service.latitude,
-    #       lng: service.longitude,
-    #       info_window: render_to_string(partial: "info_window", locals: { service: service }),
-    #       # image_url: helpers.asset_url(service.user.photo)
-    #     }
-    #   end
-    # end
+      end
+    else
+      @services = policy_scope(Service)
+      @markers = @services.geocoded.map do |service|
+        {
+          lat: service.latitude,
+          lng: service.longitude,
+          info_window: render_to_string(partial: "info_window", locals: { service: service }),
+          # image_url: helpers.asset_url(service.user.photo)
+        }
+      end
+    end
 
     # if current_user.nutritionist?
     #   @services = current_user.services
