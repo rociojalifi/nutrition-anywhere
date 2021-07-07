@@ -42,15 +42,6 @@ user_2.photo.attach(io: file_2, filename: 'nes_2.jpg', content_type: 'image/jpg'
 user_2.save
 
 
-file_3 = URI.open('https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1534&q=80')
-user_3 = User.create!(
-  email: 'moreau@gmail.com',
-  password: '123456',
-  full_name: 'Timothée Moreau',
-  role: 'Nutritionist',
-  language: 'French',
-  nationality: 'French' 
-  
 file_3 = URI.open('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60')
 user_3 = User.create!(
   email: 'joaosilva@gmail.com',
@@ -160,9 +151,6 @@ service_1 = Service.create!(
 
 service_2 = Service.create!(
 
-  speciality: 'Oncology Nutritionist',
-  price: 100,
-
   speciality: 'Vegan Nutritionist',
   price: 70,
   location: 'Amsterdam',
@@ -180,9 +168,6 @@ service_3 = Service.create!(
 service_4 = Service.create!(
   speciality: 'Vegan Nutritionist',
   price: 100,
-  user: user_4,
-
-  price: 90,
   location: 'Madrid',
   user: user_1,
 )
@@ -200,58 +185,50 @@ service_5 = Service.create!(
 
   price: 90,
   user: user_5,
+  location: 'Amsterdam',
 )
 
 service_6 = Service.create!(
   speciality: 'Sports Nutritionist',
   price: 100,
   user: user_6,
+  location: 'Amsterdam',
 )
 
 service_7 = Service.create!(
   speciality: 'Oncology Nutritionist',
   price: 70,
   user: user_7,
+  location: 'Amsterdam',
 )
 
 service_8 = Service.create!(
   speciality: 'Pediatric Nutritinist',
   price: 95,
   user: user_8,
+  location: 'Amsterdam',
 )
 
 service_9 = Service.create!(
   speciality: 'Vegan Nutritionist',
   price: 100,
   user: user_9,
+  location: 'Amsterdam',
 )
 
 service_10 = Service.create!(
   speciality: 'Eating Disorder Nutritionist',
   price: 90,
   user: user_10,
-)
-
-booking_1 = Booking.create!(
-
-  price: 120,
   location: 'Amsterdam',
-  user: user_3,
-)
-
-service_6 = Service.create!(
-  speciality: 'Pediatric Nutritionist',
-  price: 70,
-
-  location: 'Amsterdam',
-  user: user_3,
 )
 
 booking_1 = Booking.create!(
   booking_date: '2021-07-30 14:00:00 UTC',
-  user: user_1,
-  service: service_1,
+  user: user_3,
+  service: service_2,
 )
+
 
 booking_2 = Booking.create!(
   booking_date: '2021-07-25 15:00:00 UTC',
@@ -260,56 +237,48 @@ booking_2 = Booking.create!(
 )
 
 booking_3 = Booking.create!(
-  location: 'London',
   booking_date: '2021-08-15 15:00:00 UTC',
   user: user_3,
   service: service_3,
 )
 
 booking_4 = Booking.create!(
-  location: 'Barcelona',
   booking_date: '2021-07-20 14:00:00 UTC',
   user: user_4,
   service: service_4,
 )
 
   booking_5 = Booking.create!(
-  location: 'Roma',
   booking_date: '2021-07-30 14:00:00 UTC',
   user: user_5,
   service: service_5,
 )
 
 booking_6 = Booking.create!(
-  location: 'París',
   booking_date: '2021-07-15 15:00:00 UTC',
   user: user_8,
   service: service_6,
 )
 
   booking_7 = Booking.create!(
-  location: 'Buenos Aires',
   booking_date: '2021-08-19 14:00:00 UTC',
   user: user_7,
   service: service_7,
 )
 
 booking_8 = Booking.create!(
-  location: 'Tenerife',
   booking_date: '2021-07-13 15:00:00 UTC',
   user: user_10,
   service: service_8,
 )
 
   booking_9 = Booking.create!(
-  location: 'Berlin',
   booking_date: '2021-08-30 14:00:00 UTC',
   user: user_10,
   service: service_9,
 )
 
 booking_10 = Booking.create!(
-  location: 'Florence',
   booking_date: '2021-07-25 15:00:00 UTC',
   user: user_10,
   service: service_10,
