@@ -1,14 +1,15 @@
 class ReviewsController < ApplicationController
   def create
     @service = Service.find(params[:service_id])
-    @user = User.find(params[:user_id])
 
     @review = Review.new(review_params)
+    @review.user = current_user
     @review.service = @service
     authorize @review
     if @review.save
       redirect_to service_path(@service, anchor: "review-#{@review.id}")
     else
+      @booking = Booking.new
       render 'services/show'
     end
   end
