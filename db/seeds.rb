@@ -213,14 +213,14 @@ booking_2 = Booking.create!(
 
 booking_3 = Booking.create!(
   location: 'London',
-  booking_date: '2021-07-30 14:00:00 UTC',
+  booking_date: '2021-08-15 15:00:00 UTC',
   user: user_3,
   service: service_3,
 )
 
 booking_4 = Booking.create!(
   location: 'Barcelona',
-  booking_date: '2021-07-25 15:00:00 UTC',
+  booking_date: '2021-07-20 14:00:00 UTC',
   user: user_4,
   service: service_4,
 )
@@ -234,28 +234,28 @@ booking_4 = Booking.create!(
 
 booking_6 = Booking.create!(
   location: 'París',
-  booking_date: '2021-07-25 15:00:00 UTC',
+  booking_date: '2021-07-15 15:00:00 UTC',
   user: user_8,
   service: service_6,
 )
 
   booking_7 = Booking.create!(
   location: 'Buenos Aires',
-  booking_date: '2021-07-30 14:00:00 UTC',
+  booking_date: '2021-08-19 14:00:00 UTC',
   user: user_7,
   service: service_7,
 )
 
 booking_8 = Booking.create!(
   location: 'Tenerife',
-  booking_date: '2021-07-25 15:00:00 UTC',
+  booking_date: '2021-07-13 15:00:00 UTC',
   user: user_10,
   service: service_8,
 )
 
   booking_9 = Booking.create!(
   location: 'Berlin',
-  booking_date: '2021-07-30 14:00:00 UTC',
+  booking_date: '2021-08-30 14:00:00 UTC',
   user: user_10,
   service: service_9,
 )
