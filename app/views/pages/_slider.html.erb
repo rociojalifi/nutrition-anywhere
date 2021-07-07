@@ -1,0 +1,53 @@
+<div style="display: flex">
+  <div style="width: 25%">
+    <div style="height: 250px; background: orange">
+      sarasa
+    </div>
+    <div
+      id="id"
+      class="carousel slide"
+      data-ride="carousel"
+      data-interval="3000"
+      data-pause="hover"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+        <%= image_tag "slide1.png", class:"d-block w-100", alt:"First slide"%>
+        </div>
+        <div class="carousel-item">
+        <%= image_tag "slide2.png", class:"d-block w-100", alt:"Second slide"%>
+        </div>
+        <div class="carousel-item">
+        <%= image_tag "slide3.png", class:"d-block w-100", alt:"Third slide"%>
+        </div>
+        <div class="carousel-item">
+        <%= image_tag "slide3.png", class:"d-block w-100", alt:"Fourth slide"%>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    id="slider-2"
+    class="carousel slide"
+    data-ride="carousel"
+    data-interval="3000"
+    data-pause="hover"
+    style="width: 75%"
+  >
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= image_tag "gluten.jpeg", class:"d-block w-100", alt:"First slide"%>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag "gluten.jpeg", class:"d-block w-100", alt:"Second slide"%>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag "high-protein.jpeg", class:"d-block w-100", alt:"Third slide"%>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag "slide3.png", class:"d-block w-100", alt:"Fourth slide"%>
+      </div>
+    </div>
+  </div>
+</div>

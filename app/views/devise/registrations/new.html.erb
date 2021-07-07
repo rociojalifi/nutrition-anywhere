@@ -16,8 +16,8 @@
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :role,
-                required: true,
-                collection: ["Nutritionist", "Patient"] %>
+                include_blank: false,
+                collection: ["Patient", "Nutritionist"]%>
     <%= f.input :photo, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'},
           label: '📷 Upload a photo' %>
   </div>
