@@ -9,6 +9,7 @@ require 'open-uri'
 require 'json'
 puts 'Deleting seeds'
 
+Review.delete_all
 Booking.delete_all
 Service.delete_all
 User.delete_all
@@ -51,7 +52,7 @@ user_3 = User.create!(
   nationality: 'Portuguese'
 
 )
-user_3.photo.attach(io: file_4, filename: 'nes_3.jpg', content_type: 'image/jpg')
+user_3.photo.attach(io: file_3, filename: 'nes_3.jpg', content_type: 'image/jpg')
 user_3.save
 
 
