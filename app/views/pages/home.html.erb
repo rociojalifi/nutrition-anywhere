@@ -1,2 +1,8 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<%= simple_form_for :search, url: services_path, method: "GET", html: { class: 'form-inline' }  do |form| %>
+       <%= form.input :speciality, label: 'Speciality' , collection: ['Sports Nutritionist', 'Pediatric Nutritionist', 'Vegan Nutritionist', 'Keto Nutritionist',  'Oncology Nutritionist', 'Eating Disorder Nutritionist'],  placeholder: 'Choose an option or leave this filter for now' %>
+       <%= form.input :price, label: 'Price', collection: ['70', '90', '100', '120', '150'], placeholder: 'EUR per one-hour consultation' %>
+       <%= form.input :nationality, label: 'Nutritionist Nationality', collection: ['Argentinian', 'Spanish', 'French', 'Italian', 'Portuguese', 'Chinese'] %>
+       <%= form.input :language, label: 'Nutritionist Language', collection: ['Spanish', 'French', 'Italian', 'Portuguese', 'Mandarin Chinese'] %>
+       <%= form.submit "Find a nutritionist", class: 'btn btn-primary' %>
+<%end%>

@@ -29,6 +29,7 @@ gem 'cloudinary', '~> 1.16.0'
 
 gem 'pundit'
 gem 'geocoder'
+gem 'pg_search', '~> 2.3.0'
 
 
 # Reduces boot times through caching; required in config/boot.rb
