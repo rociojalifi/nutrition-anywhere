@@ -51,7 +51,7 @@ user_3 = User.create!(
   language: 'French',
   nationality: 'French' 
   
-file_3 = URI.open('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60')
+file_4 = URI.open('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60')
 user_3 = User.create!(
   email: 'joaosilva@gmail.com',
   password: '123456',
@@ -61,11 +61,11 @@ user_3 = User.create!(
   nationality: 'Portuguese'
 
 )
-user_3.photo.attach(io: file_3, filename: 'nes_3.jpg', content_type: 'image/jpg')
+user_3.photo.attach(io: file_4, filename: 'nes_3.jpg', content_type: 'image/jpg')
 user_3.save
 
 
-file_4 = URI.open('https://images.unsplash.com/photo-1491349174775-aaafddd81942?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80')
+file_5 = URI.open('https://images.unsplash.com/photo-1491349174775-aaafddd81942?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80')
 user_4 = User.create!(
   email: 'blanchetélise@gmail.com',
   password: '123456',
@@ -74,10 +74,10 @@ user_4 = User.create!(
   language: 'French',
   nationality: 'French' 
 )
-user_4.photo.attach(io: file_4, filename: 'nes_4.jpg', content_type: 'image/jpg')
+user_4.photo.attach(io: file_5, filename: 'nes_4.jpg', content_type: 'image/jpg')
 user_4.save
 
-file_5 = URI.open('https://images.unsplash.com/photo-1585358682246-23acb1561f6b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=398&q=80')
+file_6 = URI.open('https://images.unsplash.com/photo-1585358682246-23acb1561f6b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=398&q=80')
 user_5 = User.create!(
   email: 'chiara@gmail.com',
   password: '123456',
@@ -86,10 +86,10 @@ user_5 = User.create!(
   language: 'Italian',
   nationality: 'Italian' 
 )
-user_5.photo.attach(io: file_5, filename: 'nes_5.jpg', content_type: 'image/jpg')
+user_5.photo.attach(io: file_6, filename: 'nes_5.jpg', content_type: 'image/jpg')
 user_5.save
 
-file_6 = URI.open('https://images.unsplash.com/photo-1612276529418-52e6ad86ee1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80')
+file_7 = URI.open('https://images.unsplash.com/photo-1612276529418-52e6ad86ee1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80')
 user_6 = User.create!(
   email: 'giulianimarco@gmail.com',
   password: '123456',
@@ -98,10 +98,10 @@ user_6 = User.create!(
   language: 'Italian',
   nationality: 'Italian' 
 )
-user_6.photo.attach(io: file_6, filename: 'nes_6.jpg', content_type: 'image/jpg')
+user_6.photo.attach(io: file_7, filename: 'nes_6.jpg', content_type: 'image/jpg')
 user_6.save
 
-file_7 = URI.open('https://images.unsplash.com/photo-1540569014015-19a7be504e3a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=375&q=80')
+file_8 = URI.open('https://images.unsplash.com/photo-1540569014015-19a7be504e3a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=375&q=80')
 user_7 = User.create!(
   email: 'zhangmin@gmail.com',
   password: '123456',
@@ -110,10 +110,10 @@ user_7 = User.create!(
   language: 'Mandarin Chinese',
   nationality: 'Chinese' 
 )
-user_7.photo.attach(io: file_7, filename: 'nes_7.jpg', content_type: 'image/jpg')
+user_7.photo.attach(io: file_8, filename: 'nes_7.jpg', content_type: 'image/jpg')
 user_7.save
 
-file_8 = URI.open('https://images.unsplash.com/photo-1582896911227-c966f6e7fb93?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1575&q=80')
+file_9 = URI.open('https://images.unsplash.com/photo-1582896911227-c966f6e7fb93?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1575&q=80')
 user_8 = User.create!(
   email: 'Zhangxiuying@gmail.com',
   password: '123456',
@@ -122,10 +122,10 @@ user_8 = User.create!(
   language: 'Mandarin Chinese',
   nationality: 'Chinese' 
 )
-user_8.photo.attach(io: file_8, filename: 'nes_8.jpg', content_type: 'image/jpg')
+user_8.photo.attach(io: file_9, filename: 'nes_8.jpg', content_type: 'image/jpg')
 user_8.save
 
-file_9 = URI.open('https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80')
+file_10 = URI.open('https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80')
 user_9 = User.create!(
   email: 'lourençog@gmail.com',
   password: '123456',
@@ -134,10 +134,10 @@ user_9 = User.create!(
   language: 'Portuguese',
   nationality: 'Portuguese' 
 )
-user_9.photo.attach(io: file_9, filename: 'nes_9.jpg', content_type: 'image/jpg')
+user_9.photo.attach(io: file_10, filename: 'nes_9.jpg', content_type: 'image/jpg')
 user_9.save
 
-file_10 = URI.open('https://images.unsplash.com/photo-1583123810721-5a8e229a480b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1534&q=80')
+file_11 = URI.open('https://images.unsplash.com/photo-1583123810721-5a8e229a480b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1534&q=80')
 user_10 = User.create!(
   email: 'Dasilvajoão@gmail.com',
   password: '123456',
@@ -146,7 +146,7 @@ user_10 = User.create!(
   language: 'Portuguese',
   nationality: 'Portuguese' 
 )
-user_10.photo.attach(io: file_10, filename: 'nes_10.jpg', content_type: 'image/jpg')
+user_10.photo.attach(io: file_11, filename: 'nes_10.jpg', content_type: 'image/jpg')
 user_10.save
 
 
