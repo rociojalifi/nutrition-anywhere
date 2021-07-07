@@ -235,7 +235,7 @@ booking_4 = Booking.create!(
 booking_6 = Booking.create!(
   location: 'París',
   booking_date: '2021-07-25 15:00:00 UTC',
-  user: user_6,
+  user: user_8,
   service: service_6,
 )
 
