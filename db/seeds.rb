@@ -283,4 +283,3 @@ booking_10 = Booking.create!(
   user: user_10,
   service: service_10,
 )
-
