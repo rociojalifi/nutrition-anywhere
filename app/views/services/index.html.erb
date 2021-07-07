@@ -1,6 +1,5 @@
 <div class="container">
 <h1> Services </h2>
-   
       <% @services.each do |service| %>
       <div class="card-service-container">
         <div class="card-service">
@@ -11,15 +10,12 @@
                 <strong>USD<%= service.price %> / per day</strong>
               </h5>
             </div>
-
             <p id="city"><%= service.location %></p>
             <p>Contact: <%= service.user.full_name %></p>
             <% service.reviews.each do |review| %>
             <p>Review: <%= review.rating %></p>
             <p>Review: <%= review.content %></p>
             <% end %>
-
-
             <div class="user-button">
               <h5 class="card-title">
                 <%= link_to 'Book Appointment', service_path(service), class:'btn btn-primary'%>

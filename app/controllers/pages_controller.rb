@@ -4,5 +4,9 @@ class PagesController < ApplicationController
 
   def home
     @user = current_user
+    if params[:query].present?
+      redirect_to services_path(query: params[:query])
+    end
+    
   end
 end

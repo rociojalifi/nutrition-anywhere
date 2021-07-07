@@ -1,29 +1,57 @@
 class ServicesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_service, only: [:show, :edit, :update, :destroy]
-  
-    def index
-      @services = policy_scope(Service)
-      @markers = @services.geocoded.map do |service|
-        {
-        lat: service.latitude,
-        lng: service.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { service: service }),
-        image_url: helpers.asset_url(service.user.photo)
-      }
-    end
-    
+
+  def index
+    @services = policy_scope(Service)
     if user_signed_in?
       if current_user.nutritionist? 
-        @services = current_user.services 
-        @markers = @services.geocoded.map do |service|
-          {
-          lat: service.latitude,
-          lng: service.longitude,
-          info_window: render_to_string(partial: "info_window", locals: { service: service }),
-          image_url: helpers.asset_url(service.user.photo)
-        }
+        @services = current_user.services
+      end
+    else
+
+      @users = policy_scope(User)
+      @services = policy_scope(Service)
+      @search = params["search"]
+      if @search.present?
+        @nationality = @search["nationality"]
+        @language = @search["language"]
+        @speciality = @search["speciality"]
+        @price = @search["price"]
+        
+        if !@nationality.empty? && !@language.empty?
+          @users = User.where(nationality: @nationality, language: @language)
+        elsif !@nationality.empty?
+          @users = User.where(nationality: @nationality)
+        elsif !@language.empty?
+          @users = User.where(language: @language)
+        else
+          @users = User.all
         end
+
+        @services = []
+
+        @users.each do |user|
+          if !@speciality.empty? && !@price.empty?
+            user.services.where(speciality: @speciality, price: @price).each do |service|
+              @services << service
+            end
+          elsif !@speciality.empty?
+            user.services.where(speciality: @speciality).each do |service|
+              @services << service
+            end
+          elsif !@price.empty?
+            user.services.where(price: @price).each do |service|
+              @services << service
+            end
+          else
+            user.services.each do |service|
+              @services << service
+            end
+          end
+        end
+      else
+        @services = policy_scope(Service)
       end
     end
   end
@@ -65,6 +93,7 @@ class ServicesController < ApplicationController
   end
 
   def destroy
+    authorize @service
     if @service.destroy
       redirect_to services_path(@service)
     else
