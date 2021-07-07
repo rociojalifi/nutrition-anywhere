@@ -86,14 +86,14 @@ service_5 = Service.create!(
   speciality: 'Keto Nutritionist',
   price: 120,
   location: 'Amsterdam',
-  user: user_2,
+  user: user_3,
 )
 
 service_6 = Service.create!(
   speciality: 'Pediatric Nutritionist',
   price: 70,
   location: 'Amsterdam',
-  user: user_2,
+  user: user_3,
 )
 
 booking_1 = Booking.create!(
