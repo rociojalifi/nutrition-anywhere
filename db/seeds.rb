@@ -191,13 +191,13 @@ service_10 = Service.create!(
   speciality: 'Sports Nutritionism',
   price: 100,
   user: user_10,
-  location: 'Buenos Aires',
+  location: 'Madrid',
 )
 service_11 = Service.create!(
   speciality: 'Sports Nutritinism',
   price: 90,
   user: user_1,
-  location: 'Dubai',
+  location: 'Buenos Aires',
 )
 service_12 = Service.create!(
   speciality: 'Vegan Nutritionism',
