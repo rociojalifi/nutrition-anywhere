@@ -1,3 +1,25 @@
-<div>
-  <h1>Congratulations your booking has been done </h1>
+<div class="container mb-5">
+  <div class="d-flex justify-content-around">
+    <div class="text-center">
+      <%= render 'shared/card_booking_show' %>
+    </div>
+    <div class="text-center">
+      <div
+        id="map"
+        style="width: 40vw; height: calc(80vh - 80px)"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+        class="shadow border"
+      ></div>
+      <%= link_to "Back to my bookings", bookings_requested_path, class:"btn btn-primary mt-3 mb-3" %>
+    </div>
+  </div>
 </div>
+<style>
+.btn-primary {
+    background-color: #0030FF;
+}
+.text-center{
+  text-align: end !important
+}
+</style>
