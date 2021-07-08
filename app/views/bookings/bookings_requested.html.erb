@@ -1,0 +1,12 @@
+<h1>Your bookings </h1>
+
+<%= @bookings_requested.each do |booking_requested|  %>
+<%= link_to service_path(booking_requested.service) do %>
+<%= cl_image_tag booking_requested.service.user.photo.key, class: "img-fluid rounded-start" %>
+<% end %>
+<h5><%= booking_requested.user.full_name %> </h5>
+<p>Value: <%= booking_requested.service.price %>/per hour</p>
+<p>Date: <%= booking_requested.booking_date %></p>
+<p>Location: <%= booking_requested.service.location.present? ? booking_requested.service.location : "Link-zoom"%></p>
+<%= link_to "Delete this booking", booking_path(booking_requested), method: :delete, data: { confirm: "Are you sure you want to delete this booking?" } %>
+<% end %>

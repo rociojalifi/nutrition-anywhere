@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  height: 100px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +10,21 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+.style-img {
+  width: 70px;
+}
+
+.title-nav {
+  font-family: "Noto Serif TC", serif;
+}
+
+.btn-navbar {
+  background-color: #0030ff;
+  border-color: #0030ff;
+  color: white;
+}
+.btn-navbar:hover {
+  background-color: #3758eb;
+  border-color: #3758eb;
 }

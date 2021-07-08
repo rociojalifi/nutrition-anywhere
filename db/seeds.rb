@@ -33,8 +33,8 @@ user_2 = User.create!(
   password: '123456',
   full_name: 'Abdel Fattah',
   role: 'Nutritionist',
-  language: 'Arabic',
-  nationality: 'Arabic'
+  language: 'Spanish',
+  nationality: 'Argentinian'
 )
 user_2.photo.attach(io: file_2, filename: 'nes_2.jpg', content_type: 'image/jpg')
 user_2.save
@@ -204,6 +204,14 @@ service_11 = Service.create!(
 service_12 = Service.create!(
   speciality: 'Vegan Nutritionism',
   price: 100,
+  location: 'Madrid',
+  user: user_1,
+)
+
+service_4 = Service.create!(
+  speciality: 'Oncology Nutritionist',
+  price: 150,
+  location: 'Amsterdam',
   user: user_2,
   location: 'Lisboa',
 )

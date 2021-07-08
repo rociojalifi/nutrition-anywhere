@@ -1,2 +1,82 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+
+<%= render 'slider' %>
+<div class="search-bar py-5 d-flex justify-content-center">
+<%= simple_form_for :search, url: services_path, method: "GET", html: { class: 'form-inline' }  do |form| %>
+      <div>
+       <%= form.input :speciality, label: 'Speciality' , collection: ['Sports Nutritionist', 'Pediatric Nutritionist', 'Vegan Nutritionist', 'Keto Nutritionist',  'Oncology Nutritionist', 'Eating Disorder Nutritionist'],  placeholder: 'Choose an option or leave this filter for now' %>
+      </div>
+      <div>
+       <%= form.input :price, label: 'Price', collection: ['70', '90', '100', '120', '150'], placeholder: 'EUR per one-hour consultation' %>
+       </div>
+       <div>
+       <%= form.input :nationality, label: 'Nutritionist Nationality', collection: ['Argentinian', 'Spanish', 'French', 'Italian', 'Portuguese', 'Chinese'] %>
+       </div>
+       <div>
+       <%= form.input :language, label: 'Nutritionist Language', collection: ['Spanish', 'French', 'Italian', 'Portuguese', 'Mandarin Chinese'] %>
+       </div>
+       <div>
+       
+      <%= form.submit "Find a nutritionist", class: 'btn btn-primary' %>
+      </div>
+<%end%>
+</div>
+
+
+<div class="works-wraper pb-5">
+  <div class="container text-center pt-5 ">
+    <h2 class="pb-3">How does it work?</h2>
+    <!-- cards produc -->
+    <div class="d-flex justify-content-center">
+      <!-- card produc 1 -->
+      <div class="card ml-3" style="width: 18rem">
+        <%= image_tag "sing_up.jpeg", class:"card-img-top", alt:"Third slide"%>
+        <div class="card-body">
+        <i class="fas fa-search"></i>
+          <h5 class="card-title">Sign in</h5>
+          <p class="card-text">
+           Do you have an account? Make sure you have one to check our Nutritionists!
+          </p>
+        </div>
+      </div>
+
+      <!-- card produc 2 -->
+      <div class="card ml-3" style="width: 18rem">
+        <%= image_tag "search.jpeg", class:"card-img-top", alt:"Third slide"%>
+        <div class="card-body">
+          <i class="fas fa-calendar-check"></i>
+          <h5 class="card-title">Find a Nutritionist</h5>
+          <p class="card-text">
+            Are you an expats and you want a Nutritionist that speaks your language? Find the Nutritionist according to your needs!
+          </p>
+        </div>
+      </div>
+
+      <!-- card produc 3 -->
+      <div class="card ml-3" style="width: 18rem">
+        <%= image_tag "booking.jpeg", class:"card-img-top", alt:"Third slide"%>
+        <div class="card-body">
+          <i class="fas fa-comments"></i>
+          <h5 class="card-title">Book the Appointmet</h5>
+          <p class="card-text">
+            Did you find the perfect Nutritionist? It is time to book the appointment!
+          </p>
+        </div>
+      </div>
+
+      <div class="card ml-3" style="width: 18rem">
+        <%= image_tag "feedback.jpeg", class:"card-img-top", alt:"Third slide"%>
+        <div class="card-body">
+          <i class="fas fa-sign-in-alt" aria-hidden="true"></i>
+          <h5 class="card-title">Leave a feedback</h5>
+          <p class="card-text">
+            Are you happy with the service provided by our Nutritionist? We want to know your opinion!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
