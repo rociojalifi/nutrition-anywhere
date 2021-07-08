@@ -1,51 +1,73 @@
-
-<div class="pt-5 pb-5 px-5">
-  <div class="d-flex justify-content-between booking-content">
-  <div class="booking-info container-listing">
-    <%= pluralize @service.reviews.size, "review" %>
-    </div>
-    <div class="booking-form d-flex align-items-center justify-content-center">
-    <div>
-      <%= simple_form_for [@service, @booking] do |form| %>
-       <%= form.input :booking_date
-      %>
-      <div class="user-button">
-        <%= form.submit class:'btn btn-primary' %>
-        <% end %> 
-        <%= link_to "Cancel", service_path, class:'btn btn-primary user-button-actions' %>
+<hr>
+ <div class="container">
+  <div class="mt-5 ml-3">
+    <h3>Book an Appointmet with <%= @service.user.full_name %> </h3>
+      <div class="w-100 mt-3">
+        <%= simple_form_for [@service, @booking] do |form| %>
+        <%= form.input :booking_date, label: false %>
+        <div class="d-flex justify-content-end mb-5">
+          <%= form.submit class:'btn btn-booking' %>
+          <%= link_to "Back to Services", services_path, class:'btn ml-3b btn-booking  ml-3' %>
+          <% end %> 
+        </div>
       </div>
     </div>
-    </div>
-  </div>
-
-  <div id="reviews">
-    <% if @service.reviews.blank? %>
-      <div class="reviews-title">
-        <strong>Be the first to leave a review for <%= @service.speciality %></strong>
-      </div>
-    <% else %>
-      <div>
-        <%= @service.speciality %>
-        <% @service.reviews.each do |review| %>
-          <div class="review card-product d-flex justify-content-between flex-column" >
-            <p id="review-<%= review.id %>" style="font-size: 20px; padding-top:10px"><%= review.content %> <%= review.rating %></p>
-          </div> 
-        <% end %>
-      </div>
-    <% end %>
-  </div class="reviews-form">
-  <%= simple_form_for [ @service, @review ] do |f| %>
-    <%= f.input :content, as: :text, label:"Write a review", style: "font-size:20px", input_html: {rows: 5} %>
-    <%= f.input :rating, as: :float%>
-
-    <%= f.button :submit, class:'btn btn-primary' %>
-  <% end %>
 </div>
 
+<style>
+  .btn-booking{
+    background-color: #0030ff;
+    color: white;
+  }
+  .btn-booking:hover {
+    background-color: #3f61f7;
+    color: white;
+  }
+</style>
 
-<div
-    id="map"
-    style="width: 50vw; height: calc(100vh - 80px)"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  ></div>
+<div class="container mb-5">
+  <div class="d-flex justify-content-around">
+    <%= render 'shared/card_booking' %>
+    <div
+        id="map"
+        style="width: 40vw; height: calc(70vh - 80px)"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+        class="shadow border"
+      ></div>
+    
+    </div>
+<br>
+<br>
+  <div class="pt-5 pb-5 px-5">
+    <div class="d-flex justify-content-between booking-content">
+
+    <%= pluralize @service.reviews.size, "review" %>
+
+    <div id="reviews">
+      <% if @service.reviews.blank? %>
+        <div class="reviews-title">
+          <strong>Be the first to leave a review for <%= @service.speciality %></strong>
+        </div>
+      <% else %>
+        <div>
+          <%= @service.speciality %>
+          <% @service.reviews.each do |review| %>
+            <div class="review card-product d-flex justify-content-between flex-column" >
+              <p id="review-<%= review.id %>" style="font-size: 20px; padding-top:10px"><%= review.content %> <%= review.rating %></p>
+            </div> 
+          <% end %>
+        </div>
+      <% end %>
+    </div class="reviews-form">
+    <%= simple_form_for [ @service, @review ] do |f| %>
+      <%= f.input :content, as: :text, label:"Write a review", style: "font-size:20px", input_html: {rows: 5} %>
+      <%= f.input :rating, as: :float%>
+
+      <%= f.button :submit, class:'btn btn-primary' %>
+    <% end %>
+  </div>
+
+
+
+</div>

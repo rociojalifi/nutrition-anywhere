@@ -1,36 +1,39 @@
 <div class="container">
 
-<%= render 'slider' %>
-<div class="search-bar py-5 d-flex justify-content-center">
-<%= simple_form_for :search, url: services_path, method: "GET" do |form| %>
-      <div>
-       <%= form.input :speciality, label: 'Speciality' , collection: ['Sports Nutritionism', 'Pediatric Nutritionism', 'Vegan Nutritionism', 'Keto Nutritionism',  'Oncology Nutritionism', 'Eating Disorder Nutritionism'],  placeholder: 'Choose an option or leave this filter for now' %>
-      </div>
-      <div>
-       <%= form.input :price, label: 'Price', collection: ['70', '90', '100', '120', '150'], placeholder: 'EUR per one-hour consultation' %>
-       </div>
-       <div>
-       <%= form.input :nationality, label: 'Nutritionist Nationality', collection: ['Argentinian', 'Spanish', 'French', 'Italian', 'Portuguese', 'Chinese'] %>
-       </div>
-       <div>
-       <%= form.input :language, label: 'Nutritionist Language', collection: ['Spanish', 'French', 'Italian', 'Portuguese', 'Mandarin Chinese'] %>
-       </div>
-       <div>
-       
-      <%= form.submit "Find a nutritionist", class: 'btn btn-primary' %>
-      </div>
-<%end%>
-</div>
+  <%= render 'slider' %>
+  <br>
+  <h4 class="mt-5 mb-3 pl-3">Search a Nutritionist according to your needs</h4>
+      <%= simple_form_for :search, url: services_path, html: {class: 'form-inline search-bar'}, method: "GET" do |form| %>
+        <div class="form">
+          <%= form.input :speciality, inline_label: 'Speciality', label: false, collection: ['Sports Nutrition', 'Keto Specialist', 'Vegan Specialits', 'Lose weight Specialist',  'Celiac disease Specialist', 'Eating Disorder Specialist'],include_blank: false%>
+        </div>
+        <div class="form">
+          <%= form.input :price, inline_label: 'Price', label: false, collection: ['$70', '$90', '$100', '$120', '$150'], include_blank: false %>
+        </div>
+        <div class="form">
+          <%= form.input :nationality,  inline_label: 'Nutritionist Nationality', label: false, collection: ['Argentinian', 'Spanish', 'French', 'Italian', 'Portuguese', 'Chinese'], include_blank: false %>
+        </div>
+        <div class="form">
+          <%= form.input :language,  inline_label: 'Nutritionist Language', label: false, collection: ['Spanish', 'French', 'Italian', 'Portuguese', 'Mandarin Chinese'], include_blank: false %>
+        </div>
+        <div class="form">
+          <%= form.submit "Find a nutritionist", class:"btn btn-primary" %>
+        </div>
+        <div class="form">
+          <%= link_to "See all", services_path ,class:"btn btn-primary" %>
+        </div>
+      <%end%>   
 
+<div class="works-wraper pb-4">
+  <h4 class=" pt-5 ml-3">How does it work?</h4>
 
-<div class="works-wraper pb-5">
-  <div class="container text-center pt-5 ">
-    <h2 class="pb-3">How does it work?</h2>
+  <div class="container text-center pt-3 ">
     <!-- cards produc -->
     <div class="d-flex justify-content-center">
       <!-- card produc 1 -->
-      <div class="card ml-3" style="width: 18rem">
-        <%= image_tag "sing_up", class:"card-img-top", alt:"Third slide"%>
+      <div class="card ml-3 rounded shadow" style="width: 18rem">
+        <%= image_tag "sing-in", class:"card-img-top", alt:"Third slide"%>
+
         <div class="card-body">
         <i class="fas fa-search"></i>
           <h5 class="card-title">Sign in</h5>
@@ -41,7 +44,7 @@
       </div>
 
       <!-- card produc 2 -->
-      <div class="card ml-3" style="width: 18rem">
+      <div class="card ml-3 rounded shadow" style="width: 18rem">
         <%= image_tag "search", class:"card-img-top", alt:"Third slide"%>
         <div class="card-body">
           <i class="fas fa-calendar-check"></i>
@@ -53,7 +56,7 @@
       </div>
 
       <!-- card produc 3 -->
-      <div class="card ml-3" style="width: 18rem">
+      <div class="card ml-3 rounded shadow" style="width: 18rem">
         <%= image_tag "booking", class:"card-img-top", alt:"Third slide"%>
         <div class="card-body">
           <i class="fas fa-comments"></i>
@@ -64,7 +67,7 @@
         </div>
       </div>
 
-      <div class="card ml-3" style="width: 18rem">
+      <div class="card ml-3 rounded shadow" style="width: 18rem">
         <%= image_tag "feedback", class:"card-img-top", alt:"Third slide"%>
         <div class="card-body">
           <i class="fas fa-sign-in-alt" aria-hidden="true"></i>
@@ -79,4 +82,11 @@
 </div>
 
 
-
+<style>
+.form{
+  margin: 5px;
+}
+.search-bar{
+    justify-content: center;
+    }
+</style>

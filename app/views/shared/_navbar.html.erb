@@ -33,11 +33,11 @@
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
     
           <% if current_user.nutritionist? %>
-          <%= link_to "My Bookings", bookings_requested_path(), class: "dropdown-item" %>
+          <%= link_to "My Bookings", bookings_requested_path(), class: "nav-link" %>
           <%= link_to "Edit", edit_user_registration_path, class: "nav-link" %>
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
           <% else %>
-          <%= link_to "Patients", bookings_given_path, class: "dropdown-item" %>
+          <%= link_to "My Bookings", bookings_given_path, class: "nav-link" %>
           <%= link_to "Edit", edit_user_registration_path, class: "nav-link" %>
 
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
