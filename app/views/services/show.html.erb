@@ -7,7 +7,7 @@
         <%= form.input :booking_date, label: false %>
         <div class="d-flex justify-content-end mb-5">
           <%= form.submit class:'btn btn-booking' %>
-          <%= link_to "Back to Services", services_path, class:'btn ml-3b btn-booking  ml-3' %>
+          <%= link_to "Choose Another", services_path, class:'btn ml-3b btn-booking  ml-3' %>
           <% end %> 
         </div>
       </div>
@@ -39,35 +39,44 @@
     </div>
 <br>
 <br>
-  <div class="pt-5 pb-5 px-5">
-    <div class="d-flex justify-content-between booking-content">
 
-    <%= pluralize @service.reviews.size, "review" %>
-
+ <div class="pb-5 ml-3">
+  <div class="d-flex justify-content-between booking-content">
     <div id="reviews">
       <% if @service.reviews.blank? %>
-        <div class="reviews-title">
-          <strong>Be the first to leave a review for <%= @service.speciality %></strong>
-        </div>
+      <div class="reviews-title">
+        <strong
+          >Be the first to leave a review for <%= @service.speciality %></strong
+        >
+      </div>
       <% else %>
-        <div>
-          <%= @service.speciality %>
-          <% @service.reviews.each do |review| %>
-            <div class="review card-product d-flex justify-content-between flex-column" >
-              <p id="review-<%= review.id %>" style="font-size: 20px; padding-top:10px"><%= review.content %> <%= review.rating %></p>
-            </div> 
-          <% end %>
+      <div>
+      <h4> What people say about <%= @service.user.full_name %>?
+      </h4>
+        <% @service.reviews.each do |review| %>
+        <div class="mt-4 mb-4">
+          <p class="mb-0">
+            <%= content_tag( :i, '', :class=>'fa fa-star', :style=>'color:
+            #E7A142') * review.rating %>
+          </p>
+          <p style="color: #3a3a3a"><%= review.content %></p>
         </div>
-      <% end %>
-    </div class="reviews-form">
-    <%= simple_form_for [ @service, @review ] do |f| %>
-      <%= f.input :content, as: :text, label:"Write a review", style: "font-size:20px", input_html: {rows: 5} %>
-      <%= f.input :rating, as: :float%>
-
-      <%= f.button :submit, class:'btn btn-primary' %>
-    <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-
-
 </div>
+<% end %>
+<div class="reviews-form">
+  <%= simple_form_for [ @service, @review ] do |f| %>
+  <%= f.input :content, as: :text, label: false, style: "font-size:20px", placeholder: "I am very happy with the service of this Nutritionist"%>
+  <%= f.input :rating, label: false, collection: 1..5, include_blank: false%> 
+  <%= f.button :submit, class:'btn btn-booking' %> 
+  <% end %>
+</div>
+<br>
+
+
+
+
+
