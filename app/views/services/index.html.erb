@@ -1,10 +1,20 @@
 <div class="container">
 <h1> Services </h2>
-    <div class="cards">
+    <div class="cards" style="display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 16 px">
       <% @services.each do |service| %>
       <div class="card-service-container">
-        <div class="card-product">
-          <div class="card-content">
+        <div class="card-product" style=" overflow: hidden;
+        width: 280px;
+        height: 350px;
+        margin-bottom: 30px;
+        background: white;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;">
+          <div class="card-content" style= "padding: 60px;
+          text-align: center">
             <div class="card-description">
               <h5><strong><%= service.speciality %></strong></h5>
               <h5 class="card-price">
