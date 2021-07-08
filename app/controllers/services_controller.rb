@@ -3,6 +3,11 @@ class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
 
   def index
+    @user = current_user
+    if params[:query].present?
+      redirect_to services_path(query: params[:query])
+    end
+    
     @services = policy_scope(Service)
     if user_signed_in?
       if current_user.nutritionist? 
