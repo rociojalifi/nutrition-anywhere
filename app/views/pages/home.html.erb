@@ -1,28 +1,29 @@
 <div class="container">
-
+<div class="mb-3">
+      <%= simple_form_for :search, url: services_path, method: "GET", html: {class: 'form-inline search-bar'} do |form|%>
+        <div class="form">
+          <%= form.input :speciality, label: 'Speciality', label: false, collection: ['Sports Nutritionism', 'Pediatric Nutritionist', 'Vegan Nutritionist', 'Keto Nutritionist',  'Oncology Nutritionist', 'Eating Disorder Nutritionist'], prompt: "Speciality"%>
+        </div>
+        <div class="form">
+          <%= form.input :price, label: 'Price', label: false, collection: ['70', '90', '100', '120', '150'], prompt: "Speciality"%>
+        </div>
+        <div class="form">
+          <%= form.input :nationality, label: 'Nutritionist Nationality', label: false, collection: ['Argentinian', 'Spanish', 'French', 'Italian', 'Portuguese', 'Chinese']%>
+        </div>
+        <div class="form">
+          <%= form.input :language, label: 'Nutritionist Language', label: false, collection: ['Spanish', 'French', 'Italian', 'Portuguese', 'Mandarin Chinese']%>
+        </div>
+        <div class="form">
+          <%= form.submit "Find a nutritionist", class:"btn btn-booking" %>
+        </div>
+        <div class="form">
+        </div>
+      <%end%> 
+  </div>
+  
   <%= render 'slider' %>
   <br>
-  <h4 class="mt-5 mb-3 pl-3">Search a Nutritionist according to your needs</h4>
-      <%= simple_form_for :search, url: services_path, html: {class: 'form-inline search-bar'}, method: "GET" do |form| %>
-        <div class="form">
-          <%= form.input :speciality, inline_label: 'Speciality', label: false, collection: ['Sports Nutrition', 'Keto Specialist', 'Vegan Specialits', 'Lose weight Specialist',  'Celiac disease Specialist', 'Eating Disorder Specialist'],include_blank: false%>
-        </div>
-        <div class="form">
-          <%= form.input :price, inline_label: 'Price', label: false, collection: ['$70', '$90', '$100', '$120', '$150'], include_blank: false %>
-        </div>
-        <div class="form">
-          <%= form.input :nationality,  inline_label: 'Nutritionist Nationality', label: false, collection: ['Argentinian', 'Spanish', 'French', 'Italian', 'Portuguese', 'Chinese'], include_blank: false %>
-        </div>
-        <div class="form">
-          <%= form.input :language,  inline_label: 'Nutritionist Language', label: false, collection: ['Spanish', 'French', 'Italian', 'Portuguese', 'Mandarin Chinese'], include_blank: false %>
-        </div>
-        <div class="form">
-          <%= form.submit "Find a nutritionist", class:"btn btn-primary" %>
-        </div>
-        <div class="form">
-          <%= link_to "See all", services_path ,class:"btn btn-primary" %>
-        </div>
-      <%end%>   
+   
 
 <div class="works-wraper pb-4">
   <h4 class=" pt-5 ml-3">How does it work?</h4>
@@ -89,4 +90,12 @@
 .search-bar{
     justify-content: center;
     }
+.btn-booking{
+  background-color: #0030ff;
+  color: white;
+  }
+.btn-booking:hover {
+  background-color: #3f61f7;
+  color: white;
+  }
 </style>

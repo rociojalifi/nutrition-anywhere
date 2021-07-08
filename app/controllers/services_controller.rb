@@ -9,16 +9,23 @@ class ServicesController < ApplicationController
         @services = current_user.services
       end
     else
-
       @users = policy_scope(User)
       @services = policy_scope(Service)
       @search = params["search"]
       if @search.present?
+
         @nationality = @search["nationality"]
         @language = @search["language"]
         @speciality = @search["speciality"]
         @price = @search["price"]
         
+        @search_params = {
+          service: @service,
+          nationality: @nationality,
+          speciality: @speciality,
+          price: @price
+          }
+
         if !@nationality.empty? && !@language.empty?
           @users = User.where(nationality: @nationality, language: @language)
         elsif !@nationality.empty?
