@@ -2,7 +2,7 @@
 
 <%= render 'slider' %>
 <div class="search-bar py-5 d-flex justify-content-center">
-<%= simple_form_for :search, url: services_path, method: "GET", html: { class: 'form-inline' }  do |form| %>
+<%= simple_form_for :search, url: services_path, method: "GET" do |form| %>
       <div>
        <%= form.input :speciality, label: 'Speciality' , collection: ['Sports Nutritionism', 'Pediatric Nutritionism', 'Vegan Nutritionism', 'Keto Nutritionism',  'Oncology Nutritionism', 'Eating Disorder Nutritionism'],  placeholder: 'Choose an option or leave this filter for now' %>
       </div>
@@ -30,7 +30,7 @@
     <div class="d-flex justify-content-center">
       <!-- card produc 1 -->
       <div class="card ml-3" style="width: 18rem">
-        <%= image_tag "sing_up.jpeg", class:"card-img-top", alt:"Third slide"%>
+        <%= image_tag "sing_up", class:"card-img-top", alt:"Third slide"%>
         <div class="card-body">
         <i class="fas fa-search"></i>
           <h5 class="card-title">Sign in</h5>
@@ -42,7 +42,7 @@
 
       <!-- card produc 2 -->
       <div class="card ml-3" style="width: 18rem">
-        <%= image_tag "search.jpeg", class:"card-img-top", alt:"Third slide"%>
+        <%= image_tag "search", class:"card-img-top", alt:"Third slide"%>
         <div class="card-body">
           <i class="fas fa-calendar-check"></i>
           <h5 class="card-title">Find a Nutritionist</h5>
@@ -54,7 +54,7 @@
 
       <!-- card produc 3 -->
       <div class="card ml-3" style="width: 18rem">
-        <%= image_tag "booking.jpeg", class:"card-img-top", alt:"Third slide"%>
+        <%= image_tag "booking", class:"card-img-top", alt:"Third slide"%>
         <div class="card-body">
           <i class="fas fa-comments"></i>
           <h5 class="card-title">Book the Appointmet</h5>
@@ -65,7 +65,7 @@
       </div>
 
       <div class="card ml-3" style="width: 18rem">
-        <%= image_tag "feedback.jpeg", class:"card-img-top", alt:"Third slide"%>
+        <%= image_tag "feedback", class:"card-img-top", alt:"Third slide"%>
         <div class="card-body">
           <i class="fas fa-sign-in-alt" aria-hidden="true"></i>
           <h5 class="card-title">Leave a feedback</h5>
