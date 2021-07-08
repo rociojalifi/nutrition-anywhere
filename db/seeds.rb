@@ -8,12 +8,10 @@
 require 'open-uri'
 require 'json'
 puts 'Deleting seeds'
-
 Review.delete_all
 Booking.delete_all
 Service.delete_all
 User.delete_all
-
 puts 'Creating new seeds'
 file_1 = URI.open('https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60')
 user_1 = User.create!(
@@ -33,8 +31,8 @@ user_2 = User.create!(
   password: '123456',
   full_name: 'Abdel Fattah',
   role: 'Nutritionist',
-  language: 'Spanish',
-  nationality: 'Argentinian'
+  language: 'Arabic',
+  nationality: 'Arabic'
 )
 user_2.photo.attach(io: file_2, filename: 'nes_2.jpg', content_type: 'image/jpg')
 user_2.save
@@ -125,12 +123,12 @@ user_9.save
 
 file_10 = URI.open('https://images.unsplash.com/photo-1583123810721-5a8e229a480b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1534&q=80')
 user_10 = User.create!(
-  email: 'Dasilvajoão@gmail.com',
+  email: 'antoniogarcia@gmail.com',
   password: '123456',
-  full_name: 'João Da Silva',
+  full_name: 'Antonio Garcia',
   role: 'Nutritionist',
-  language: 'Portuguese',
-  nationality: 'Portuguese' 
+  language: 'Spanish',
+  nationality: 'Spanish' 
 )
 user_10.photo.attach(io: file_10, filename: 'nes_10.jpg', content_type: 'image/jpg')
 user_10.save
@@ -185,7 +183,7 @@ service_8 = Service.create!(
 )
 service_9 = Service.create!(
   speciality: 'Pediatric Nutritinism',
-  price: 95,
+  price: 90,
   user: user_9,
   location: 'Oporto',
 )
@@ -197,37 +195,28 @@ service_10 = Service.create!(
 )
 service_11 = Service.create!(
   speciality: 'Sports Nutritinism',
-  price: 95,
+  price: 90,
   user: user_1,
   location: 'Dubai',
 )
 service_12 = Service.create!(
   speciality: 'Vegan Nutritionism',
   price: 100,
-  location: 'Madrid',
-  user: user_1,
-)
-
-service_4 = Service.create!(
-  speciality: 'Oncology Nutritionist',
-  price: 150,
-  location: 'Amsterdam',
   user: user_2,
   location: 'Lisboa',
 )
 service_13 = Service.create!(
   speciality: 'Pediatric Nutritinism',
-  price: 95,
+  price: 120,
   user: user_1,
   location: 'Buenos Aires',
 )
 service_14 = Service.create!(
   speciality: 'Vegan Nutritionism',
-  price: 100,
+  price: 120,
   user: user_1,
   location: 'Buenos Aires',
 )
-
 booking_1 = Booking.create!(
   booking_date: '2021-07-30 14:00:00 UTC',
   user: user_1,
