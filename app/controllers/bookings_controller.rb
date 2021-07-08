@@ -37,7 +37,7 @@ class BookingsController < ApplicationController
       flash[:notice] = "Congratulations your booking has been confirmed"
       redirect_to booking_path(@booking)
     else
-      redirect_to bike_path(@service)
+   #   redirect_to bike_path(@service)
     end
   end
 
