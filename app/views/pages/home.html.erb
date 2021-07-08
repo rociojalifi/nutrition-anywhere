@@ -5,13 +5,13 @@
           <%= form.input :speciality, label: 'Speciality', label: false, collection: ['Sports Nutritionism', 'Pediatric Nutritionist', 'Vegan Nutritionist', 'Keto Nutritionist',  'Oncology Nutritionist', 'Eating Disorder Nutritionist'], prompt: "Speciality"%>
         </div>
         <div class="form">
-          <%= form.input :price, label: 'Price', label: false, collection: ['70', '90', '100', '120', '150'], prompt: "Speciality"%>
+          <%= form.input :price, label: 'Price', label: false, collection: ['70', '90', '100', '120', '150'], prompt: "Price"%>
         </div>
         <div class="form">
-          <%= form.input :nationality, label: 'Nutritionist Nationality', label: false, collection: ['Argentinian', 'Spanish', 'French', 'Italian', 'Portuguese', 'Chinese']%>
+          <%= form.input :nationality, label: 'Nutritionist Nationality', label: false, collection: ['Argentinian', 'Spanish', 'French', 'Italian', 'Portuguese', 'Chinese'], prompt: "Nationality"%>
         </div>
         <div class="form">
-          <%= form.input :language, label: 'Nutritionist Language', label: false, collection: ['Spanish', 'French', 'Italian', 'Portuguese', 'Mandarin Chinese']%>
+          <%= form.input :language, label: 'Nutritionist Language', label: false, collection: ['Spanish', 'French', 'Italian', 'Portuguese', 'Mandarin Chinese'], prompt: "Language"%>
         </div>
         <div class="form">
           <%= form.submit "Find a nutritionist", class:"btn btn-booking" %>
