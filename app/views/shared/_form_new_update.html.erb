@@ -1,17 +1,25 @@
 
-  <div>
-  <%= simple_form_for @service do |f| %>
-     <%= f.input :price, label: "Price (EURO/ hour)" %>
-     <%= f.input :speciality, collection: ['vegan', 'keto'] %>
+<div class="container">
+  <h1 class="text-center mt-3">Work as a Nutritionist from Anywhere </h1>
 
-      <%= f.simple_fields_for :users do |posts_form| %>
-      <%= posts_form.input :full_name %>
-      <%= posts_form.input :nationality %>
-      <%= posts_form.input :language %>
+  <div class="row justify-content-center">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+    <div class="form-login">
+      <h2 class="">Place your service</h2>
+        <%= simple_form_for @service do |f| %>
+        <%= f.input :price, label: "Price ($ / hour)" %>
+        <%= f.input :speciality, label:"ex: Vegan Specialist" %>
+        <%= f.simple_fields_for :users do |posts_form| %>
+        <%= posts_form.input :full_name %>
+        <%= posts_form.input :nationality %>
+        <%= posts_form.input :language %>
 
-      <% end %>
-    <%= f.button :submit, "Submit information", class: "text-white" %>
+            <% end %>
+          <%= f.button :submit, "Submit information", class:"btn" %>
 
-  <% end %>
-
+        <% end %>
+      </div>
+    </div>
   </div>
+
+</div>
