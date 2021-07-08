@@ -4,6 +4,7 @@ class ServicesController < ApplicationController
 
   def index
     @services = policy_scope(Service)
+    @search_params = {}
     if user_signed_in?
       if current_user.nutritionist? 
         @services = current_user.services
@@ -11,7 +12,7 @@ class ServicesController < ApplicationController
     else
       @users = policy_scope(User)
       @services = policy_scope(Service)
-      @search = params["search"]
+      @search = params["query"]
       if @search.present?
 
         @nationality = @search["nationality"]
