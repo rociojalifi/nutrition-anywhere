@@ -2,7 +2,7 @@
 
 <%= render 'slider' %>
 <div class="search-bar py-5 d-flex justify-content-center">
-<%= simple_form_for :search, url: services_path, method: "GET", html: { class: 'form-inline' }  do |form| %>
+<%= simple_form_for :search, url: services_path, method: "GET" do |form| %>
       <div>
        <%= form.input :speciality, label: 'Speciality' , collection: ['Sports Nutritionism', 'Pediatric Nutritionism', 'Vegan Nutritionism', 'Keto Nutritionism',  'Oncology Nutritionism', 'Eating Disorder Nutritionism'],  placeholder: 'Choose an option or leave this filter for now' %>
       </div>

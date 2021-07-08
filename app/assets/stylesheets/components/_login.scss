@@ -1,0 +1,36 @@
+.form-login {
+  background-color: #eef0fa;
+  padding: 30px 40px;
+  margin-top: 25px;
+  margin-bottom: 50px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  h2 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    text-align: center;
+  }
+  .btn {
+    width: 100%;
+    background-color: #0030ff;
+    margin-bottom: 20px;
+    color: white;
+  }
+  .btn:hover {
+    background-color: #3f61f7;
+  }
+}
+
+.cancel-acc {
+  h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+}
