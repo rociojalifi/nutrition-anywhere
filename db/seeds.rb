@@ -194,7 +194,7 @@ service_10 = Service.create!(
   location: 'Madrid',
 )
 service_11 = Service.create!(
-  speciality: 'Sports Nutritinism',
+  speciality: 'Sports Nutritionism',
   price: 90,
   user: user_1,
   location: 'Buenos Aires',
