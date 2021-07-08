@@ -34,6 +34,7 @@ class BookingsController < ApplicationController
     @booking.service = @service
     @booking.user = current_user
     if @booking.save
+      flash[:notice] = "Congratulations your booking has been confirmed"
       redirect_to booking_path(@booking)
     else
       redirect_to bike_path(@service)
