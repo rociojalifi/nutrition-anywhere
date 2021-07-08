@@ -30,7 +30,7 @@
     <%= render 'shared/card_booking' %>
     <div
         id="map"
-        style="width: 40vw; height: calc(70vh - 80px)"
+        style="width: 40vw; height: calc(80vh - 80px)"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
         class="shadow border"
@@ -45,21 +45,21 @@
     <div id="reviews">
       <% if @service.reviews.blank? %>
       <div class="reviews-title">
-        <strong
-          >Be the first to leave a review for <%= @service.speciality %></strong
-        >
+        <h4 class="mb-3">Be the first to leave a review for <%= @service.user.full_name %></h4>
       </div>
       <% else %>
       <div>
-      <h4> What people say about <%= @service.user.full_name %>?
+      <h4 > What people say about <%= @service.user.full_name %>?
       </h4>
         <% @service.reviews.each do |review| %>
         <div class="mt-4 mb-4">
+          <p style="color: #3a3a3a"><%= review.content %></p>
           <p class="mb-0">
             <%= content_tag( :i, '', :class=>'fa fa-star', :style=>'color:
             #E7A142') * review.rating %>
           </p>
-          <p style="color: #3a3a3a"><%= review.content %></p>
+          <p style="color: #3a3a3a"><small>By: <%= review.user.email %></small></p>
+
         </div>
         <% end %>
       </div>

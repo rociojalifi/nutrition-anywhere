@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
   def destroy
     authorize @booking
     @booking.destroy
-    redirect_to root_path
+    redirect_to services_path
   end
 
   def new
