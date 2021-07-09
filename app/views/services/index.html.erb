@@ -1,3 +1,5 @@
+
+
 <div class="container">
 
     <div class="mb-3">
@@ -27,11 +29,18 @@
         <h2 class= "row blue-titles">for you</h2>
       </div> -->
       <div class "filters col-6" style="padding-top: 50px; padding-bottom: 50px">
-        <h3 class= "row blue-titles">Selected Filters for <%= typing @array %></h3>
-        <h1 class= "row titles"><%= "Service Speciality: #{@search_params[:speciality]}" %></h1>
-        <h1 class= "row titles"><%= "Nutritionist Nationality: #{@search_params[:nationality]}" %></h1>
-        <h1 class= "row titles"><%= "Nutritionist Language: #{@search_params[:language]}" %></h1>
-        <h1 class= "row titles"><%= "Service Price: #{@search_params[:price]}" %></h1>
+        <h3 class= "row blue-titles">Selected Filters</h3> 
+          <!-- for <%= typing @array %></h3> -->
+        <h1 class= "row titles">Service Speciality: <strong><%= " " %><%= 
+        if "#{@search_params}" == ""
+          "All"
+        else 
+          "#{@search_params[:speciality]}"
+        end 
+        %></strong></h1>
+        <h1 class= "row titles">Nutritionist Nationality: <strong><%= " #{@search_params[:nationality]}" %></strong></h1>
+        <h1 class= "row titles">Nutritionist Language: <strong><%= " #{@search_params[:language]}" %></strong></h1>
+        <h1 class= "row titles">Service Price in USD: <strong><%= "#{@search_params[:price]}" %></strong></h1>
       </div>
     <!-- </div>
   </div> -->
@@ -107,7 +116,7 @@
     }
 
   .titles {
-    font-size: 1.7rem;
+    font-size: 1.3rem;
     font-family: 'Nunito', 'Helvetica', 'sans-serif';
     font-weight: 500;
     line-height: 1;
@@ -116,6 +125,8 @@
   .blue-titles {
     font-family: 'Otomanopee One', sans-serif; 
     color: #0030ff;
+    margin-bottom: 22px;
+    font-size: 2rem;
   }
   
   </style>
