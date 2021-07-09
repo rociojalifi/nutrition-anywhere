@@ -1,17 +1,55 @@
+
+
 <div class="container">
-  <div class="index-title">
-    <div style="padding-top: 50px; padding-bottom: 50px">
-      <h1 class= "row" style="font-size: 2rem; font-family: 'Nunito', 'Helvetica', 'sans-serif'; font-weight: 500; line-height: 0.5" > Available Services </h1>
-      <h1 class= "row" style= "font-weight: bolder; color: #0030ff; font-size: 2rem">for you</h1>
-    </div>
-     
+
+  <div class="mb-3">
+    <%= simple_form_for :query, url: services_path, method: "GET", html: {class: 'form-inline search-bar'} do |form|%>
+      <div class="form">
+        <%= form.input :speciality, label: 'Speciality', label: false, collection: ['Sports Nutritionism', 'Pediatric Nutritionism', 'Vegan Nutritionism', 'Keto Nutritionism',  'Oncology Nutritionism', 'Eating Disorder Nutritionism'], prompt: "All specialities" %>
+      </div>
+      <div class="form">
+        <%= form.input :price, label: 'Price', label: false, collection: ['70', '90', '100', '120', '150'], prompt: "All prices"%>
+      </div>
+      <div class="form">
+        <%= form.input :nationality, label: 'Nutritionist Nationality', label: false, collection: ['Argentinian', 'Spanish', 'French', 'Italian', 'Portuguese', 'Chinese'], prompt: "All nationalities" %>
+      </div>
+      <div class="form">
+        <%= form.input :language, label: 'Nutritionist Language', label: false, collection: ['Spanish', 'French', 'Italian', 'Portuguese', 'Mandarin Chinese'], prompt: "All languages"%>
+      </div>
+      <div class="form">
+        <%= form.submit "Find a nutritionist", class:"btn btn-booking" %>
+      </div>
+    <%end%> 
   </div>
-    <div class="cards" style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 16 px">
+
+  <!-- <div class="index-titles container">
+    <div class="row">
+      <div class "index-title col-6" style="padding-top: 50px; padding-bottom: 50px">
+        <h1 class= "row titles"> Available Services </h1>
+        <h2 class= "row blue-titles">for you</h2>
+      </div> -->
+      <div class "filters col-6" style="padding-top: 50px; padding-bottom: 50px">
+        <h3 class= "row blue-titles">Selected Filters</h3> 
+          <!-- for <%= typing @array %></h3> -->
+        <h1 class= "row titles">Service Speciality: <strong><%= " " %><%= 
+        if "#{@search_params}" == ""
+          "All"
+        else 
+          "#{@search_params[:speciality]}"
+        end 
+        %></strong></h1>
+        <h1 class= "row titles">Nutritionist Nationality: <strong><%= " #{@search_params[:nationality]}" %></strong></h1>
+        <h1 class= "row titles">Nutritionist Language: <strong><%= " #{@search_params[:language]}" %></strong></h1>
+        <h1 class= "row titles">Service Price in USD: <strong><%= "#{@search_params[:price]}" %></strong></h1>
+      </div>
+    <!-- </div>
+  </div> -->
+
+  <div class="cards" style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 16 px">
       <% @services.each do |service| %>
       <div class="card-service-container">
-        <div class="card-product" style=" overflow: hidden;
+        <div class="card-product d-flex justify-content-center" style=" overflow: hidden;
         width: 350px;
-        height: 520px;
         margin-bottom: 30px;
         background: white;
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
@@ -27,7 +65,7 @@
                 <strong>USD<%= service.price %></strong> / per consult
               </h5>
             </div>
-            <div class="card-professional" style= "height: 267px">
+            <div class="card-professional">
               <p style="font-size: 1rem; font-family: 'Nunito', 'Helvetica', 'sans-serif'; font-weight: 500; line-height: 1.2;    padding-top: 5px;
               padding-bottom: 5px; padding-top: 20px"></p>
               <p>Professional name: <%= service.user.full_name %></p>
@@ -36,15 +74,15 @@
               <p>Contact: <%= service.user.email %></p>
               <p id="city">Office location: <%= service.location %></p>
               <% service.reviews.each do |review| %>
-              <p>Review: <%= review.rating %></p>
-              <p>Review: <%= review.content %></p>
+              <p><%= content_tag( :i, '', :class=>'fa fa-star', :style=>'color:
+            #E7A142') * review.rating %></p>
               <% end %>
             </div>
-            <div class="user-button" style="color: #0030ff; border-color: #0030ff; color: white; height: 63px">
+            <div class="user-button" style="color: #0030ff; border-color: #0030ff; color: white;">
               <h5 class="vtn card-title" style="padding: 15px">
                 <%= link_to 'Book Appointment', service_path(service), class:'btn btn-primary btn-navbar' %>
               </h5>
-              <div class="user-button-actions">
+              <div class="user-button-actions mb-3">
                 <% if policy(service).edit? %> <%= link_to 'Edit Service',
                 edit_service_path(service), class:'btn btn-primary' %> <% end %> <% if
                 policy(service).destroy? %> <%= link_to 'Delete Service', service_path(service),
@@ -55,7 +93,42 @@
           </div>
         </div>
       </div>
-      <% end %>
     </div>
+    <% end %>
+  </div>
       
 </div>
+
+<style>
+  .form{
+    margin: 5px;
+  }
+  .search-bar{
+      justify-content: center;
+      }
+  .btn-booking{
+    background-color: #0030ff;
+    color: white;
+    }
+  .btn-booking:hover {
+    background-color: #3f61f7;
+    color: white;
+    }
+
+  .titles {
+    font-size: 1.3rem;
+    font-family: 'Nunito', 'Helvetica', 'sans-serif';
+    font-weight: 500;
+    line-height: 1;
+  }
+  
+  .blue-titles {
+    font-family: 'Otomanopee One', sans-serif; 
+    color: #0030ff;
+    margin-bottom: 22px;
+    font-size: 2rem;
+  }
+  
+  </style>
+
+ 
