@@ -169,6 +169,18 @@ user_13 = User.create!(
 user_13.photo.attach(io: file_13, filename: 'nes_13.jpg', content_type: 'image/jpg')
 user_13.save
 
+file_14 = URI.open('https://images.unsplash.com/photo-1584308972272-9e4e7685e80f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8ZmFjZXxlbnwwfDJ8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60')
+user_14 = User.create!(
+  email: 'eugeniaamaya@gmail.com',
+  password: '123456',
+  full_name: 'Eugenia Amaya',
+  role: 'Patient',
+  language: 'Spanish',
+  nationality: 'Argentinian'
+)
+user_14.photo.attach(io: file_14, filename: 'nes_14.jpg', content_type: 'image/jpg')
+user_14.save
+
 service_1 = Service.create!(
   speciality: 'Oncology Nutritionism',
   price: 100,
@@ -273,20 +285,20 @@ booking_4 = Booking.create!(
   user: user_12,
   service: service_11,
 )
-  booking_5 = Booking.create!(
-  booking_date: '2021-07-30 14:00:00 UTC',
-  user: user_11,
-  service: service_5,
+booking_5 = Booking.create!(
+booking_date: '2021-07-30 14:00:00 UTC',
+user: user_11,
+service: service_5,
 )
 booking_6 = Booking.create!(
   booking_date: '2021-07-15 15:00:00 UTC',
-  user: user_12,
+  user: user_14,
   service: service_13,
 )
-  booking_7 = Booking.create!(
-  booking_date: '2021-08-19 14:00:00 UTC',
-  user: user_13,
-  service: service_14,
+booking_7 = Booking.create!(
+booking_date: '2021-08-19 14:00:00 UTC',
+user: user_13,
+service: service_14,
 )
 booking_8 = Booking.create!(
   booking_date: '2021-07-13 15:00:00 UTC',
@@ -303,3 +315,4 @@ booking_10 = Booking.create!(
   user: user_13,
   service: service_10,
 )
+
