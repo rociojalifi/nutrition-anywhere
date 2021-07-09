@@ -28,19 +28,21 @@
         <h1 class= "row titles"> Available Services </h1>
         <h2 class= "row blue-titles">for you</h2>
       </div> -->
-      <div class "filters col-6" style="padding-top: 50px; padding-bottom: 50px">
-        <h3 class= "row blue-titles">Selected Filters</h3> 
+      <div class= "" style="padding-top: 50px; padding-bottom: 50px">
+        <h5 class= "blue-titles">Selected Filters</h5> 
           <!-- for <%= typing @array %></h3> -->
-        <h1 class= "row titles">Service Speciality: <strong><%= " " %><%= 
+        <div class="d-flex justify-content-start">  
+        <p class= "mr-3">Service Speciality <strong><%= " " %><%= 
         if "#{@search_params}" == ""
           "All"
         else 
           "#{@search_params[:speciality]}"
         end 
-        %></strong></h1>
-        <h1 class= "row titles">Nutritionist Nationality: <strong><%= " #{@search_params[:nationality]}" %></strong></h1>
-        <h1 class= "row titles">Nutritionist Language: <strong><%= " #{@search_params[:language]}" %></strong></h1>
-        <h1 class= "row titles">Service Price in USD: <strong><%= "#{@search_params[:price]}" %></strong></h1>
+        %></strong></p>
+        <p class= "mr-3">Nutritionist Nationality <strong><%= " #{@search_params[:nationality]}" %></strong></p>
+        <p class= "mr-3">Nutritionist Language <strong><%= " #{@search_params[:language]}" %></strong></p>
+        <p class= "mr-3">Service Price in USD <strong><%= "#{@search_params[:price]}" %></strong></p>
+        </div> 
       </div>
     <!-- </div>
   </div> -->
@@ -59,7 +61,7 @@
       padding: 50px 20px">
         <div class="card-content" style= "text-align: center">
           <div class="card-title" style= "height: 106px; padding: 25px 0;">
-            <h5 style="font-size: 2rem; line-height: 1.2; padding: 15px"><strong><%= service.speciality %></strong></h5>
+            <h5 style="line-height: 1.2; padding: 15px"><strong><%= service.speciality %></strong></h5>
           </div>
           <div class="card-price" style= "height: 24px; padding: 15px 0">
             <h5 class="card-price">
@@ -127,7 +129,6 @@
     font-family: 'Otomanopee One', sans-serif; 
     color: #0030ff;
     margin-bottom: 22px;
-    font-size: 2rem;
   }
   
   </style>
