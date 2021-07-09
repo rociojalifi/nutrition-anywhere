@@ -67,7 +67,12 @@ class ServicesController < ApplicationController
   def show
     authorize @service
     @booking = Booking.new
-    @review = Review.new 
+    @review = Review.new
+    @markers = @service.geocoded [{
+        lat: @service.latitude,
+        lng: @service.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { service: @service }),
+      }]
   end
 
   def new
