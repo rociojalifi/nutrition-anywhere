@@ -230,7 +230,7 @@ service_8 = Service.create!(
   location: 'Shangai',
 )
 service_9 = Service.create!(
-  speciality: 'Pediatric Nutritinism',
+  speciality: 'Pediatric Nutritionism',
   price: 90,
   user: user_9,
   location: 'Oporto',
@@ -254,7 +254,7 @@ service_12 = Service.create!(
   location: 'Lisboa',
 )
 service_13 = Service.create!(
-  speciality: 'Pediatric Nutritinism',
+  speciality: 'Pediatric Nutritionism',
   price: 120,
   user: user_1,
   location: 'Buenos Aires',
