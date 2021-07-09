@@ -25,6 +25,10 @@
                         required: true,
                         input_html: { autocomplete: "new-password" },
                         placeholder:"*******" %>
+            <%= f.input :full_name,
+                        required: true,
+                        autofocus: true,
+                        placeholder: "Bob Peterson" %>
             <%= f.input :role,
                         include_blank: false,
                         collection: ["Patient", "Nutritionist"]%>
