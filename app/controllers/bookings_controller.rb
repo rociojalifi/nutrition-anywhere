@@ -25,6 +25,11 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @markers = [{
+      lat: @booking.services.latitude,
+      lng: @booking.services.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { booking: @booking }),
+    }]
   end
 
   def create
