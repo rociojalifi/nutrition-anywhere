@@ -224,12 +224,12 @@ booking_1 = Booking.create!(
 )
 booking_2 = Booking.create!(
   booking_date: '2021-07-25 15:00:00 UTC',
-  user: user_2,
+  user: user_12,
   service: service_2,
 )
 booking_3 = Booking.create!(
   booking_date: '2021-08-15 15:00:00 UTC',
-  user: user_3,
+  user: user_13,
   service: service_3,
 )
 booking_4 = Booking.create!(
@@ -239,32 +239,32 @@ booking_4 = Booking.create!(
 )
   booking_5 = Booking.create!(
   booking_date: '2021-07-30 14:00:00 UTC',
-  user: user_1,
+  user: user_11,
   service: service_5,
 )
 booking_6 = Booking.create!(
   booking_date: '2021-07-15 15:00:00 UTC',
-  user: user_1,
+  user: user_12,
   service: service_13,
 )
   booking_7 = Booking.create!(
   booking_date: '2021-08-19 14:00:00 UTC',
-  user: user_1,
+  user: user_13,
   service: service_14,
 )
 booking_8 = Booking.create!(
   booking_date: '2021-07-13 15:00:00 UTC',
-  user: user_13,
+  user: user_11,
   service: service_14,
 )
   booking_9 = Booking.create!(
   booking_date: '2021-08-30 14:00:00 UTC',
-  user: user_9,
+  user: user_12,
   service: service_9,
 )
 booking_10 = Booking.create!(
   booking_date: '2021-07-25 15:00:00 UTC',
-  user: user_10,
+  user: user_13,
   service: service_10,
 )
 
