@@ -25,7 +25,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    @service = @booking.service
+    @service = Service.find(params[:service_id])
     @markers = [{
       lat: @service.latitude,
       lng: @service.longitude,
