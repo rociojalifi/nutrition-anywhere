@@ -1,6 +1,6 @@
 class Review < ApplicationRecord
-  belongs_to :user, dependent: :destroy
-  belongs_to :service, dependent: :destroy
+  belongs_to :user
+  belongs_to :service
   
   validates :rating, presence: true
   validates :content, presence: true
