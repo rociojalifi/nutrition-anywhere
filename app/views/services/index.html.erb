@@ -8,7 +8,7 @@
         <%= form.input :speciality, label: 'Speciality', label: false, collection: ['Sports Nutritionism', 'Pediatric Nutritionism', 'Vegan Nutritionism', 'Keto Nutritionism',  'Oncology Nutritionism', 'Eating Disorder Nutritionism'], prompt: "All specialities" %>
       </div>
       <div class="form">
-        <%= form.input :price, label: 'Price', label: false, collection: ['70', '90', '100', '120', '150'], prompt: "All prices"%>
+        <%= form.input :price, label: 'Price', label: false, collection: ['70', '90', '100', '120', '150'], prompt: "All prices in USD"%>
       </div>
       <div class="form">
         <%= form.input :nationality, label: 'Nutritionist Nationality', label: false, collection: ['Argentinian', 'Spanish', 'French', 'Italian', 'Portuguese', 'Chinese'], prompt: "All nationalities" %>
@@ -29,20 +29,28 @@
         <h2 class= "row blue-titles">for you</h2>
       </div> -->
       <div class= "" style="padding-top: 50px; padding-bottom: 50px">
-        <h5 class= "blue-titles">Selected Filters</h5> 
+        <h5 class= "blue-titles">Available services for you</h5> 
           <!-- for <%= typing @array %></h3> -->
-        <div class="d-flex justify-content-start">  
-        <p class= "mr-3">Service Speciality <strong><%= " " %><%= 
-        if "#{@search_params}" == ""
-          "All"
-        else 
-          "#{@search_params[:speciality]}"
-        end 
-        %></strong></p>
-        
-        <p class= "mr-3">Nutritionist Nationality <strong><%= " #{@search_params[:nationality]}" %></strong></p>
-        <p class= "mr-3">Nutritionist Language <strong><%= " #{@search_params[:language]}" %></strong></p>
-        <p class= "mr-3">Service Price in USD <strong><%= "#{@search_params[:price]}" %></strong></p>
+        <div class="d-flex justify-content-start"> 
+          <% if "#{@search_params[:speciality]}" == "" %>
+          <% else %>
+            <p class= "mr-3"><strong>Service Speciality:</strong> <%="#{@search_params[:speciality]}" %> </p>
+          <% end %>
+
+          <% if "#{@search_params[:price]}" == "" %>
+          <% else %>
+            <p class= "mr-3"><strong>Service Price in USD:</strong> <%="#{@search_params[:price]}" %> </p>
+          <% end %>
+
+          <% if "#{@search_params[:nationality]}" == "" %>
+          <% else %>
+            <p class= "mr-3"><strong>Nutritionist Nationality:</strong> <%="#{@search_params[:nationality]}" %> </p>
+          <% end %>
+
+          <% if "#{@search_params[:language]}" == "" %>
+          <% else %>
+            <p class= "mr-3"><strong>Nutritionist Language:</strong> <%="#{@search_params[:language]}" %> </p>
+          <% end %>
         </div> 
       </div>
     <!-- </div>
@@ -66,7 +74,7 @@
           </div>
           <div class="card-price" style= "height: 24px; padding: 15px 0">
             <h5 class="card-price">
-              <strong>USD<%= service.price %></strong> / per consult
+              <strong>USD<%= service.price %></strong> / per appointment
             </h5>
           </div>
           <div class="card-professional" style= "height: 267px">
