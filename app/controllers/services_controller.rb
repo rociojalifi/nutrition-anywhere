@@ -4,7 +4,7 @@ class ServicesController < ApplicationController
 
   def index
     @services = policy_scope(Service)
-    @array = ["Nutritionist Nationality","Nutritionist Language","Service Speciality","Service Price"]
+    @array = [" Nutritionist Nationality"," Nutritionist Language"," Service Speciality"," Service Price"]
     @search_params = {}
       @users = policy_scope(User)
       @services = policy_scope(Service)
