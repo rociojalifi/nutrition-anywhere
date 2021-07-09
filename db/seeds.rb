@@ -285,20 +285,20 @@ booking_4 = Booking.create!(
   user: user_12,
   service: service_11,
 )
-  booking_5 = Booking.create!(
-  booking_date: '2021-07-30 14:00:00 UTC',
-  user: user_11,
-  service: service_5,
+booking_5 = Booking.create!(
+booking_date: '2021-07-30 14:00:00 UTC',
+user: user_11,
+service: service_5,
 )
 booking_6 = Booking.create!(
   booking_date: '2021-07-15 15:00:00 UTC',
-  user: user_12,
+  user: user_14,
   service: service_13,
 )
-  booking_7 = Booking.create!(
-  booking_date: '2021-08-19 14:00:00 UTC',
-  user: user_13,
-  service: service_14,
+booking_7 = Booking.create!(
+booking_date: '2021-08-19 14:00:00 UTC',
+user: user_13,
+service: service_14,
 )
 booking_8 = Booking.create!(
   booking_date: '2021-07-13 15:00:00 UTC',
@@ -315,3 +315,4 @@ booking_10 = Booking.create!(
   user: user_13,
   service: service_10,
 )
+
