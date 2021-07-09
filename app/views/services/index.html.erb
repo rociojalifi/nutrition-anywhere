@@ -29,11 +29,9 @@
         <h2 class= "row blue-titles">for you</h2>
       </div> -->
       <div class= "" style="padding-top: 50px; padding-bottom: 50px">
-        <h5 class= "blue-titles">Selected Filters</h5> 
+        <h5 class= "blue-titles">Available services for you</h5> 
           <!-- for <%= typing @array %></h3> -->
-<<<<<<< HEAD
         <div class="d-flex justify-content-start"> 
-
           <% if "#{@search_params[:speciality]}" == "" %>
           <% else %>
             <p class= "mr-3"><strong>Service Speciality:</strong> <%="#{@search_params[:speciality]}" %> </p>
@@ -53,20 +51,6 @@
           <% else %>
             <p class= "mr-3"><strong>Nutritionist Language:</strong> <%="#{@search_params[:language]}" %> </p>
           <% end %>
-=======
-        <div class="d-flex justify-content-start">  
-        <p class= "mr-3">Service Speciality <strong><%= " " %><%= 
-        if "#{@search_params}" == ""
-          "All"
-        else 
-          "#{@search_params[:speciality]}"
-        end 
-        %></strong></p>
-        
-        <p class= "mr-3">Nutritionist Nationality <strong><%= " #{@search_params[:nationality]}" %></strong></p>
-        <p class= "mr-3">Nutritionist Language <strong><%= " #{@search_params[:language]}" %></strong></p>
-        <p class= "mr-3">Service Price in USD <strong><%= "#{@search_params[:price]}" %></strong></p>
->>>>>>> 08de7d79eafeba768841fba46624cd65d34d2483
         </div> 
       </div>
     <!-- </div>
