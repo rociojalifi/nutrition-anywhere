@@ -3,16 +3,16 @@
     <div class="mb-3">
       <%= simple_form_for :query, url: services_path, method: "GET", html: {class: 'form-inline search-bar'} do |form|%>
         <div class="form">
-          <%= form.input :speciality, label: 'Speciality', label: false, collection: ['Sports Nutritionism', 'Pediatric Nutritionist', 'Vegan Nutritionist', 'Keto Nutritionist',  'Oncology Nutritionist', 'Eating Disorder Nutritionist'] %>
+          <%= form.input :speciality, label: 'Speciality', label: false, collection: ['Sports Nutritionism', 'Pediatric Nutritionism', 'Vegan Nutritionism', 'Keto Nutritionism',  'Oncology Nutritionism', 'Eating Disorder Nutritionism'], prompt: "All specialities" %>
         </div>
         <div class="form">
-          <%= form.input :price, label: 'Price', label: false, collection: ['70', '90', '100', '120', '150'] %>
+          <%= form.input :price, label: 'Price', label: false, collection: ['70', '90', '100', '120', '150'], prompt: "All prices"%>
         </div>
         <div class="form">
-          <%= form.input :nationality, label: 'Nutritionist Nationality', label: false, collection: ['Argentinian', 'Spanish', 'French', 'Italian', 'Portuguese', 'Chinese'] %>
+          <%= form.input :nationality, label: 'Nutritionist Nationality', label: false, collection: ['Argentinian', 'Spanish', 'French', 'Italian', 'Portuguese', 'Chinese'], prompt: "All nationalities" %>
         </div>
         <div class="form">
-          <%= form.input :language, label: 'Nutritionist Language', label: false, collection: ['Spanish', 'French', 'Italian', 'Portuguese', 'Mandarin Chinese'] %>
+          <%= form.input :language, label: 'Nutritionist Language', label: false, collection: ['Spanish', 'French', 'Italian', 'Portuguese', 'Mandarin Chinese'], prompt: "All languages"%>
         </div>
         <div class="form">
           <%= form.submit "Find a nutritionist", class:"btn btn-booking" %>
@@ -27,7 +27,7 @@
         <h2 class= "row blue-titles">for you</h2>
       </div> -->
       <div class "filters col-6" style="padding-top: 50px; padding-bottom: 50px">
-        <h3 class= "row blue-titles">Selected Filters:</h3> 
+        <h3 class= "row blue-titles">Selected Filters for <%= typing @array %></h3> 
         <h1 class= "row titles"><%= "Service Speciality: #{@search_params[:speciality]}" %></h1>
         <h1 class= "row titles"><%= "Nutritionist Nationality: #{@search_params[:nationality]}" %></h1>
         <h1 class= "row titles"><%= "Nutritionist Language: #{@search_params[:language]}" %></h1>
@@ -107,10 +107,10 @@
     }
 
   .titles {
-    font-size: 2rem; 
-    font-family: 'Nunito', 'Helvetica', 'sans-serif'; 
-    font-weight: 500; 
-    line-height: 0.5;
+    font-size: 1.7rem;
+    font-family: 'Nunito', 'Helvetica', 'sans-serif';
+    font-weight: 500;
+    line-height: 1;
   }
   
   .blue-titles {
