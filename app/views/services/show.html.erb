@@ -66,14 +66,13 @@
     </div>
   </div>
   <% end %>
-   <div class="reviews-form mb-5">
-    <%= simple_form_for [ @service, @review ] do |f| %> <%= f.input :content,
-    as: :text, label: false, style: "font-size:20px", placeholder: "I am very
-    happy with the service of this Nutritionist"%> <%= f.input :rating, label:
-    false, collection: 1..5, include_blank: false%> <%= f.button :submit,
-    class:'btn btn-booking' %> <% end %>
   </div>
-  </div>
- 
   </div>
 
+  <div class=" mb-5">
+    <%= simple_form_for [ @service, @review ] do |f| %>
+    <%= f.input :content,
+    as: :text, label: false, style: "font-size:20px", placeholder: "I am very happy"%> 
+    <%= f.input :rating, label: false, collection: 1..5, include_blank: false%> <%= f.button :submit,
+    class:'btn btn-booking' %> <% end %>
+  </div>
