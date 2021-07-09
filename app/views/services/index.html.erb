@@ -63,7 +63,7 @@
           </div>
           <div class="user-button" style="color: #0030FF; border-color: #0030FF; color: white; height: 63px">
             <h5 class="vtn card-title">
-            <% if current_user.patient?%>
+            <% if current_user.patient? %>
               <%= link_to 'Book Appointment', service_path(service), class:'btn btn-booking' %>
               <% end %>
             </h5>
