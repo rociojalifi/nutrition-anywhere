@@ -219,7 +219,7 @@ service_14 = Service.create!(
 )
 booking_1 = Booking.create!(
   booking_date: '2021-07-30 14:00:00 UTC',
-  user: user_1,
+  user: user_11,
   service: service_1,
 )
 booking_2 = Booking.create!(
@@ -234,7 +234,7 @@ booking_3 = Booking.create!(
 )
 booking_4 = Booking.create!(
   booking_date: '2021-07-20 14:00:00 UTC',
-  user: user_1,
+  user: user_12,
   service: service_11,
 )
   booking_5 = Booking.create!(
@@ -254,7 +254,7 @@ booking_6 = Booking.create!(
 )
 booking_8 = Booking.create!(
   booking_date: '2021-07-13 15:00:00 UTC',
-  user: user_1,
+  user: user_13,
   service: service_14,
 )
   booking_9 = Booking.create!(
@@ -267,3 +267,39 @@ booking_10 = Booking.create!(
   user: user_10,
   service: service_10,
 )
+
+file_11 = URI.open('https://images.unsplash.com/photo-1582896911227-c966f6e7fb93?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1575&q=80')
+user_11 = User.create!(
+  email: 'danyoon@gmail.com',
+  password: '123456',
+  full_name: 'Dan Yoon',
+  role: 'Patient',
+  language: 'Mandarin Chinese',
+  nationality: 'Chinese' 
+)
+user_11.photo.attach(io: file_11, filename: 'nes_11.jpg', content_type: 'image/jpg')
+user_11.save
+
+file_12 = URI.open('https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80')
+user_12 = User.create!(
+  email: 'lronaldo@gmail.com',
+  password: '123456',
+  full_name: 'Lourenço Ronaldo',
+  role: 'Patient',
+  language: 'Portuguese',
+  nationality: 'Portuguese' 
+)
+user_12.photo.attach(io: file_12, filename: 'nes_9.jpg', content_type: 'image/jpg')
+user_12.save
+
+file_13 = URI.open('https://images.unsplash.com/photo-1583123810721-5a8e229a480b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1534&q=80')
+user_13 = User.create!(
+  email: 'joselopez@gmail.com',
+  password: '123456',
+  full_name: 'José López',
+  role: 'Patient',
+  language: 'Spanish',
+  nationality: 'Spanish' 
+)
+user_13.photo.attach(io: file_13, filename: 'nes_13.jpg', content_type: 'image/jpg')
+user_13.save
