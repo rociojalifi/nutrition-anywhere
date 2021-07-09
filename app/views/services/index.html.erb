@@ -85,10 +85,6 @@
             <p>Language: <%= service.user.language %></p>
             <p>Contact: <%= service.user.email %></p>
             <p id="city">Office location: <%= service.location %></p>
-            <% service.reviews.each do |review| %>
-            <p><%= content_tag( :i, '', :class=>'fa fa-star', :style=>'color:
-          #E7A142') * review.rating %></p>
-            <% end %>
           </div>
           <div class="user-button" style="color: #0030FF; border-color: #0030FF; color: white; height: 63px">
             <h5 class="vtn card-title">
