@@ -55,6 +55,7 @@ class BookingsController < ApplicationController
 
   def bookings_given
       # select * from bookings where nutritionist_id = current_user.id
+      @array = ["Your bookings", "on Nutrition Anywhere"]
       @bookings_given = []
       current_user.services.each do |service|
         service.bookings.each do |booking|
