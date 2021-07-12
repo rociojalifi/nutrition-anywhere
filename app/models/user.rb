@@ -19,6 +19,10 @@ class User < ApplicationRecord
     role == "Patient"
   end
 
+  def zoom_token?
+    zoom_token.present?
+  end
+
   def save_zoom_token(credentials)
     self.zoom_token = credentials.token
     self.save
