@@ -1,16 +1,16 @@
 <div class="container">
-  <h1 class="text-center mb-5"><%= typing @array %></h1>
+  <h1><span id="title-typed-text" ></span></h1>
     <div class="container">
       <% @bookings_given.each do |booking_given| %>
-        <div class="card-product row col-sm-12">
+        <div class="card-product col-sm-12">
           <div class="card-img col-sm-3">
             <%= cl_image_tag booking_given.user.photo.key, class:
             "img-fluid rounded-start avatar-square" %>
           </div>
-          <div class="card-info col-sm-6">
-            <p><i class="fas fa-male"></i><%= booking_given.service.speciality %></p>
-            <p><i class="fas fa-apple-alt"></i><%= booking_given.user.full_name %></p>
-            <p><i class="fas fa-calendar-day"></i><%= booking_given.booking_date %></p>
+          <div class="card-info col-sm-6 d-flex flex-column justify-content-center">
+            <p><i class="fas fa-male p-1"></i><%= booking_given.user.full_name %></p>
+            <p><i class="fas fa-calendar-day p-1"></i><%= booking_given.booking_date %></p>
+            <p><i class="fas fa-apple-alt p-1"></i><%= booking_given.service.speciality %></p>       
           </div>
           <div class="btn col-sm-3">
             <%= link_to "Cancel", booking_path(booking_given), method:
@@ -22,23 +22,6 @@
     </div>
 </div>
 
-<style>
-  .card-product {
-    overflow: hidden;
-    background: white;
-    box-shadow: 0 0 15px rgb(0 0 0 / 20%);
-    display: flex;
-    align-items: center;
-    margin: 15px;
-    height: 170px;
-} 
-  .card-info {
-    height: 140px;
-  }
-  .fas {
-    padding-right: 10px;
-  }
-</style>
 
 
 
