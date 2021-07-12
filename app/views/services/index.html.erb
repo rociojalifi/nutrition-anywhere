@@ -59,34 +59,20 @@
     <div class="cards" style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 16 px">
     <% @services.each do |service| %>
     <div class="card-service-container">
-      <div class="card-product d-flex justify-content-center" style=" overflow: hidden;
-      width: 350px;
-      height: 520px;
-      margin-bottom: 30px;
-      background: white;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-      display: flex;
-      align-items: center;
-      padding: 50px 20px">
-        <div class="card-content" style= "text-align: center">
-          <div class="card-title" style= "height: 106px; padding: 25px 0;">
+      <div class="card-product-index d-flex justify-content-center">
+        <div class="index-card-content" style= "text-align: center">
+          <div class="index-card-title" style= "height: 106px; padding: 25px 0;">
             <h5 style="line-height: 1.2; padding: 15px"><strong><%= service.speciality %></strong></h5>
           </div>
-          <div class="card-price" style= "height: 24px; padding: 15px 0">
-            <h5 class="card-price">
-              <strong>USD<%= service.price %></strong> / per appointment
-            </h5>
+          <div class="index-card-info">
+            <p><i class="far fa-credit-card"></i>USD<%= service.price %> /per appointment</p>
+            <p><i class="fas fa-male p-1"></i><%= service.user.full_name %></p>
+            <p><i class="fas fa-globe-americas"></i><%= service.user.nationality %></p>
+            <p><i class="fas fa-language"></i><%= service.user.language %></p>
+            <p><i class="far fa-envelope"></i><%= service.user.email %></p>
+            <p id="city"><i class="far fa-building"></i><%= service.location %></p>
           </div>
-          <div class="card-professional" style= "height: 267px">
-            <p style="font-size: 1rem; font-family: 'Nunito', 'Helvetica', 'sans-serif'; font-weight: 500; line-height: 1.2;    padding-top: 5px;
-            padding-bottom: 5px; padding-top: 20px"></p>
-            <p>Professional name: <%= service.user.full_name %></p>
-            <p>Nationality: <%= service.user.nationality %></p>
-            <p>Language: <%= service.user.language %></p>
-            <p>Contact: <%= service.user.email %></p>
-            <p id="city">Office location: <%= service.location %></p>
-          </div>
-          <div class="user-button" style="color: #0030FF; border-color: #0030FF; color: white; height: 63px">
+          <div class="index-card-btn user-button" >
             <h5 class="vtn card-title">
             <% if current_user.nutritionist? %>
               <div class="user-button-actions d-flex justify-content-center mb-5">

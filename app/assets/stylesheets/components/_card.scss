@@ -14,15 +14,9 @@
 .fas {
   padding-right: 10px;
 }
-
-// .card-product i {
-//   position: relative;
-//   height: 100%;
-//   width: 120px;
-//   font-size: 35px;
-//   color: $orange;
-//   background-color: #f4f4f4;
-// }
+.far {
+  padding-right: 10px;
+}
 
 .card-product i {
   color: black;
@@ -60,4 +54,40 @@
   @include media-breakpoint-only(xl) {
     column-count: 5;
   }
+}
+
+.card-product-index {
+  overflow: hidden;
+      width: 350px;
+      height: 520px;
+      margin-bottom: 30px;
+      background: white;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      padding: 50px 20px;
+}
+
+.index-card-btn {
+  color: #0030FF;
+  border-color: #0030FF;
+  color: white;
+  height: 20px;
+}
+
+.index-card-info {
+  height: 275px;
+}
+
+.index-card-img {
+  background-image: "https://images.unsplash.com/photo-1485400031595-976c74cf4e25?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHNwb3J0c3xlbnwwfDB8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60";
+}
+
+.index-card-title {
+  height: 106px;
+  padding: 25px 0;
+}
+
+.index-card.content {
+  text-align: center;
 }
