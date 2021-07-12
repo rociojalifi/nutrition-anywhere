@@ -1,3 +1,3 @@
 <h1>Settings</h1>
 
-<%= link_to "Connect to zoom", @zoom_auth_url %>
+<%= link_to "Connect to zoom", "https://zoom.us/oauth/authorize?client_id=#{ENV['ZOOM_CLIENT_ID']}&response_type=code&redirect_uri=#{ENV['ZOOM_CALLBACK']}" %>
