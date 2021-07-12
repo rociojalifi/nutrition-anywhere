@@ -40,7 +40,7 @@ class BookingsController < ApplicationController
     @booking.service = @service
     @booking.user = current_user
 
-    # if.zoom_token.present?
+    # if user.zoom_token.present?
     #   @meeting_url.save
     # end
 
