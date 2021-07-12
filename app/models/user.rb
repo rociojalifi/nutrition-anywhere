@@ -18,4 +18,13 @@ class User < ApplicationRecord
   def patient?
     role == "Patient"
   end
+
+  def save_zoom_token(credentials)
+    @user.zoom_token = credentials.token
+    puts "Saving user ------"
+    puts @user
+    @user.save!
+    puts "User save --------"
+    puts @user
+  end
 end
