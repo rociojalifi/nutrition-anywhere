@@ -3,7 +3,7 @@ class OmniauthController < ApplicationController
 
   def zoom
     puts request.env['omniauth.auth']
-    User.save_zoom_token(request.env['omniauth.auth'].credentials)
+    current_user.save_zoom_token(request.env['omniauth.auth'].credentials)
     redirect_to '/users/settings'
   end
 end
