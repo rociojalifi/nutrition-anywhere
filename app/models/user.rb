@@ -20,11 +20,8 @@ class User < ApplicationRecord
   end
 
   def save_zoom_token(credentials)
-    self.zoom_token = credentials.token
-    puts "Saving user ------"
-    puts self
-    self.save!
-    puts "User save --------"
-    puts self
+    @user = current_user
+    @user.zoom_token = credentials.token
+    @user.save
   end
 end
