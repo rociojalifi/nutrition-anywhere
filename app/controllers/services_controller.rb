@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:show]
   before_action :set_service, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -62,7 +62,14 @@ class ServicesController < ApplicationController
   def show
     authorize @service
     @booking = Booking.new
-    @review = Review.new 
+    @review = Review.new
+    @markers = [{
+      lat: @service.latitude,
+      lng: @service.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { service: @service }),
+      # image_url: helpers.asset_url('marker.png')
+
+    }]
   end
 
   def new

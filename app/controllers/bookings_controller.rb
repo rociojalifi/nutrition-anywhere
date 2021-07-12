@@ -25,8 +25,14 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @service = Service.find(params[:service_id])
+    @markers = [{
+      lat: @service.latitude,
+      lng: @service.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { service: @service }),
+    }]
   end
-
+  
   def create
     @service = Service.find(params[:service_id])
     @booking = Booking.new(booking_params)
