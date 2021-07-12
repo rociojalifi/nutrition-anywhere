@@ -39,11 +39,19 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.service = @service
     @booking.user = current_user
+
+    # if user.zoom_token.present?
+    #   @meeting_url.save
+    # end
+
+    # @booking.meeting_url = zoome_api_response.meeting.url
+    # @booking.meeting_metadata = zoome_api_response
+
     if @booking.save
       flash[:notice] = "Congratulations your booking has been confirmed"
       redirect_to booking_path(@booking)
     else
-   #   redirect_to bike_path(@service)
+    #   redirect_to bike_path(@service)
     end
   end
 
