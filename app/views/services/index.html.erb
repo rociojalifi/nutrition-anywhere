@@ -22,41 +22,34 @@
     <%end%> 
   </div>
 
-  <!-- <div class="index-titles container">
-    <div class="row">
-      <div class "index-title col-6" style="padding-top: 50px; padding-bottom: 50px">
-        <h1 class= "row titles"> Available Services </h1>
-        <h2 class= "row blue-titles">for you</h2>
-      </div> -->
-      <div class= "" style="padding-top: 50px; padding-bottom: 50px">
-        <h5 class= "blue-titles">Available services for you</h5> 
-          <!-- for <%= typing @array %></h3> -->
-        <div class="d-flex justify-content-start"> 
-          <% if "#{@search_params[:speciality]}" == "" %>
-          <% else %>
-            <p class= "mr-3"><strong>Service Speciality:</strong> <%="#{@search_params[:speciality]}" %> </p>
-          <% end %>
+  <div class= "" style="padding-top: 50px; padding-bottom: 50px">
+    <h5 class= "titles">Find a nutritionist of</h5>
+    <h1 class= "blue-titles"><span id="index-title-typed-text" ></span></h1>
 
-          <% if "#{@search_params[:price]}" == "" %>
-          <% else %>
-            <p class= "mr-3"><strong>Service Price in USD:</strong> <%="#{@search_params[:price]}" %> </p>
-          <% end %>
+    <div class="d-flex justify-content-start"> 
+      <% if "#{@search_params[:speciality]}" == "" %>
+      <% else %>
+        <p class= "mr-3"><strong>Service Speciality:</strong> <%="#{@search_params[:speciality]}" %> </p>
+      <% end %>
 
-          <% if "#{@search_params[:nationality]}" == "" %>
-          <% else %>
-            <p class= "mr-3"><strong>Nutritionist Nationality:</strong> <%="#{@search_params[:nationality]}" %> </p>
-          <% end %>
+      <% if "#{@search_params[:price]}" == "" %>
+      <% else %>
+        <p class= "mr-3"><strong>Service Price in USD:</strong> <%="#{@search_params[:price]}" %> </p>
+      <% end %>
 
-          <% if "#{@search_params[:language]}" == "" %>
-          <% else %>
-            <p class= "mr-3"><strong>Nutritionist Language:</strong> <%="#{@search_params[:language]}" %> </p>
-          <% end %>
-        </div> 
-      </div>
-    <!-- </div>
-  </div> -->
+      <% if "#{@search_params[:nationality]}" == "" %>
+      <% else %>
+        <p class= "mr-3"><strong>Nutritionist Nationality:</strong> <%="#{@search_params[:nationality]}" %> </p>
+      <% end %>
 
-    <div class="cards" style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 16 px">
+      <% if "#{@search_params[:language]}" == "" %>
+      <% else %>
+        <p class= "mr-3"><strong>Nutritionist Language:</strong> <%="#{@search_params[:language]}" %> </p>
+      <% end %>
+    </div> 
+  </div>
+
+  <div class="cards" style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 16 px">
     <% @services.each do |service| %>
     <div class="card-service-container">
       <div class="card-product-index d-flex justify-content-center">
