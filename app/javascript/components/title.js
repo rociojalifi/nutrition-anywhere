@@ -12,4 +12,17 @@ const loadDynamicTitleText = () => {
   
 }
 
+const loadDynamicIndexTitleText = () => {
+  const indexTitleType = document.querySelector('#index-title-typed-text');
+  if (indexTitleType) {
+    new Typed('#index-title-typed-text', {
+      strings: ["Your Nationality", "Your Language", "Your Budget"],
+      typeSpeed: 50,
+      loop: true
+    });
+  }
+  
+}
+
 export { loadDynamicTitleText };
+export { loadDynamicIndexTitleText };
