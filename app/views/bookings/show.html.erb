@@ -1,71 +1,51 @@
-<div class="container mb-5" id="booking-form" style="padding-top: 80px">
-  <div class="d-flex justify-content-around row">
-    <div class="col-12">
-      <h3 class="blue-titles">Your booked Appointment with <%= @service.user.full_name %></h3>
+
+<div class="container mb-5" id="booking-form">
+  <div>
+    <div class="col-6">
+      <h3 class="blue-titles">Your Booked Appointment with <%= @service.user.full_name %></h3>
     </div>
   </div>
 </div>
-
 
 <div class="container mb-5">
   <div class="d-flex justify-content-around row">
-  <div class="col-6">
-  <div id="id" class="carousel slide" data-ride="carousel" data-interval="3000">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="pl-3 pt-3 service-carrousel">
-          <h4 >Nutritionist</h4>
-          <h4 style="color:#0030ff"><strong><%= @service.user.full_name %></strong></h4>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="pl-3 pt-3 service-carrousel">
-          <h4 >Office Location</h4>
-          <h4 style="color:#0030ff"><strong>USD <%= @service.price %></strong></h4>
+    <div class="user-avatar col-2">
+      <%= cl_image_tag @service.user.photo.key, class:
+            "img-fluid rounded-start avatar-square", style: "margin-left: 16px;" %>
+    </div>
+    <div class="col-4">
+      <h4 class="service-show-info">Nutritionist</h4>
+      <h4 class="service-show-info" style="color:#0030ff"><strong><%= @service.user.full_name %></strong></h4>
+      <h4 class="service-show-info">Nationality</h4>
+      <h4 class="service-show-info" style="color:#0030ff"><strong><%= @service.user.nationality %></strong></h4>
+      <h4 class="service-show-info">Language</h4>
+      <h4 class="service-show-info"style="color:#0030ff"><strong><%= @service.user.language %></strong></h4>
+      <h4 class="service-show-info">Price</h4>
+      <h4 class="service-show-info"style="color:#0030ff"><strong>USD <%= @service.price %></strong></h4>
+      <h4 class="service-show-info">Office Location</h4>
+      <h4 class="service-show-info"style="color:#0030ff"><strong><%= @service.location %></strong></h4>
+      <h4 class="service-show-info">Date & Time</h4>
+      <h4 class="service-show-info"style="color:#0030ff"><strong><%= @booking.booking_date %></strong></h4>
+      <div id="id" class="service-show-info carousel slide" data-ride="carousel" data-interval="2000">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="pl-3 pt-3 service-show-carrousel">
+              <h4 style="color:#0030ff"><strong>Congratulations!</strong></h4>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="pl-3 pt-3 service-show-carrousel">
+              <h4 style="color:#0030ff"><strong>Good luck with your nutritionist!</strong></h4>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
-  <div id="id" class="carousel slide" data-ride="carousel" data-interval="2500">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="pl-3 pt-3 service-carrousel">
-          <h4>Nationality</h4>
-          <h4 style="color:#0030ff"><strong><%= @service.user.nationality %></strong></h4>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="pl-3 pt-3 service-carrousel">
-          <h4>Language</h4>
-          <h4 style="color:#0030ff"><strong><%= @service.user.language %></strong></h4>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="id" class="carousel slide" data-ride="carousel" data-interval="2000">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="pl-3 pt-3 service-carrousel">
-          <h4>Time & Date</h4>
-          <h4 style="color:#0030ff"><strong><%= @booking.booking_date %></strong></h4>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="pl-3 pt-3 service-carrousel">
-          <h4>Congratulations!</h4>
-          <h4 style="color:#0030ff"><strong>Good luck with your nutritionist!</strong></h4>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div
+    id="map"
+    class="col-6" 
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
 </div>
-
-    <div
-      id="map" class="col-6"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
-  </div>
 </div>
