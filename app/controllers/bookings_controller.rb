@@ -76,7 +76,7 @@ class BookingsController < ApplicationController
 
     zoom_token = helpers.refresh_zoom_token(old_token, @nutritionist.zoom_refresh_token, @nutritionist.zoom_expiration)
 
-    Rails.logger.info("Could not renew zoom token for user #{@nutritionist.id}") if zoom_token.nil ?
+    Rails.logger.info("Could not renew zoom token for user #{@nutritionist.id}") if zoom_token.nil?
     return nil if zoom_token.nil?
 
     @nutritionist.save_zoom_token(zoom_token) unless old_token.eql? zoom_token[:token]

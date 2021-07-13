@@ -3,8 +3,6 @@ require 'faraday_middleware'
 require 'json'
 require 'base64'
 require 'date'
-require 'activesupport'
-
 
 module ZoomHelper
   @@json_client = Faraday.new do |f|
