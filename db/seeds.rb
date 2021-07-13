@@ -15,7 +15,7 @@ User.delete_all
 puts 'Creating new seeds'
 file_1 = URI.open('https://images.unsplash.com/photo-1485893086445-ed75865251e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80')
 user_1 = User.create!(
-  email: 'rociojalifi@gmail.com',
+  email: 'jalifirocio@gmail.com',
   password: '123456',
   full_name: 'Rocio Jalifi',
   role: 'Nutritionist',
@@ -121,7 +121,7 @@ user_9 = User.create!(
 user_9.photo.attach(io: file_9, filename: 'nes_9.jpg', content_type: 'image/jpg')
 user_9.save
 
-file_10 = URI.open('https://images.unsplash.com/photo-1537368910025-700350fe46c7?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZG9jdG9yc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')
+file_10 = URI.open('https://images.unsplash.com/photo-1529068755536-a5ade0dcb4e8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=501&q=80')
 user_10 = User.create!(
   email: 'antoniogarcia1@gmail.com',
   password: '123456',
@@ -145,7 +145,7 @@ user_11 = User.create!(
 user_11.photo.attach(io: file_11, filename: 'nes_11.jpg', content_type: 'image/jpg')
 user_11.save
 
-file_12 = URI.open('https://images.unsplash.com/photo-1577744168855-0391d2ed2b3a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bWFufGVufDB8MnwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')
+file_12 = URI.open('https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80')
 user_12 = User.create!(
   email: 'andresnutricion@gmail.com',
   password: '123456',
@@ -277,7 +277,7 @@ user_22 = User.create!(
 user_22.photo.attach(io: file_22, filename: 'nes_22.jpg', content_type: 'image/jpg')
 user_22.save
 
-file_23 = URI.open('https://images.unsplash.com/photo-1579119986241-5e72d26cb690?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')
+file_23 = URI.open('https://images.unsplash.com/photo-1529068755536-a5ade0dcb4e8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=501&q=80')
 user_23 = User.create!(
   email: 'dossantos@gmail.com',
   password: '123456',
@@ -325,11 +325,11 @@ user_26 = User.create!(
 user_26.photo.attach(io: file_26, filename: 'nes_26.jpg', content_type: 'image/jpg')
 user_26.save
 
-file_27 = URI.open('https://images.unsplash.com/photo-1595687825617-10c4d36566e7?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTA1fHx3b21hbnxlbnwwfDJ8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')
+file_27 = URI.open('https://images.unsplash.com/photo-1593439411281-6500cf61961c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTExfHx3b21hbnxlbnwwfDJ8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')
 user_27 = User.create!(
-  email: 'karemst@gmail.com',
+  email: 'eugenia@estudioamaya.net',
   password: '123456',
-  full_name: 'Karem Stewart',
+  full_name: 'Eugenia Amaya',
   role: 'Patient',
   language: 'Spanish',
   nationality: 'Argentinian' 
