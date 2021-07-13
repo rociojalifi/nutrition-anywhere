@@ -1,8 +1,4 @@
-require 'net/http'
-require 'uri'
 require 'json'
-require 'faraday'
-require 'faraday_middleware'
 
 class BookingsController < ApplicationController
   after_action :create_meeting, only: :create
@@ -76,61 +72,40 @@ class BookingsController < ApplicationController
 
     return nil unless @nutritionist.zoom_token?
 
+    zoom_token = helpers.renew_zoom_token(@nutritionist.zoom_token, @nutritionist.zoom_refresh_token, @nutritionist.zoom_expiration)
+
+    Rails.logger.info("Could not renew zoom token for user #{@nutritionist.id}") if zoom_token.nil ?
+    return nil if zoom_token.nil?
+
+    @nutritionist.save_zoom_token(zoom_token)
+
     @booking = Booking.last
 
-    zoom_api_base_url = "https://api.zoom.us/v2"
-    meetings_url = "#{zoom_api_base_url}/users/me/meetings"
-
-    params = {
-      "topic": @booking.service.speciality,
-      "type": 2,
-      "start_time": @booking.booking_date,
-      "duration": 60,
-      "host_id": @booking.service.user.id,
-      "settings": {
-        "host_video": true,
-        "participant_video": true,
-        "join_before_host": false,
-        "mute_upon_entry": false,
-        "enforce_login": true,
-        "registrants_email_notification": true
-      }
+    meeting_info = {
+      # TODO: nice meeting topic
+      topic: @booking.service.speciality,
+      date: @booking.booking_date,
+      duration: 60,
     }
 
-    client = Faraday.new do |f|
-      f.request :json
-      f.response :json
-    end
+    result = helpers.create_zoom_meeting(zoom_token[:token], meeting_info)
 
-    response = client.post(meetings_url) do |request|
-      request.headers['Content-Type'] = 'application/json'
-      request.headers['Authorization'] = "Bearer #{@nutritionist.zoom_token}"
-      request.body = params
-    end
+    Rails.logger.info("Could create zoom meeting for #{@booking.id}") if result.nil?
+    return nil if result.nil?
 
-    return nil unless response.status < 300
-
-    @booking.meeting_url = response.body['start_url']
-    @booking.meeting_metadata = response.body.to_json
+    @booking.meeting_url = result[:url]
+    @booking.meeting_metadata = result[:metadata].to_json
     @booking.save
 
-    meeting_id = response.body['id']
-
-    participants_url = "#{zoom_api_base_url}/meetings/#{meeting_id}/registrants"
-
-    participants_params = {
-      "email": current_user.email,
-      "first_name": current_user.name_or_email
+    participants_info = {
+      email: current_user.email,
+      name: current_user.name_or_email
     }
 
-    response = client.post(participants_url) do |req|
-      req.headers['Content-Type'] = 'application/json'
-      req.headers['Authorization'] = "Bearer #{@nutritionist.zoom_token}"
-      req.body = participants_params
-    end
+    success = helpers.add_participant_to_zoom_meeting(zoom_token[:token], result[:id], participants_info)
 
-    Rails.logger.info("info :: Added patient ##{current_user.id} to Zoom meeting ##{meeting_id}. Status #{response.status}") unless response.status > 299
-    Rails.logger.info("info :: Could not add patient ##{current_user.id} to Zoom meeting ##{meeting_id}") unless response.status < 300
+    Rails.logger.info("info :: Added patient ##{current_user.id} to Zoom meeting ##{result[:id]}. Status #{response.status}") if success
+    Rails.logger.info("info :: Could not add patient ##{current_user.id} to Zoom meeting ##{result[:id]}") unless success
   end
 
   private
