@@ -1,14 +1,33 @@
 <div class="container">
-  <h1>Settings</h1>
+  <section>
 
-  <% if current_user.nutritionist? %>
-    <section class="mb-5">
-      <h3>Zoom</h3>
-      <% if current_user.zoom_token? %>
-        <div>Congratulations you logged in with Zoom</div>
-      <% else %>
-        <%= link_to "Connect to Zoom", "https://zoom.us/oauth/authorize?client_id=#{ENV['ZOOM_CLIENT_ID']}&response_type=code&redirect_uri=#{ENV['ZOOM_CALLBACK']}", class: "btn btn-primary" %>
-      <% end %>
-    <section>
-  <% end %>
+
+    <h1>
+      Hello <%=  current_user.full_name %>,
+    </h1>
+    <p style="color:#727272;">Thank you for being a loyal Nutrition Anywhere member.</p>
+  <section>
+
+  <section class="bg-light border shadow mb-5">
+    <h3>Account</h3>
+    <p>Username: <%= current_user.full_name %></p>
+    <p>E-mail Address: <%= current_user.email %></p>
+    <p>Password: ********</p>
+    <p>Language: <%= current_user.language %></p>
+    <p>Nationality: <%= current_user.nationality %></p>
+
+    <% if current_user.nutritionist? %>
+      <section class="mb-5">
+        <% if current_user.zoom_token? %>
+          <div>Congratulations you logged in with Zoom</div>
+        <% else %>
+          <%= link_to "Connect to Zoom", "https://zoom.us/oauth/authorize?client_id=#{ENV['ZOOM_CLIENT_ID']}&response_type=code&redirect_uri=#{ENV['ZOOM_CALLBACK']}", class: "btn btn-primary" %>
+        <% end %>
+      <section>
+    <% end %>
+    
+    <%= link_to "Edit my account", edit_user_registration_path, class:"btn" %>
+
+    <%= link_to "Cancel my account",  destroy_user_session_path, data: { confirm: "Are you sure?" }, method: :delete, class:"btn" %>
+  <section>
 </div>
