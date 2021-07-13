@@ -72,12 +72,14 @@ class BookingsController < ApplicationController
 
     return nil unless @nutritionist.zoom_token?
 
-    zoom_token = helpers.renew_zoom_token(@nutritionist.zoom_token, @nutritionist.zoom_refresh_token, @nutritionist.zoom_expiration)
+    old_token = @nutritionist.zoom_token
+
+    zoom_token = helpers.refresh_zoom_token(old_token, @nutritionist.zoom_refresh_token, @nutritionist.zoom_expiration)
 
     Rails.logger.info("Could not renew zoom token for user #{@nutritionist.id}") if zoom_token.nil ?
     return nil if zoom_token.nil?
 
-    @nutritionist.save_zoom_token(zoom_token)
+    @nutritionist.save_zoom_token(zoom_token) unless old_token.eql? zoom_token[:token]
 
     @booking = Booking.last
 
@@ -93,9 +95,7 @@ class BookingsController < ApplicationController
     Rails.logger.info("Could create zoom meeting for #{@booking.id}") if result.nil?
     return nil if result.nil?
 
-    @booking.meeting_url = result[:url]
-    @booking.meeting_metadata = result[:metadata].to_json
-    @booking.save
+    @booking.save_meeting(result[:url], result[:metadata].to_json)
 
     participants_info = {
       email: current_user.email,

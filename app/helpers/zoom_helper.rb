@@ -7,7 +7,7 @@ require 'activesupport'
 
 
 module ZoomHelper
-  @@fetch_client = Faraday.new do |f|
+  @@json_client = Faraday.new do |f|
     f.request :json
     f.response :json
   end
@@ -32,7 +32,7 @@ module ZoomHelper
       }
     }
 
-    response = @@fetch_client.post(url) do |request|
+    response = @@json_client.post(url) do |request|
       request.headers['Content-Type'] = 'application/json'
       request.headers['Authorization'] = "Bearer #{token}"
       request.body = params
@@ -54,7 +54,7 @@ module ZoomHelper
       "first_name": participant_info[:name]
     }
 
-    response = @@fetch_client.post(url) do |request|
+    response = @@json_client.post(url) do |request|
       request.headers['Content-Type'] = 'application/json'
       request.headers['Authorization'] = "Bearer #{token}"
       request.body = params
@@ -63,7 +63,7 @@ module ZoomHelper
     response.status < 300
   end
 
-  def renew_zoom_token(token, refresh_token, expiration)
+  def refresh_zoom_token(token, refresh_token, expiration)
     now = DateTime.now
     did_not_expire_yet = now < DateTime.parse(expiration)
 
@@ -84,6 +84,6 @@ module ZoomHelper
 
     next_expiration = now + 60.minutes
 
-    {token: response.body['access_token'], refresh_token: response.body['access_token'], expiration: next_expiration.to_s}
+    {token: response.body['access_token'], refresh_token: response.body['refresh_token'], expiration: next_expiration.to_s}
   end
 end
