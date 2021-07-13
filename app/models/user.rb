@@ -27,4 +27,9 @@ class User < ApplicationRecord
     self.zoom_token = credentials.token
     self.save
   end
+
+  def name_or_email
+    return self.email unless self.full_name.present?
+    self.full_name
+  end
 end
