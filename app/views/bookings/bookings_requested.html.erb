@@ -14,6 +14,7 @@
             <p><i class="far fa-credit-card"></i>USD <%= booking_requested.service.price %></p>       
           </div>
           <div class="btn col-sm-3">
+            <%= link_to "Join meeting", booking_requested.meeting_url, class: 'btn btn-booking ' %>
             <%= link_to "I need to cancel", booking_path(booking_requested),
             method: :delete, data: { confirm: "Are you sure you want to delete this
             booking?" }, class:"btn btn-booking d-flex justify-content-center" %>
