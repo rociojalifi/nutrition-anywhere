@@ -1,79 +1,52 @@
-<hr />
-<div class="container">
+
+<div class="container booking-layout">
   <div class="mt-5 ml-3">
-    <h3>Book an Appointmet with <%= @service.user.full_name %></h3>
+    <h3 class="blue-titles">Book an Appointment with <%= @service.user.full_name %></h3>
+
     <div class="w-100 mt-3">
       <%= simple_form_for [@service, @booking] do |form| %> <%= form.input :booking_date, label: false %>
       <div class="d-flex justify-content-end mb-5">
-        <%= form.submit class:'btn btn-booking' %> <%= link_to "Choose Another",
+        <%= form.submit class:'btn btn-booking' %> <%= link_to "Go back",
         services_path, class:'btn ml-3b btn-booking ml-3' %> <% end %>
       </div>
     </div>
   </div>
 </div>
 
-<style>
-  .btn-booking {
-    background-color: #0030ff;
-    color: white;
-  }
-  .btn-booking:hover {
-    background-color: #3f61f7;
-    color: white;
-  }
-</style>
-
 <div class="container mb-5">
-  <div class="d-flex justify-content-around">
-    <%= render 'shared/card_booking' %>
-    <div
-      id="map"
-      style="width: 40vw; height: calc(80vh - 80px)"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-      class="shadow border"
-    ></div>
-  </div>
-  <br />
-  <br />
+  <div class="d-flex justify-content-around row">
 
-  <div class="pb-5 ml-3">
-    <div class="d-flex justify-content-between booking-content">
-      <div id="reviews">
-        <% if @service.reviews.blank? %>
-        <div class="reviews-title">
-          <h4 class="mb-3">
-            Be the first to leave a review for <%= @service.user.full_name %>
-          </h4>
-        </div>
-        <% else %>
-        <div>
-          <h4>What people say about <%= @service.user.full_name %>?</h4>
-          <% @service.reviews.each do |review| %>
-          <div class="mt-4 mb-4">
-            <p style="color: #3a3a3a"><%= review.content %></p>
-            <p class="mb-0">
-              <%= content_tag( :i, '', :class=>'fa fa-star', :style=>'color:
-              #E7A142') * review.rating %>
-            </p>
-            <p style="color: #3a3a3a">
-              <small>By: <%= review.user.full_name %></small>
-            </p>
+    <div
+    id="id"
+    class="carousel slide col-6"
+    data-ride="carousel"
+    data-interval="2000"
+  >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="pl-3 pt-3" style="font-family:helvetica; text-align:right">
+            <h3 >Nutritionist:</h3>
+            <h3 style="color:#0030ff"><strong><%= @service.user.full_name %></strong></h3>
+            <h3>Nationality:</h3>
+            <h3 style="color:#0030ff"><strong><%= @service.user.nationality %></strong></h3>
+            <h3>Language:</h3>
+            <h3 style="color:#0030ff"><strong><%= @service.user.language %></strong></h3>
+            <h3>Price p/appointment: </h3>
+            <h3 style="color:#0030ff"><strong>USD <%= @service.price %></strong></h3>
+            <h3>Office Location: </h3>
+            <h3 style="color:#0030ff"><strong><%= @service.location %></strong></h3>
           </div>
-          <% end %>
         </div>
       </div>
     </div>
-  </div>
-  <% end %>
-  </div>
- 
-  </div>
 
- <div class=" mb-5">
-    <%= simple_form_for [ @service, @review ] do |f| %>
-    <%= f.input :content,
-    as: :text, label: false, style: "font-size:20px", placeholder: "I am very happy"%> 
-    <%= f.input :rating, label: false, collection: 1..5, include_blank: false%> <%= f.button :submit,
-    class:'btn btn-booking' %> <% end %>
+    <div
+      id="map"
+      class="col-6"
+      style="width: 50vw; height: calc(100vh - 80px)"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
+
   </div>
+</div>

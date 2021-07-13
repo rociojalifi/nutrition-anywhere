@@ -11,6 +11,14 @@ class BookingsController < ApplicationController
   def show
     authorize @booking
     @service = @booking.service
+    @review = Review.new
+    @markers = [{
+      lat: @service.latitude,
+      lng: @service.longitude,
+      # info_window: render_to_string(partial: "info_window", locals: { booking: @booking }),
+      # image_url: helpers.asset_url('marker.png')
+
+    }]
   end
 
   def update

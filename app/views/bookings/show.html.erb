@@ -1,18 +1,46 @@
-<div class="container mb-5">
-  <div class="d-flex justify-content-around">
-    <div class="">
-      <%= render 'shared/card_booking_show' %>
-    </div>
+<div class="container booking-layout">
+  <div class="mt-5 ml-3">
+    <h3 class="blue-titles">Your booked appointment with <%= @service.user.full_name %></h3>
+
   </div>
-  <div class="text-center">
-      <%= link_to "Back to my bookings", bookings_requested_path, class:"btn btn-primary mt-3 mb-3" %>
-    </div>
 </div>
-<style>
-.btn-primary {
-    background-color: #0030FF;
-}
-.text-center{
-  text-align: end !important
-}
-</style>
+
+<div class="container mb-5">
+  <div class="d-flex justify-content-around row">
+
+    <div
+    id="id"
+    class="carousel slide col-6"
+    data-ride="carousel"
+    data-interval="2000"
+  >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="pl-3 pt-3" style="font-family:helvetica; text-align:right">
+            <h3 >Nutritionist:</h3>
+            <h3 style="color:#0030ff"><strong><%= @service.user.full_name %></strong></h3>
+            <h3>Nationality:</h3>
+            <h3 style="color:#0030ff"><strong><%= @service.user.nationality %></strong></h3>
+            <h3>Language:</h3>
+            <h3 style="color:#0030ff"><strong><%= @service.user.language %></strong></h3>
+            <h3>Price p/appointment: </h3>
+            <h3 style="color:#0030ff"><strong>USD <%= @service.price %></strong></h3>
+            <h3>Office Location: </h3>
+            <h3 style="color:#0030ff"><strong><%= @service.location %></strong></h3>
+            <h3>Date & Time: </h3>
+            <h3 style="color:#0030ff"><strong><%= @booking.booking_date %></strong></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="map"
+      class="col-6"
+      style="width: 50vw; height: calc(100vh - 80px)"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
+
+  </div>
+</div>
