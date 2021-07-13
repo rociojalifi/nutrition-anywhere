@@ -57,8 +57,6 @@ module ZoomHelper
       request.headers['Authorization'] = "Bearer #{token}"
       request.body = params
     end
-
-    Rails.logger.debug(response.body)
     
     response.status < 300
   end
