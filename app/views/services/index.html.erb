@@ -1,61 +1,89 @@
+
+
 <div class="container">
-  <div class="index-title">
-    <div style="padding-top: 50px; padding-bottom: 50px">
-      <h1 class= "row" style="font-size: 2rem; font-family: 'Nunito', 'Helvetica', 'sans-serif'; font-weight: 500; line-height: 0.5" > Available Services </h1>
-      <h1 class= "row" style= "font-weight: bolder; color: #0030ff; font-size: 2rem">for you</h1>
-    </div>
-     
+
+  <div class="mb-3">
+    <%= simple_form_for :query, url: services_path, method: "GET", html: {class: 'form-inline search-bar'} do |form|%>
+      <div class="form">
+        <%= form.input :speciality, label: 'Speciality', label: false, collection: ['Sports Nutritionism', 'Pediatric Nutritionism', 'Vegan Nutritionism', 'Keto Nutritionism',  'Oncology Nutritionism', 'Eating Disorder Nutritionism'], prompt: "All specialities" %>
+      </div>
+      <div class="form">
+        <%= form.input :price, label: 'Price', label: false, collection: ['70', '90', '100', '120', '150'], prompt: "All prices in USD"%>
+      </div>
+      <div class="form">
+        <%= form.input :nationality, label: 'Nutritionist Nationality', label: false, collection: ['Argentinian', 'Spanish', 'French', 'Italian', 'Portuguese', 'Chinese'], prompt: "All nationalities" %>
+      </div>
+      <div class="form">
+        <%= form.input :language, label: 'Nutritionist Language', label: false, collection: ['Spanish', 'French', 'Italian', 'Portuguese', 'Mandarin Chinese'], prompt: "All languages"%>
+      </div>
+      <div class="form">
+        <%= form.submit "Find a nutritionist", class:"btn btn-booking" %>
+      </div>
+    <%end%> 
   </div>
-    <div class="cards" style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 16 px">
-      <% @services.each do |service| %>
-      <div class="card-service-container">
-        <div class="card-product" style=" overflow: hidden;
-        width: 350px;
-        height: 520px;
-        margin-bottom: 30px;
-        background: white;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-        display: flex;
-        align-items: center;
-        padding: 50px 20px">
-          <div class="card-content" style= "text-align: center">
-            <div class="card-title" style= "height: 106px; padding: 25px 0;">
-              <h5 style="font-size: 2rem; line-height: 1.2; padding: 15px"><strong><%= service.speciality %></strong></h5>
-            </div>
-            <div class="card-price" style= "height: 24px; padding: 15px 0">
-              <h5 class="card-price">
-                <strong>USD<%= service.price %></strong> / per consult
-              </h5>
-            </div>
-            <div class="card-professional" style= "height: 267px">
-              <p style="font-size: 1rem; font-family: 'Nunito', 'Helvetica', 'sans-serif'; font-weight: 500; line-height: 1.2;    padding-top: 5px;
-              padding-bottom: 5px; padding-top: 20px"></p>
-              <p>Professional name: <%= service.user.full_name %></p>
-              <p>Nationality: <%= service.user.nationality %></p>
-              <p>Language: <%= service.user.language %></p>
-              <p>Contact: <%= service.user.email %></p>
-              <p id="city">Office location: <%= service.location %></p>
-              <% service.reviews.each do |review| %>
-              <p>Review: <%= review.rating %></p>
-              <p>Review: <%= review.content %></p>
-              <% end %>
-            </div>
-            <div class="user-button" style="color: #0030ff; border-color: #0030ff; color: white; height: 63px">
-              <h5 class="vtn card-title" style="padding: 15px">
-                <%= link_to 'Book Appointment', service_path(service), class:'btn btn-primary btn-navbar' %>
-              </h5>
-              <div class="user-button-actions">
-                <% if policy(service).edit? %> <%= link_to 'Edit Service',
-                edit_service_path(service), class:'btn btn-primary' %> <% end %> <% if
-                policy(service).destroy? %> <%= link_to 'Delete Service', service_path(service),
-                method: :delete, data: { confirm: "Are you sure you want to
-                delete this service?"}, class: 'btn btn-primary btn-navbar' %> <% end %>
+
+  <div class= "" style="padding-top: 50px; padding-bottom: 50px">
+    <h5 class= "titles">Find a nutritionist of</h5>
+    <h1 class= "blue-titles"><span id="index-title-typed-text" ></span></h1>
+
+    <div class="d-flex justify-content-start"> 
+      <% if "#{@search_params[:speciality]}" == "" %>
+      <% else %>
+        <p class= "mr-3"><strong>Service Speciality:</strong> <%="#{@search_params[:speciality]}" %> </p>
+      <% end %>
+
+      <% if "#{@search_params[:price]}" == "" %>
+      <% else %>
+        <p class= "mr-3"><strong>Service Price in USD:</strong> <%="#{@search_params[:price]}" %> </p>
+      <% end %>
+
+      <% if "#{@search_params[:nationality]}" == "" %>
+      <% else %>
+        <p class= "mr-3"><strong>Nutritionist Nationality:</strong> <%="#{@search_params[:nationality]}" %> </p>
+      <% end %>
+
+      <% if "#{@search_params[:language]}" == "" %>
+      <% else %>
+        <p class= "mr-3"><strong>Nutritionist Language:</strong> <%="#{@search_params[:language]}" %> </p>
+      <% end %>
+    </div> 
+  </div>
+
+  <div class="cards" style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 16 px">
+    <% @services.each do |service| %>
+    <div class="card-service-container">
+      <div class="card-product-index d-flex justify-content-center">
+        <div class="index-card-content" style= "text-align: center">
+          <div class="index-card-title">
+            <h5 class= "card-titles"><strong><%= service.speciality %></strong></h5>
+          </div>
+          <div class="index-card-info">
+            <p><i class="far fa-credit-card"></i>USD<%= service.price %> /per appointment</p>
+            <p><i class="fas fa-male p-1"></i><%= service.user.full_name %></p>
+            <p><i class="fas fa-globe-americas"></i><%= service.user.nationality %></p>
+            <p><i class="fas fa-language"></i><%= service.user.language %></p>
+            <p><i class="far fa-envelope"></i><%= service.user.email %></p>
+            <p id="city"><i class="far fa-building"></i><%= service.location %></p>
+          </div>
+          <div class="index-card-btn user-button" >
+            <h5 class="vtn card-title">
+            <% if current_user.nutritionist? %>
+              <div class="user-button-actions d-flex justify-content-center mb-5">
+              <% if policy(service).edit? %> <%= link_to 'Edit',
+              edit_service_path(service), class:'btn btn-booking' %> <% end %> <% if
+              policy(service).destroy? %> <%= link_to 'Delete', service_path(service),
+              method: :delete, data: { confirm: "Are you sure you want to
+              delete this service?"}, class: 'btn btn-booking ml-3' %> <% end %>
               </div>
-            </div>
+              <% else %>
+                <%= link_to 'Book Appointment', service_path(service), class:'btn btn-booking' %>
+              <% end %>
+            </h5>
+            
           </div>
         </div>
       </div>
-      <% end %>
     </div>
-      
+    <% end %>
+  </div>
 </div>

@@ -1,13 +1,27 @@
-<h1>Your bookings </h1>
+<div class="container">
+  <h1><span id="title-typed-text" ></span></h1>
+    <div class="container">
+      <% @bookings_given.each do |booking_given| %>
+        <div class="card-product col-sm-12">
+          <div class="card-img col-sm-3">
+            <%= cl_image_tag booking_given.user.photo.key, class:
+            "img-fluid rounded-start avatar-square" %>
+          </div>
+          <div class="card-info col-sm-6 d-flex flex-column justify-content-center">
+            <p><i class="fas fa-male p-1"></i><%= booking_given.user.full_name %></p>
+            <p><i class="fas fa-calendar-day p-1"></i><%= booking_given.booking_date %></p>
+            <p><i class="fas fa-apple-alt p-1"></i><%= booking_given.service.speciality %></p>       
+          </div>
+          <div class="btn col-sm-3">
+            <%= link_to "I need to cancel", booking_path(booking_given), method:
+            :delete, data: { confirm: "Are you sure you want to cancel this
+            booking?" }, class:"btn btn-booking d-flex justify-content-center" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+</div>
 
-<%= @bookings_given.each do |booking_given|  %>
-<%= link_to service_path(booking_given.service) do %>
-<%= cl_image_tag booking_given.service.user.photo.key, class: "img-fluid rounded-start" %>
-<% end %>
-<h5><%= booking_given.service.speciality %> <%= booking_given.service.price %></h5>
-<p>Professional <%= booking_given.user.full_name %></p>
-<p>Value: <%= booking_given.service.price %>/per hour</p>
-<p>Date: <%= booking_given.booking_date %></p>
-<p>Location: <%= booking_given.location.present? ? booking_given.location : "Link-zoom"%></p>
-<%= link_to "Delete this booking", booking_path(booking_given), method: :delete, data: { confirm: "Are you sure you want to delete this booking?" } %>
-<% end %>
+
+
+

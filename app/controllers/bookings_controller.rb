@@ -20,24 +20,29 @@ class BookingsController < ApplicationController
   def destroy
     authorize @booking
     @booking.destroy
-    redirect_to root_path
+    redirect_to services_path
   end
 
   def new
     @booking = Booking.new
+    @service = Service.find(params[:service_id])
+    @markers = [{
+      lat: @service.latitude,
+      lng: @service.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { service: @service }),
+    }]
   end
-
+  
   def create
     @service = Service.find(params[:service_id])
     @booking = Booking.new(booking_params)
     authorize @booking
     @booking.service = @service
     @booking.user = current_user
+
     if @booking.save
       flash[:notice] = "Congratulations your booking has been confirmed"
       redirect_to booking_path(@booking)
-    else
-   #   redirect_to bike_path(@service)
     end
   end
 

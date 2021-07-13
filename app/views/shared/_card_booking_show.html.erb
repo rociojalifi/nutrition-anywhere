@@ -1,21 +1,22 @@
- <div class="card ml-3 rounded shadow" style="width: 18rem">
+ <div class="card ml-3 rounded shadow" style="width: 25rem">
     <%= image_tag "search.png", class:"card-img-top", alt:"Third slide"%>
     <div class="card-body">
       <h5 class="card-title">Your booking details</h5>
       <p class="card-text">
-        €  <%= @service.price %> / per hour
+       <p class="card-text">
+        <strong>Profesional Speciality: </strong><%= @service.speciality %> 
+      </p>
+        <strong>Price:</strong> €  <%= @service.price %> / per hour
+      </p>
+
+      <p class="card-text">
+        <strong>Nutritionist: </strong><%= @service.user.full_name %>
       </p>
       <p class="card-text">
-        <%= @service.speciality %> 
+        <strong>Professional Language: </strong><%= @service.user.language %> 
       </p>
       <p class="card-text">
-        <%= @service.user.full_name %>
-      </p>
-      <p class="card-text">
-        <%= @service.user.language %> 
-      </p>
-      <p class="card-text">
-      <%= @booking.booking_date %>
+      <strong>Date: </strong> <%= @booking.booking_date %>
       </p> 
     </div>
   </div>

@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2021_07_12_182033) do
+
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +45,8 @@ ActiveRecord::Schema.define(version: 2021_07_12_182033) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
     t.bigint "service_id", null: false
+    t.string "meeting_url"
+    t.string "meeting_metadata"
     t.index ["service_id"], name: "index_bookings_on_service_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -82,6 +87,7 @@ ActiveRecord::Schema.define(version: 2021_07_12_182033) do
     t.string "role"
     t.string "language"
     t.string "nationality"
+    t.string "zoom_token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

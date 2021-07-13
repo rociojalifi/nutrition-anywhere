@@ -1,18 +1,18 @@
 
 <div class="container">
-  <h1 class="text-center mt-3">Work as a Nutritionist from Anywhere </h1>
+  <h1 class="text-center mt-3">Work at <span style="font-family: 'Otomanopee One', sans-serif; color: #0030ff">Nutrition Anywhere</span></h1>
 
   <div class="row justify-content-center">
     <div class="col-xs-12 col-sm-4 col-sm-offset-4">
     <div class="form-login">
       <h2 class="">Place your service</h2>
         <%= simple_form_for @service do |f| %>
-        <%= f.input :price, label: "Price ($ / hour)" %>
-        <%= f.input :speciality, label:"ex: Vegan Specialist" %>
+        <%= f.input :price, label: "Price ($ / hour)", placeholder: "USD 60" %>
+        <%= f.input :speciality, label:"Speciality", placeholder: "Vegan Nutrition"  %>
         <%= f.simple_fields_for :users do |posts_form| %>
-        <%= posts_form.input :full_name %>
-        <%= posts_form.input :nationality %>
-        <%= posts_form.input :language %>
+        <%= posts_form.input :full_name, placeholder: "Rocio Jalifi" %>
+        <%= posts_form.input :nationality, placeholder: "Argentinian" %>
+        <%= posts_form.input :language, placeholder:"Spanish" %>
 
             <% end %>
           <%= f.button :submit, "Submit information", class:"btn" %>
@@ -23,3 +23,4 @@
   </div>
 
 </div>
+Nutrition Anywhere<span>

@@ -133,6 +133,7 @@ user_10 = User.create!(
 user_10.photo.attach(io: file_10, filename: 'nes_10.jpg', content_type: 'image/jpg')
 user_10.save
 
+
 file_11 = URI.open('https://images.unsplash.com/photo-1518577915332-c2a19f149a75?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=484&q=80')
 user_11 = User.create!(
   email: 'rcarla@gmail.com',
@@ -168,6 +169,7 @@ user_13 = User.create!(
 )
 user_13.photo.attach(io: file_13, filename: 'nes_13.jpg', content_type: 'image/jpg')
 user_13.save
+
 
 file_14 = URI.open('https://images.unsplash.com/photo-1617200785733-6237c87c9ece?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')
 user_14 = User.create!(
@@ -372,6 +374,7 @@ user_30 = User.create!(
 )
 user_30.photo.attach(io: file_30, filename: 'nes_30.jpg', content_type: 'image/jpg')
 user_30.save
+
 
 service_1 = Service.create!(
   speciality: 'Oncology Nutritionism',

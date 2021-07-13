@@ -1,31 +1,30 @@
 <div class="container">
-
+<div class="mb-3">
+      <%= simple_form_for :query, url: services_path, method: "GET", html: {class: 'form-inline search-bar'} do |form|%>
+        <div class="form">
+          <%= form.input :speciality, label: 'Speciality', label: false, collection: ['Sports Nutritionism', 'Pediatric Nutritionism', 'Vegan Nutritionism', 'Keto Nutritionism',  'Oncology Nutritionism', 'Eating Disorder Nutritionism'], prompt: "All specialities" %>
+        </div>
+        <div class="form">
+          <%= form.input :price, label: 'Price', label: false, collection: ['70', '90', '100', '120', '150'], prompt: "All prices in USD"%>
+        </div>
+        <div class="form">
+          <%= form.input :nationality, label: 'Nutritionist Nationality', label: false, collection: ['Argentinian', 'Spanish', 'French', 'Italian', 'Portuguese', 'Chinese'], prompt: "All nationalities" %>
+        </div>
+        <div class="form">
+          <%= form.input :language, label: 'Nutritionist Language', label: false, collection: ['Spanish', 'French', 'Italian', 'Portuguese', 'Mandarin Chinese'], prompt: "All languages"%>
+        </div>
+        <div class="form">
+          <%= form.submit "Find a nutritionist", class:"btn btn-booking" %>
+        </div>
+      <%end%> 
+  </div>
+  
   <%= render 'slider' %>
   <br>
-  <h4 class="mt-5 mb-3 pl-3">Search a Nutritionist according to your needs</h4>
-      <%= simple_form_for :search, url: services_path, html: {class: 'form-inline search-bar'}, method: "GET" do |form| %>
-        <div class="form">
-          <%= form.input :speciality, inline_label: 'Speciality', label: false, collection: ['Sports Nutrition', 'Keto Specialist', 'Vegan Specialits', 'Lose weight Specialist',  'Celiac disease Specialist', 'Eating Disorder Specialist'],include_blank: false%>
-        </div>
-        <div class="form">
-          <%= form.input :price, inline_label: 'Price', label: false, collection: ['$70', '$90', '$100', '$120', '$150'], include_blank: false %>
-        </div>
-        <div class="form">
-          <%= form.input :nationality,  inline_label: 'Nutritionist Nationality', label: false, collection: ['Argentinian', 'Spanish', 'French', 'Italian', 'Portuguese', 'Chinese'], include_blank: false %>
-        </div>
-        <div class="form">
-          <%= form.input :language,  inline_label: 'Nutritionist Language', label: false, collection: ['Spanish', 'French', 'Italian', 'Portuguese', 'Mandarin Chinese'], include_blank: false %>
-        </div>
-        <div class="form">
-          <%= form.submit "Find a nutritionist", class:"btn btn-primary" %>
-        </div>
-        <div class="form">
-          <%= link_to "See all", services_path ,class:"btn btn-primary" %>
-        </div>
-      <%end%>   
-
+   
+<section class="sections">
 <div class="works-wraper pb-4">
-  <h4 class=" pt-5 ml-3">How does it work?</h4>
+  <h4 class=" pt-5 ml-3">How does it work <span style="font-family: 'Otomanopee One', sans-serif; color: #0030ff">Nutrition Anywhere<span>?</h4>
 
   <div class="container text-center pt-3 ">
     <!-- cards produc -->
@@ -35,8 +34,7 @@
         <%= image_tag "sing-in", class:"card-img-top", alt:"Third slide"%>
 
         <div class="card-body">
-        <i class="fas fa-search"></i>
-          <h5 class="card-title">Sign in</h5>
+          <h5 class="card-title">Sign Up</h5>
           <p class="card-text">
            Do you have an account? Make sure you have one to check our Nutritionists!
           </p>
@@ -47,7 +45,6 @@
       <div class="card ml-3 rounded shadow" style="width: 18rem">
         <%= image_tag "search", class:"card-img-top", alt:"Third slide"%>
         <div class="card-body">
-          <i class="fas fa-calendar-check"></i>
           <h5 class="card-title">Find a Nutritionist</h5>
           <p class="card-text">
             Are you an expats and you want a Nutritionist that speaks your language? Find the Nutritionist according to your needs!
@@ -59,7 +56,6 @@
       <div class="card ml-3 rounded shadow" style="width: 18rem">
         <%= image_tag "booking", class:"card-img-top", alt:"Third slide"%>
         <div class="card-body">
-          <i class="fas fa-comments"></i>
           <h5 class="card-title">Book the Appointmet</h5>
           <p class="card-text">
             Did you find the perfect Nutritionist? It is time to book the appointment!
@@ -70,7 +66,6 @@
       <div class="card ml-3 rounded shadow" style="width: 18rem">
         <%= image_tag "feedback", class:"card-img-top", alt:"Third slide"%>
         <div class="card-body">
-          <i class="fas fa-sign-in-alt" aria-hidden="true"></i>
           <h5 class="card-title">Leave a feedback</h5>
           <p class="card-text">
             Are you happy with the service provided by our Nutritionist? We want to know your opinion!
@@ -79,6 +74,111 @@
       </div>
     </div>
   </div>
+  </section>
+  <section class= "mb-5">
+  <h4 class="mt-5 ml-3">Are you a Nutritionist and want to be part of <span style="font-family: 'Otomanopee One', sans-serif; color: #0030ff">Nutrition Anywhere<span>?</h4>
+
+  <div class="container text-center pt-3 ">
+    <!-- cards produc -->
+    <div class="d-flex justify-content-center">
+      <!-- card produc 1 -->
+      <div class="card ml-3 rounded shadow" style="width: 18rem">
+        <%= image_tag "singup-nutri", class:"card-img-top", alt:"Third slide"%>
+
+        <div class="card-body">
+          <h5 class="card-title">Sign Up</h5>
+          <p class="card-text">
+            We are happy you want to be part of Nutrition Anywhere! First step is to create your account.</p>
+        </div>
+      </div>
+
+      <!-- card produc 2 -->
+      <div class="card ml-3 rounded shadow" style="width: 18rem">
+        <%= image_tag "post", class:"card-img-top", alt:"Third slide"%>
+        <div class="card-body">
+          <h5 class="card-title">Post a Service</h5>
+          <p class="card-text">
+            Time to post your service! After that one of our specialist will be in touch with you to certificate your knowledge.
+          </p>
+        </div>
+      </div>
+
+      <!-- card produc 3 -->
+      <div class="card ml-3 rounded shadow" style="width: 18rem">
+        <%= image_tag "connect", class:"card-img-top", alt:"Third slide"%>
+        <div class="card-body">
+          <h5 class="card-title">Connect with People</h5>
+          <p class="card-text">
+          Your profile has been aproved! Time to start connecting with people from around the world.         </p>
+        </div>
+      </div>
+
+      <div class="card ml-3 rounded shadow" style="width: 18rem">
+        <%= image_tag "receive-feedback", class:"card-img-top", alt:"Third slide"%>
+        <div class="card-body">
+          <h5 class="card-title">Receive feedback</h5>
+          <p class="card-text">
+            Be willing to receive feedback! Is the only way to know you are on the right way! Keep going!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class=" sections ">
+  <h4 class=" pt-3 ml-3 pb-3">What people say about <span style="font-family: 'Otomanopee One', sans-serif; color: #0030ff">Nutrition Anywhere<span></h4>
+<div class="d-flex justify-content-center text-center">
+    <div class="card ml-3 reviews shadow" style="width: 18rem">
+        <div class="card-body">
+          <p class="d-flex justify-content-center review-stars"><i class="fas fa-star"> </i>
+              <i class="fas fa-star"> </i>
+              <i class="fas fa-star"> </i>
+              <i class="fas fa-star"> </i>
+              <i class="fas fa-star"> </i>
+          </p>
+          <p class="card-text">
+          My experience with Nutrition Anywhere was amazing! They have great professionals. My goal was to lose weight and I accomplished it successfully!          <p class="card-text">
+          <small>Gustavo Hernandez | London, England</small>
+           </p>
+        </div>
+      </div>
+
+    <div class="card ml-3 reviews shadow" style="width: 18rem">
+  <div class="card-body">
+        <p class="d-flex justify-content-center review-stars"><i class="fas fa-star"> </i>
+              <i class="fas fa-star"> </i>
+              <i class="fas fa-star"> </i>
+              <i class="fas fa-star"> </i>
+              <i class="fas fa-star"> </i>
+          </p>
+    <p class="card-text">
+      ¡Mi experiencia con Nutrition Anywhere fue increíble! Tienen grandes profesionales. ¡Mi objetivo era bajar de peso y lo logré con éxito!
+    </p>
+    <p class="card-text">
+      <small>Eugenia Amaya | Mendoza, Argentina</small>
+    </p>
+  </div>
+</div>
+<div class="card ml-3 reviews shadow" style="width: 18rem">
+  <div class="card-body">
+        <p class="d-flex justify-content-center review-stars"><i class="fas fa-star"> </i>
+              <i class="fas fa-star"> </i>
+              <i class="fas fa-star"> </i>
+              <i class="fas fa-star"> </i>
+              <i class="fas fa-star"> </i>
+          </p>
+    <p class="card-text">
+      Mijn ervaring met Nutrition Anywhere was geweldig! Ze hebben geweldige vakmensen. Mijn doel was om af te vallen en dat is gelukt!
+    </p>
+    <p class="card-text">
+      <small>Glenn Gunter | Berlin, Germany</small>
+    </p>
+  </div>
+</div>
+
+</div>
+
+</section>
 </div>
 
 
@@ -89,4 +189,9 @@
 .search-bar{
     justify-content: center;
     }
+
+.sections{
+  padding-top:70px;
+  padding-bottom:70px;
+}
 </style>

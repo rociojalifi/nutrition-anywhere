@@ -1,24 +1,28 @@
 class ServicesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:show]
   before_action :set_service, only: [:show, :edit, :update, :destroy]
 
   def index
     @services = policy_scope(Service)
-    if user_signed_in?
-      if current_user.nutritionist? 
-        @services = current_user.services
-      end
-    else
-
+    @array = [" Nutritionist Nationality"," Nutritionist Language"," Service Speciality"," Service Price"]
+    @search_params = {}
       @users = policy_scope(User)
       @services = policy_scope(Service)
-      @search = params["search"]
+      @search = params["query"]
       if @search.present?
+
         @nationality = @search["nationality"]
         @language = @search["language"]
         @speciality = @search["speciality"]
         @price = @search["price"]
         
+        @search_params = {
+          service: @service,
+          nationality: @nationality,
+          speciality: @speciality,
+          price: @price
+          }
+
         if !@nationality.empty? && !@language.empty?
           @users = User.where(nationality: @nationality, language: @language)
         elsif !@nationality.empty?
@@ -53,13 +57,19 @@ class ServicesController < ApplicationController
       else
         @services = policy_scope(Service)
       end
-    end
   end
 
   def show
     authorize @service
     @booking = Booking.new
-    @review = Review.new 
+    @review = Review.new
+    @markers = [{
+      lat: @service.latitude,
+      lng: @service.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { service: @service }),
+      # image_url: helpers.asset_url('marker.png')
+
+    }]
   end
 
   def new
