@@ -1,19 +1,41 @@
+.form {
+  margin: 5px;
+}
+
+.search-bar{
+  justify-content: center;
+  }
+
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16 px;
 }
 
-.form{
-  margin: 5px;
+@media(max-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
-.search-bar{
-    justify-content: center;
-    }
+
+@media(max-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 350px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 .btn-booking{
   background-color: #0030ff;
   color: white;
   }
+
 .btn-booking:hover {
   background-color: #3f61f7;
   color: white;
@@ -32,28 +54,3 @@
   margin-bottom: 22px;
   font-size: 2rem;
 }
-
-.card-titles {
-  font-family: 'Otomanopee One', sans-serif; 
-  color: #111111;
-  margin-bottom: 22px;
-  font-size: 1.7rem;
-  line-height: 1.2;
-  padding: 15px;
-}
-
-.index-card-title {
-  height: 106px; 
-  padding: 0 0 0 25px;
-}
-// @media(max-width: 992px) {
-//   .cards {
-//     grid-template-columns: 1fr 1fr;
-//   }
-// }
-
-// @media(max-width: 768px) {
-//   .cards {
-//     grid-template-columns: 1fr;
-//   }
-// }
