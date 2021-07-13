@@ -1,0 +1,33 @@
+  .btn-booking {
+    background-color: #0030ff;
+    color: white;
+  }
+  .btn-booking:hover {
+    background-color: #3f61f7;
+    color: white;
+  }
+
+  .booking-layout {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-top: 80px;
+  }
+
+  #map {
+    position: sticky;
+    top: 80px;
+    z-index: 10;
+    width: 360px;
+    height: calc(100vh - 80px);
+  }
+
+  .service-carrousel {
+    font-size: 1rem !important;
+    font-family:helvetica;
+    text-align:right;
+  }
+
+  #booking-form {
+    margin-bottom: 1rem !important;
+    margin-top:40px;
+  }
