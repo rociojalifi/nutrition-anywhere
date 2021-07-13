@@ -1,14 +1,16 @@
 
-<div class="container booking-layout">
-  <div class="mt-5 ml-3">
-    <h3 class="blue-titles">Book an Appointment with <%= @service.user.full_name %></h3>
-
-    <div class="w-100 mt-3">
+<div class="container mb-5" id="booking-form" style="padding-top: 80px">
+  <div class="d-flex justify-content-around row">
+    <div class="col-6">
+      <h3 class="blue-titles">Book an Appointment with <%= @service.user.full_name %></h3>
+    </div>
+    <div class="col-6">
       <%= simple_form_for [@service, @booking] do |form| %> <%= form.input :booking_date, label: false %>
-      <div class="d-flex justify-content-end mb-5">
-        <%= form.submit class:'btn btn-booking' %> <%= link_to "Go back",
-        services_path, class:'btn ml-3b btn-booking ml-3' %> <% end %>
-      </div>
+        <div class="d-flex justify-content-end mb-5">
+          <%= form.submit class:'btn btn-booking' %> <%= link_to "Go back",
+          services_path, class:'btn ml-3b btn-booking ml-3' %> 
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
@@ -20,13 +22,13 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div class="pl-3 pt-3 service-carrousel">
-          <h4 >Nutritionist:</h4>
+          <h4 >Nutritionist</h4>
           <h4 style="color:#0030ff"><strong><%= @service.user.full_name %></strong></h4>
         </div>
       </div>
       <div class="carousel-item">
         <div class="pl-3 pt-3 service-carrousel">
-          <h4 >Office Location:</h4>
+          <h4 >Office Location</h4>
           <h4 style="color:#0030ff"><strong>USD <%= @service.price %></strong></h4>
         </div>
       </div>
@@ -37,13 +39,13 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div class="pl-3 pt-3 service-carrousel">
-          <h4>Nationality:</h4>
+          <h4>Nationality</h4>
           <h4 style="color:#0030ff"><strong><%= @service.user.nationality %></strong></h4>
         </div>
       </div>
       <div class="carousel-item">
         <div class="pl-3 pt-3 service-carrousel">
-          <h4>Language:</h4>
+          <h4>Language</h4>
           <h4 style="color:#0030ff"><strong><%= @service.user.language %></strong></h4>
         </div>
       </div>

@@ -1,7 +1,8 @@
-<div class="container booking-layout">
-  <div class="mt-5 ml-3">
-    <h3 class="blue-titles">Your booked appointment with <%= @service.user.full_name %></h3>
-
+<div class="container mb-5" id="booking-form" style="padding-top: 80px">
+  <div class="d-flex justify-content-around row">
+    <div class="col-12">
+      <h3 class="blue-titles">Your booked Appointment with <%= @service.user.full_name %></h3>
+    </div>
   </div>
 </div>
 
@@ -13,13 +14,13 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div class="pl-3 pt-3 service-carrousel">
-          <h4 >Nutritionist:</h4>
+          <h4 >Nutritionist</h4>
           <h4 style="color:#0030ff"><strong><%= @service.user.full_name %></strong></h4>
         </div>
       </div>
       <div class="carousel-item">
         <div class="pl-3 pt-3 service-carrousel">
-          <h4 >Office Location:</h4>
+          <h4 >Office Location</h4>
           <h4 style="color:#0030ff"><strong>USD <%= @service.price %></strong></h4>
         </div>
       </div>
@@ -30,14 +31,31 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div class="pl-3 pt-3 service-carrousel">
-          <h4>Nationality:</h4>
+          <h4>Nationality</h4>
           <h4 style="color:#0030ff"><strong><%= @service.user.nationality %></strong></h4>
         </div>
       </div>
       <div class="carousel-item">
         <div class="pl-3 pt-3 service-carrousel">
-          <h4>Language:</h4>
+          <h4>Language</h4>
           <h4 style="color:#0030ff"><strong><%= @service.user.language %></strong></h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="id" class="carousel slide" data-ride="carousel" data-interval="2000">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="pl-3 pt-3 service-carrousel">
+          <h4>Time & Date</h4>
+          <h4 style="color:#0030ff"><strong><%= @booking.booking_date %></strong></h4>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="pl-3 pt-3 service-carrousel">
+          <h4>Congratulations!</h4>
+          <h4 style="color:#0030ff"><strong>Good luck with your nutritionist!</strong></h4>
         </div>
       </div>
     </div>

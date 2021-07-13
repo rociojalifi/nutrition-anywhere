@@ -13,6 +13,7 @@ Booking.delete_all
 Service.delete_all
 User.delete_all
 puts 'Creating new seeds'
+
 file_1 = URI.open('https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60')
 user_1 = User.create!(
   email: 'rociojalifi@gmail.com',
