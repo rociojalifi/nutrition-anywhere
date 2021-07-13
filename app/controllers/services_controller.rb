@@ -19,6 +19,7 @@ class ServicesController < ApplicationController
         @search_params = {
           service: @service,
           nationality: @nationality,
+          language: @language,
           speciality: @speciality,
           price: @price
           }
