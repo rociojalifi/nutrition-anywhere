@@ -36,6 +36,9 @@ gem 'typing'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-zoom'
+
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'

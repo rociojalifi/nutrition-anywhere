@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Settings</h1>
+
+  <% if current_user.nutritionist? %>
+    <section class="mb-5">
+      <h3>Zoom</h3>
+      <% if current_user.zoom_token? %>
+        <div>Congratulations you logged in with Zoom</div>
+      <% else %>
+        <%= link_to "Connect to Zoom", "https://zoom.us/oauth/authorize?client_id=#{ENV['ZOOM_CLIENT_ID']}&response_type=code&redirect_uri=#{ENV['ZOOM_CALLBACK']}", class: "btn btn-primary" %>
+      <% end %>
+    <section>
+  <% end %>
+</div>
