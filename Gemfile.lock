@@ -113,6 +113,8 @@ GEM
     faraday-net_http (1.0.1)
     faraday-net_http_persistent (1.2.0)
     faraday-patron (1.0.0)
+    faraday_middleware (1.0.0)
+      faraday (~> 1.0)
     ffi (1.15.3)
     font-awesome-sass (5.15.1)
       sassc (>= 1.11)
@@ -304,6 +306,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  activesupport
   autoprefixer-rails (= 10.2.5)
   bootsnap (>= 1.4.2)
   byebug
@@ -311,6 +314,8 @@ DEPENDENCIES
   cloudinary (~> 1.16.0)
   devise
   dotenv-rails
+  faraday
+  faraday_middleware
   font-awesome-sass
   geocoder
   jbuilder (~> 2.7)
