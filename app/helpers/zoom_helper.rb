@@ -36,9 +36,6 @@ module ZoomHelper
       request.body = params
     end
     
-    Rails.logger.debug("Status: #{response.status}")
-    Rails.logger.debug(response.body)
-
     return nil unless response.status < 300
 
     { url: response.body['start_url'], id: response.body['id'], metadata: response.body }
@@ -69,10 +66,15 @@ module ZoomHelper
 
     url = "https://zoom.us/oauth/token"
 
-    response = Faraday.post(url) do |request|
+    client = Faraday.new do |f|
+      f.request :url_encoded
+      f.response :json
+    end
+
+    response = client.post(url) do |request|
       client_id = ENV['ZOOM_CLIENT_ID']
       client_secret = ENV['ZOOM_CLIENT_SECRET']
-      auth = Base64.encode64("#{client_id}:#{client_secret}")
+      auth = Base64.encode64("#{client_id}:#{client_secret}").gsub("\n", "")
       request.headers['Authorization'] = "Basic #{auth}"
       request.headers['Content-Type'] = 'application/x-www-form-urlencoded'
       request.body = {grant_type: 'refresh_token', refresh_token: refresh_token}
