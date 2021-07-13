@@ -1,3 +1,5 @@
+require 'date'
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -24,7 +26,9 @@ class User < ApplicationRecord
   end
 
   def save_zoom_token(credentials)
-    self.zoom_token = credentials.token
+    self.zoom_token = credentials[:token]
+    self.zoom_refresh_token = credentials[:refresh_token]
+    self.zoom_expiration = credentials[:expiration]
     self.save
   end
 

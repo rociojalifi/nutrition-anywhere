@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2021_07_12_182033) do
-
+ActiveRecord::Schema.define(version: 2021_07_13_172839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +86,8 @@ ActiveRecord::Schema.define(version: 2021_07_12_182033) do
     t.string "language"
     t.string "nationality"
     t.string "zoom_token"
+    t.string "zoom_refresh_token"
+    t.string "zoom_expiration"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
