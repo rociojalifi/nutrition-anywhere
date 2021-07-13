@@ -5,39 +5,44 @@
   </div>
 </div>
 
+
 <div class="container mb-5">
   <div class="d-flex justify-content-around row">
-
-    <div
-    id="id"
-    class="carousel slide col-6"
-    data-ride="carousel"
-    data-interval="3000"
-  >
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div class="pl-3 pt-3 service-carrousel">
-            <h4 >Nutritionist:</h4>
-            <h4 style="color:#0030ff"><strong><%= @service.user.full_name %></strong></h4>
-            <h4>Nationality:</h4>
-            <h4 style="color:#0030ff"><strong><%= @service.user.nationality %></strong></h4>
-            <h4>Language:</h4>
-            <h4 style="color:#0030ff"><strong><%= @service.user.language %></strong></h4>
-            <h4>Price p/appointment: </h4>
-            <h4 style="color:#0030ff"><strong>USD <%= @service.price %></strong></h4>
-            <h4>Office Location: </h4>
-            <h4 style="color:#0030ff"><strong><%= @service.location %></strong></h4>
-            <h4>Date & Time: </h4>
-            <h4 style="color:#0030ff"><strong><%= @booking.booking_date %></strong></h4>
-            
-            <div style="padding-top: 30px">
-              <%= link_to "Go to my bookings", bookings_requested_path, class:'btn ml-3b btn-booking ml-3' %>
-            </div>
-            
-          </div>
+  <div class="col-6">
+  <div id="id" class="carousel slide" data-ride="carousel" data-interval="3000">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="pl-3 pt-3 service-carrousel">
+          <h4 >Nutritionist:</h4>
+          <h4 style="color:#0030ff"><strong><%= @service.user.full_name %></strong></h4>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="pl-3 pt-3 service-carrousel">
+          <h4 >Office Location:</h4>
+          <h4 style="color:#0030ff"><strong>USD <%= @service.price %></strong></h4>
         </div>
       </div>
     </div>
+  </div>
+
+  <div id="id" class="carousel slide" data-ride="carousel" data-interval="2500">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="pl-3 pt-3 service-carrousel">
+          <h4>Nationality:</h4>
+          <h4 style="color:#0030ff"><strong><%= @service.user.nationality %></strong></h4>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="pl-3 pt-3 service-carrousel">
+          <h4>Language:</h4>
+          <h4 style="color:#0030ff"><strong><%= @service.user.language %></strong></h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
     <div
       id="map"
