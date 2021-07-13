@@ -1,5 +1,5 @@
 
-<div class="container mb-5" id="booking-form" style="padding-top: 80px">
+<div class="container mb-5" id="booking-form">
   <div class="d-flex justify-content-around row">
     <div class="col-6">
       <h3 class="blue-titles">Book an Appointment with <%= @service.user.full_name %></h3>
@@ -17,36 +17,25 @@
 
 <div class="container mb-5">
   <div class="d-flex justify-content-around row">
-  <div class="col-6">
+  <div class="col-6" style="text-align:right">
+  <h4 >Nutritionist</h4>
+  <h4 style="color:#0030ff"><strong><%= @service.user.full_name %></strong></h4>
+  <h4>Nationality</h4>
+  <h4 style="color:#0030ff"><strong><%= @service.user.nationality %></strong></h4>
+  <h4>Language</h4>
+  <h4 style="color:#0030ff"><strong><%= @service.user.language %></strong></h4>
+  <h4 >Office Location</h4>
+  <h4 style="color:#0030ff"><strong>USD <%= @service.price %></strong></h4>
   <div id="id" class="carousel slide" data-ride="carousel" data-interval="3000">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div class="pl-3 pt-3 service-carrousel">
-          <h4 >Nutritionist</h4>
-          <h4 style="color:#0030ff"><strong><%= @service.user.full_name %></strong></h4>
+          <h4 style="color:#0030ff"><strong>We recommend</strong></h4>
         </div>
       </div>
       <div class="carousel-item">
         <div class="pl-3 pt-3 service-carrousel">
-          <h4 >Office Location</h4>
-          <h4 style="color:#0030ff"><strong>USD <%= @service.price %></strong></h4>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="id" class="carousel slide" data-ride="carousel" data-interval="2500">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="pl-3 pt-3 service-carrousel">
-          <h4>Nationality</h4>
-          <h4 style="color:#0030ff"><strong><%= @service.user.nationality %></strong></h4>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="pl-3 pt-3 service-carrousel">
-          <h4>Language</h4>
-          <h4 style="color:#0030ff"><strong><%= @service.user.language %></strong></h4>
+          <h4 style="color:#0030ff"><strong>This Service</strong></h4>
         </div>
       </div>
     </div>
@@ -55,8 +44,7 @@
 
     <div
       id="map"
-      class="col-6"
-      style="width: 50vw; height: calc(100vh - 80px)"
+      class="col-6" 
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>

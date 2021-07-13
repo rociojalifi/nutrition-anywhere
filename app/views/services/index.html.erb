@@ -49,41 +49,40 @@
     </div> 
   </div>
 
-  <div class="cards" style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 16 px">
+  <div class="cards">
     <% @services.each do |service| %>
-    <div class="card-service-container">
-      <div class="card-product-index d-flex justify-content-center">
-        <div class="index-card-content" style= "text-align: center">
-          <div class="index-card-title">
-            <h5 class= "card-titles"><strong><%= service.speciality %></strong></h5>
+      <div class="col card-product-index text-center">
+          <div>
+            <h5 class="index-card-title"><%= service.speciality %></h5>
           </div>
-          <div class="index-card-info">
-            <p><i class="far fa-credit-card"></i>USD<%= service.price %> /per appointment</p>
-            <p><i class="fas fa-male p-1"></i><%= service.user.full_name %></p>
-            <p><i class="fas fa-globe-americas"></i><%= service.user.nationality %></p>
-            <p><i class="fas fa-language"></i><%= service.user.language %></p>
-            <p><i class="far fa-envelope"></i><%= service.user.email %></p>
-            <p id="city"><i class="far fa-building"></i><%= service.location %></p>
+          <div class="row index-card-info">
+            <div>
+              <p><i class="far fa-credit-card"></i>USD <%= service.price %> p/ appt.</p>
+            </div>
+            <div>
+              <p><i class="fas fa-male p-1"></i><%= service.user.full_name %></p>
+            </div>
+            <div>
+              <p><i class="fas fa-globe-americas"></i><%= service.user.nationality %></p>
+            </div>
+            <div>
+              <p><i class="fas fa-font"></i></i><%= service.user.language %></p>
+            </div>
           </div>
-          <div class="index-card-btn user-button" >
-            <h5 class="vtn card-title">
+          <div class="index-card-btn text-center" >
             <% if current_user.nutritionist? %>
               <div class="user-button-actions d-flex justify-content-center mb-5">
-              <% if policy(service).edit? %> <%= link_to 'Edit',
-              edit_service_path(service), class:'btn btn-booking' %> <% end %> <% if
-              policy(service).destroy? %> <%= link_to 'Delete', service_path(service),
-              method: :delete, data: { confirm: "Are you sure you want to
-              delete this service?"}, class: 'btn btn-booking ml-3' %> <% end %>
+                <% if policy(service).edit? %> <%= link_to 'Edit',
+                  edit_service_path(service), class:'btn btn-booking' %> <% end %> <% if
+                  policy(service).destroy? %> <%= link_to 'Delete', service_path(service),
+                  method: :delete, data: { confirm: "Are you sure you want to
+                  delete this service?"}, class: 'btn btn-booking ml-3' %> <% end %>
               </div>
               <% else %>
-                <%= link_to 'Book Appointment', service_path(service), class:'btn btn-booking' %>
+                <%= link_to 'Book', service_path(service), class:'btn btn-index-booking' %>
               <% end %>
-            </h5>
-            
           </div>
-        </div>
       </div>
-    </div>
     <% end %>
   </div>
 </div>
