@@ -377,11 +377,251 @@ user_30 = User.create!(
 user_30.photo.attach(io: file_30, filename: 'nes_30.jpg', content_type: 'image/jpg')
 user_30.save
 
+file_31 = URI.open('https://live.staticflickr.com/4299/35878026760_77128ac004_n.jpg')
+user_31 = User.create!(
+  email: 'gabrielasantiago@gmail.com',
+  password: '123456',
+  full_name: 'Gabriela Santiago',
+  role: 'Nutritionist',
+  language: 'Spanish',
+  nationality: 'Spanish' 
+)
+user_31.photo.attach(io: file_31, filename: 'nes_31.jpg', content_type: 'image/jpg')
+user_31.save
+
+file_32 = URI.open('https://live.staticflickr.com/939/43846943492_814ddedf73_n.jpg')
+user_32 = User.create!(
+  email: 'carlosortiz@gmail.com',
+  password: '123456',
+  full_name: 'Carlos Ortiz',
+  role: 'Nutritionist',
+  language: 'Spanish',
+  nationality: 'Argentinian' 
+)
+user_32.photo.attach(io: file_32, filename: 'nes_32.jpg', content_type: 'image/jpg')
+user_32.save
+
+file_33 = URI.open('https://live.staticflickr.com/5524/30093930485_07872ea04a_k.jpg')
+user_33 = User.create!(
+  email: 'franciasevilla@gmail.com',
+  password: '123456',
+  full_name: 'Francia Sevilla',
+  role: 'Nutritionist',
+  language: 'Spanish',
+  nationality: 'Spanish' 
+)
+user_33.photo.attach(io: file_33, filename: 'nes_33.jpg', content_type: 'image/jpg')
+user_33.save
+
+file_34 = URI.open('https://images.unsplash.com/photo-1505247964246-1f0a90443c36?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTh8fGJ1c2luZXNzJTIwbWFufGVufDB8MnwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')
+user_34 = User.create!(
+  email: 'moisesnutricion@gmail.com',
+  password: '123456',
+  full_name: 'Moises Duarte',
+  role: 'Nutritionist',
+  language: 'Spanish',
+  nationality: 'Argentinian' 
+)
+user_34.photo.attach(io: file_34, filename: 'nes_34.jpg', content_type: 'image/jpg')
+user_34.save
+
+file_35 = URI.open('https://images.unsplash.com/photo-1535931472262-c3a1849b7193?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80')
+user_35 = User.create!(
+  email: 'robertofernandez@gmail.com',
+  password: '123456',
+  full_name: 'Roberto Fernández',
+  role: 'Nutritionist',
+  language: 'Spanish',
+  nationality: 'Spanish' 
+)
+user_35.photo.attach(io: file_35, filename: 'nes_35.jpg', content_type: 'image/jpg')
+user_35.save
+
+file_36 = URI.open('https://live.staticflickr.com/65535/50900505728_2f63f6eba5_c.jpg')
+user_36 = User.create!(
+  email: 'josefinaperez@gmail.com',
+  password: '123456',
+  full_name: 'Josefina Pérez',
+  role: 'Nutritionist',
+  language: 'Spanish',
+  nationality: 'Spanish' 
+)
+user_36.photo.attach(io: file_36, filename: 'nes_36.jpg', content_type: 'image/jpg')
+user_36.save
+
+file_37 = URI.open('https://live.staticflickr.com/8610/29247837220_2953dca1b7_n.jpg')
+user_37 = User.create!(
+  email: 'matildaferreira@gmail.com',
+  password: '123456',
+  full_name: 'Matilda Ferreira',
+  role: 'Nutritionist',
+  language: 'Portugusese',
+  nationality: 'Portuguese' 
+)
+user_37.photo.attach(io: file_37, filename: 'nes_37.jpg', content_type: 'image/jpg')
+user_37.save
+
+file_38 = URI.open('https://live.staticflickr.com/65535/49814370332_274653a207_z.jpg')
+user_38 = User.create!(
+  email: 'alessandrasilvestri@gmail.com',
+  password: '123456',
+  full_name: 'Alessandra Silvestri',
+  role: 'Nutritionist',
+  language: 'Italian',
+  nationality: 'Italian' 
+)
+user_38.photo.attach(io: file_38, filename: 'nes_38.jpg', content_type: 'image/jpg')
+user_38.save
+
+file_39 = URI.open('https://live.staticflickr.com/4338/36544951802_482c98e9a2.jpg')
+user_39 = User.create!(
+  email: 'rousseauremy@gmail.com',
+  password: '123456',
+  full_name: 'Remy Rousseau',
+  role: 'Nutritionist',
+  language: 'French',
+  nationality: 'French' 
+)
+user_39.photo.attach(io: file_39, filename: 'nes_39.jpg', content_type: 'image/jpg')
+user_39.save
+
+file_40 = URI.open('https://live.staticflickr.com/1780/43205193904_d355ee43c7.jpg')
+user_40 = User.create!(
+  email: 'ralphlauren@gmail.com',
+  password: '123456',
+  full_name: 'Ralph Lauren',
+  role: 'Nutritionist',
+  language: 'English',
+  nationality: 'English' 
+)
+user_40.photo.attach(io: file_40, filename: 'nes_40.jpg', content_type: 'image/jpg')
+user_40.save
+
+file_41 = URI.open('https://live.staticflickr.com/941/28744642327_a31f17b49e.jpg')
+user_41 = User.create!(
+  email: 'stewartjackson@gmail.com',
+  password: '123456',
+  full_name: 'Stewart Jackson',
+  role: 'Nutritionist',
+  language: 'English',
+  nationality: 'English' 
+)
+user_41.photo.attach(io: file_41, filename: 'nes_41.jpg', content_type: 'image/jpg')
+user_41.save
+
+file_42 = URI.open('http://live.staticflickr.com/1875/29797778457_34871d3fe8_n.jpg')
+user_42 = User.create!(
+  email: 'stephanieowen@gmail.com',
+  password: '123456',
+  full_name: 'Stephanie Owen',
+  role: 'Nutritionist',
+  language: 'English',
+  nationality: 'English' 
+)
+user_42.photo.attach(io: file_42, filename: 'nes_42.jpg', content_type: 'image/jpg')
+user_42.save
+
+file_43 = URI.open('https://live.staticflickr.com/166/362305554_f505a65aa1_n.jpg')
+user_43 = User.create!(
+  email: 'violettasalvatore@gmail.com',
+  password: '123456',
+  full_name: 'Violetta Salvatore',
+  role: 'Nutritionist',
+  language: 'Italian',
+  nationality: 'Italian' 
+)
+user_43.photo.attach(io: file_43, filename: 'nes_43.jpg', content_type: 'image/jpg')
+user_43.save
+
+file_44 = URI.open('https://live.staticflickr.com/8493/8370255998_6034d8e00d.jpg')
+user_44 = User.create!(
+  email: 'claudettearchambeau@gmail.com',
+  password: '123456',
+  full_name: 'Claudette Archambeau',
+  role: 'Nutritionist',
+  language: 'French',
+  nationality: 'French' 
+)
+user_44.photo.attach(io: file_44, filename: 'nes_44.jpg', content_type: 'image/jpg')
+user_44.save
+
+file_45 = URI.open('https://live.staticflickr.com/6045/6264330234_a6ffdaa4eb_n.jpg')
+user_45 = User.create!(
+  email: 'améliemetailler@gmail.com',
+  password: '123456',
+  full_name: 'Amélie Metailler',
+  role: 'Nutritionist',
+  language: 'French',
+  nationality: 'French' 
+)
+user_45.photo.attach(io: file_45, filename: 'nes_45.jpg', content_type: 'image/jpg')
+user_45.save
+
+file_46 = URI.open('https://live.staticflickr.com/7257/7636527298_0d5d32fd62_n.jpg')
+user_46 = User.create!(
+  email: 'doroteiadasilva@gmail.com',
+  password: '123456',
+  full_name: 'Doroteia Da Silva',
+  role: 'Nutritionist',
+  language: 'Portuguese',
+  nationality: 'Portuguese' 
+)
+user_46.photo.attach(io: file_46, filename: 'nes_46.jpg', content_type: 'image/jpg')
+user_46.save
+
+file_47 = URI.open('https://live.staticflickr.com/7160/6638365193_c025b47022.jpg')
+user_47 = User.create!(
+  email: 'helenapereira@gmail.com',
+  password: '123456',
+  full_name: 'Helena Pererira',
+  role: 'Nutritionist',
+  language: 'Portuguese',
+  nationality: 'Portuguese' 
+)
+user_47.photo.attach(io: file_47, filename: 'nes_47.jpg', content_type: 'image/jpg')
+user_47.save
+
+file_48 = URI.open('https://live.staticflickr.com/1786/42871121314_fdd4000a80.jpg')
+user_48 = User.create!(
+  email: 'kenrockzen@gmail.com',
+  password: '123456',
+  full_name: 'Ken Roczen',
+  role: 'Nutritionist',
+  language: 'English',
+  nationality: 'English' 
+)
+user_48.photo.attach(io: file_48, filename: 'nes_48.jpg', content_type: 'image/jpg')
+user_48.save
+
+file_49 = URI.open('https://live.staticflickr.com/65535/48639565663_f94a01a92e_z.jpg')
+user_49 = User.create!(
+  email: 'julionutricion@gmail.com',
+  password: '123456',
+  full_name: 'Julio Sánchez',
+  role: 'Nutritionist',
+  language: 'Spanish',
+  nationality: 'Spanish' 
+)
+user_49.photo.attach(io: file_49, filename: 'nes_49.jpg', content_type: 'image/jpg')
+user_49.save
+
+file_50 = URI.open('https://live.staticflickr.com/7813/46283037575_ab8953575e.jpg')
+user_50 = User.create!(
+  email: 'alejandratorresnutricion@gmail.com',
+  password: '123456',
+  full_name: 'Alejandra Torres',
+  role: 'Nutritionist',
+  language: 'Spanish',
+  nationality: 'Argentinian' 
+)
+user_50.photo.attach(io: file_50, filename: 'nes_50.jpg', content_type: 'image/jpg')
+user_50.save
+
 
 service_1 = Service.create!(
   speciality: 'Oncology',
-  price: 100,
-  location: 'Buenos Aires',
+  price: 100, 
+  location: 'Ámsterdam',
   user: user_1,
 )
 service_2 = Service.create!(
@@ -498,6 +738,127 @@ service_20 = Service.create!(
   user: user_20,
   location: 'Mendoza',
 )
+service_21 = Service.create!(
+  speciality: 'Eating Disorder',
+  price: 85,
+  user: user_31,
+  location: 'Madrid',
+)
+service_22 = Service.create!(
+  speciality: 'Sports',
+  price: 95,
+  user: user_32,
+  location: 'Córdoba',
+)
+service_23 = Service.create!(
+  speciality: 'Oncology',
+  price: 100,
+  user: user_33,
+  location: 'Barcelona',
+)
+service_24 = Service.create!(
+  speciality: 'Sports',
+  price: 110,
+  user: user_34,
+  location: 'Misiones',
+)
+service_25 = Service.create!(
+  speciality: 'Sports',
+  price: 100,
+  user: user_35,
+  location: 'Tenerife',
+)
+service_26 = Service.create!(
+  speciality: 'Pediatric',
+  price: 120,
+  user: user_36,
+  location: 'Bilbao',
+)
+service_27 = Service.create!(
+  speciality: 'Vegan',
+  price: 70,
+  user: user_37,
+  location: 'Lisboa',
+)
+service_28 = Service.create!(
+  speciality: 'Vegan',
+  price: 70,
+  user: user_38,
+  location: 'Milan',
+)
+service_29 = Service.create!(
+  speciality: 'Vegan',
+  price: 70,
+  user: user_39,
+  location: 'París',
+)
+service_30 = Service.create!(
+  speciality: 'Vegan',
+  price: 70,
+  user: user_40,
+  location: 'San Francisco',
+)
+service_31 = Service.create!(
+  speciality: 'Vegan',
+  price: 70,
+  user: user_41,
+  location: 'Chicago',
+)
+service_32 = Service.create!(
+  speciality: 'Vegan',
+  price: 70,
+  user: user_42,
+  location: 'Boston',
+)
+service_33 = Service.create!(
+  speciality: 'Vegan',
+  price: 70,
+  user: user_43,
+  location: 'Nápoles',
+)
+service_34 = Service.create!(
+  speciality: 'Vegan',
+  price: 70,
+  user: user_44,
+  location: 'Marsella',
+)
+service_35 = Service.create!(
+  speciality: 'Vegan',
+  price: 70,
+  user: user_45,
+  location: 'Toulouse',
+)
+service_36 = Service.create!(
+  speciality: 'Vegan',
+  price: 70,
+  user: user_46,
+  location: 'Oporto',
+)
+service_37 = Service.create!(
+  speciality: 'Vegan',
+  price: 70,
+  user: user_47,
+  location: 'Aveiro',
+)
+service_38 = Service.create!(
+  speciality: 'Vegan',
+  price: 70,
+  user: user_48,
+  location: 'Seattle',
+)
+service_39 = Service.create!(
+  speciality: 'Vegan',
+  price: 90,
+  user: user_49,
+  location: 'Zaragoza',
+)
+service_40 = Service.create!(
+  speciality: 'Vegan',
+  price: 90,
+  user: user_50,
+  location: 'Mar de Plata',
+)
+
 booking_1 = Booking.create!(
   booking_date: '2021-07-22 11:00:00 UTC',
   user: user_21,
