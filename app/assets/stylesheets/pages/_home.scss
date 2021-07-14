@@ -1,1 +1,57 @@
 // Specific CSS for your home-page
+
+.img-home {
+  width: 500px;
+  height: 400px;
+  background-image: linear-gradient(
+    rgba(167, 164, 164, 0.4),
+    rgba(128, 122, 122, 0.4)
+  );
+}
+.content-home {
+  color: rgb(84, 81, 81);
+  text-align: justify;
+  margin-right: 40px;
+}
+.nutri-story {
+  display: flex;
+  justify-content: center;
+  height: 500px;
+  background-color: #eff2fa;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.container-content {
+  width: 1200px;
+  align-items: center;
+  position: absolute;
+}
+
+.blue-line-top {
+  background-color: #c9d5f7;
+  height: 7px;
+  width: 100%;
+  margin-top: 100px;
+}
+
+.blue-line-bottom {
+  background-color: #c9d5f7;
+  height: 7px;
+  width: 100%;
+  margin-bottom: 100px;
+}
+.transition {
+  transition-property: width;
+  transition-duration: 2s;
+  transition-timing-function: linear;
+  transition-delay: 1s;
+}
+
+.card-photo {
+  height: 200px;
+}
+
+.how-works {
+  height: 600px;
+}
