@@ -667,7 +667,7 @@ review_3 = Review.create!(
   content: 'Very Professional',
   rating: 4,
   user: user_26,
-  service_id: service_12,
+  service: service_12,
 )
 
 review_4 = Review.create!(
