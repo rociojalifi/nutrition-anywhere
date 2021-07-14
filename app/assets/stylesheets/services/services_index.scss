@@ -12,6 +12,10 @@
   grid-gap: 16 px;
 }
 
+.index-filter-titles {
+  color: blue;
+}
+
 @media(max-width: 992px) {
   .cards {
     grid-template-columns: 1fr 1fr 1fr;
