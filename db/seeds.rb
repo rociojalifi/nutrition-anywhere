@@ -896,7 +896,7 @@ booking_6 = Booking.create!(
 )
 booking_8 = Booking.create!(
   booking_date: '2021-08-22 10:00:00 UTC',
-  user: user_28,
+  user: user_25,
   service: service_3,
 )
   booking_9 = Booking.create!(
@@ -996,7 +996,7 @@ booking_27 = Booking.create!(
 )
 booking_28 = Booking.create!(
   booking_date: '2021-09-28 12:00:00 UTC',
-  user: user_28,
+  user: user_25,
   service: service_3,
 )
 booking_29 = Booking.create!(
