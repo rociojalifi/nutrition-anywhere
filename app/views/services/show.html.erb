@@ -1,9 +1,9 @@
 
-<div class="container mb-5" id="booking-form">
+<div class="container mb-5" id="booking-form" style="margin-bottom: 0rem !important">
   <div class="d-flex justify-content-around row">
     <div class="col-6">
-      <h3 class="blue-titles">Book an Appointment with</h3>
-      <h3 class="blue-titles"><%= @service.user.full_name %></h3>
+      <h3 class="medium-blue-titles" style="margin-bottom:17px">Book an Appointment with</h3>
+      <h3 class="medium-blue-titles" style="margin-bottom:7px"><%= @service.user.full_name %></h3>
     </div>
     <div class="col-6">
       <%= simple_form_for [@service, @booking] do |form| %> <%= form.input :booking_date, label: false %>
@@ -23,8 +23,6 @@
             "img-fluid rounded-start avatar-square", style: "width: 250px" %>
     </div>
     <div class="col-3">
-      <h4 class="service-show-info">Nutritionist</h4>
-      <h4 class="service-show-info" style="color:#0030ff"><strong><%= @service.user.full_name %></strong></h4>
       <h4 class="service-show-info">Nationality</h4>
       <h4 class="service-show-info" style="color:#0030ff"><strong><%= @service.user.nationality %></strong></h4>
       <h4 class="service-show-info">Language</h4>
@@ -38,12 +36,12 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <div class="pl-3 pt-3 service-show-carrousel">
-              <h4 style="color:#0030ff; padding-top: 20px"><strong>We Recommend</strong></h4>
+              <h4 style="color:#0030ff; padding-top: 15px"><strong>Top rated nutritionist!</strong></h4>
             </div>
           </div>
           <div class="carousel-item">
             <div class="pl-3 pt-3 service-show-carrousel">
-              <h4 style="color:#0030ff; padding-top: 20px"><strong>This Service</strong></h4>
+              <h4 style="color:#0030ff; padding-top: 20px"><strong>We recommend this service</strong></h4>
             </div>
           </div>
         </div>
@@ -51,7 +49,7 @@
     </div>
     <div
       id="map"
-      class="col-6" style="height: 360px"
+      class="col-6" style="height: 350px"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>
