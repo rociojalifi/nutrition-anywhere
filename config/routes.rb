@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/bookings_given', to: 'bookings#bookings_given'
   get '/users/settings', to: 'users#settings'
   get '/auth/zoom/callback', to: 'omniauth#zoom'
+  get '/about', to: 'users#about'
 
   resources :services do
     resources :bookings, only: [:create]
