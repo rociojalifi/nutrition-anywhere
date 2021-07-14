@@ -447,7 +447,7 @@ service_11 = Service.create!(
 service_12 = Service.create!(
   speciality: 'Vegan',
   price: 100,
-  user: user_26,
+  user: user_1,
   location: 'Córboba',
 )
 service_13 = Service.create!(
@@ -652,28 +652,28 @@ booking_30 = Booking.create!(
 review_1 = Review.create!(
   content: 'This nutritionist was sublime. Fully Recommend',
   rating: 5,
-  user_id: 21,
-  service_id: 12,
+  user: user_21,
+  service: service_12,
 )
 
 review_2 = Review.create!(
   content: 'Vivo fuera de mi pais, y me es dificil encontrar profesionales de mi cultura, que puedan entender mi origen. Gracias Rocio por tu atención y gracias Nutrition Anywhere',
   rating: 5,
-  user_id: 30,
-  service_id: 12,
+  user: user_30,
+  service: service_12,
 )
 
 review_3 = Review.create!(
   content: 'Very Professional',
   rating: 4,
-  user_id: 26,
-  service_id: 12,
+  user: user_26,
+  service: service_12,
 )
 
 review_4 = Review.create!(
   content: "Ero in ritardo per l'appuntamento e mi ha assistito per l'intera ora. Grazie.",
   rating: 4,
-  user_id: 25,
-  service_id: 12,
+  user: user_25,
+  service: service_12,
 )
 
