@@ -7,8 +7,8 @@
     <div class="col-6">
       <%= simple_form_for [@service, @booking] do |form| %> <%= form.input :booking_date, label: false %>
         <div class="d-flex justify-content-end mb-5">
-          <%= form.submit class:'btn btn-booking' %> <%= link_to "Go back",
-          services_path, class:'btn ml-3b btn-booking ml-3' %> 
+          <%= form.submit class:'btn btn-dark-blue' %> <%= link_to "Go back",
+          services_path, class:'btn ml-3b btn-dark-blue ml-3' %> 
         </div>
       <% end %>
     </div>
@@ -59,8 +59,8 @@
   <div class="d-flex justify-content-between booking-content">
     <div id="reviews">
       <% if @service.reviews.blank? %>
-      <div class="reviews-title">
-        <h4 class="mb-3">
+      <div>
+        <h4 class="smaller-blue-titles" style="margin-left: 67px">
           If you book an appointment with <%= @service.user.full_name %>, you can be the first to leave a review for this service!
         </h4>
       </div>

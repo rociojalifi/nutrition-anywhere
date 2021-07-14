@@ -8,7 +8,7 @@
         <%= form.input :speciality, label: 'Speciality', label: false, collection: ['Sports', 'Pediatric', 'Vegan', 'Keto',  'Oncology', 'Eating Disorder'], prompt: "All specialities" %>
       </div>
       <div class="form">
-        <%= form.input :price, label: 'Price', label: false, collection: ['70', '90', '100', '120', '150'], prompt: "All prices in USD"%>
+        <%= form.input :price, label: 'Price', label: false, collection: ['70', '90', '100', '120', '150'], prompt: "Max prices in USD"%>
       </div>
       <div class="form">
         <%= form.input :nationality, label: 'Nutritionist Nationality', label: false, collection: ['Argentinian', 'Spanish', 'French', 'Italian', 'Portuguese', 'Chinese'], prompt: "All nationalities" %>
@@ -17,7 +17,7 @@
         <%= form.input :language, label: 'Nutritionist Language', label: false, collection: ['Spanish', 'French', 'Italian', 'Portuguese', 'Mandarin Chinese'], prompt: "All languages"%>
       </div>
       <div class="form">
-        <%= form.submit "Find a nutritionist", class:"btn btn-booking" %>
+        <%= form.submit "Find a nutritionist", class:"btn btn-dark-blue" %>
       </div>
     <%end%> 
   </div>
@@ -34,7 +34,7 @@
 
         <% if "#{@search_params[:price]}" == "" %>
         <% else %>
-          <p><strong>Price in USD:</strong> <%="#{@search_params[:price]}" %> </p>
+          <p><strong>Max price in USD:</strong> <%="#{@search_params[:price]}" %> </p>
         <% end %>
 
         <% if "#{@search_params[:nationality]}" == "" %>
@@ -74,14 +74,14 @@
             <% if current_user.nutritionist? %>
               <div class="user-button-actions d-flex justify-content-center mb-5">
                 <% if policy(service).edit? %> <%= link_to 'Edit',
-                  edit_service_path(service), class:'btn btn-booking' %> <% end %> <% if
+                  edit_service_path(service), class:'btn btn-dark-blue' %> <% end %> <% if
                   policy(service).destroy? %> <%= link_to 'Delete', service_path(service),
                   method: :delete, data: { confirm: "Are you sure you want to
-                  delete this service?"}, class: 'btn btn-booking ml-3' %> <% end %>
+                  delete this service?"}, class: 'btn btn-dark-blue ml-3' %> <% end %>
               </div>
 
               <% else %>
-                <%= link_to 'Book', service_path(service), class:'btn btn-index-booking' %>
+                <%= link_to 'Book', service_path(service), class:'btn btn-dark-blue' %>
               <% end %>
 
 
