@@ -55,35 +55,3 @@
     ></div>
   </div>
 </div>
-
-<div class="pb-5 ml-3">
-  <div class="d-flex justify-content-between booking-content">
-    <div id="reviews">
-      <% if @service.reviews.blank? %>
-      <div class="reviews-title">
-        <h4 class="mb-3">
-          Be the first to leave a review for <%= @service.user.full_name %>
-        </h4>
-      </div>
-      <% else %>
-      <div>
-        <h4>What people say about <%= @service.user.full_name %>?</h4>
-        <% @service.reviews.each do |review| %>
-        <div class="mt-4 mb-4">
-          <p style="color: #3a3a3a"><%= review.content %></p>
-          <p class="mb-0">
-            <%= content_tag( :i, '', :class=>'fa fa-star', :style=>'color:
-            #E7A142') * review.rating %>
-          </p>
-          <p style="color: #3a3a3a">
-            <small>By: <%= review.user.full_name %></small>
-          </p>
-        </div>
-        <% end %>
-      </div>
-      <% end %>
-    </div>
-  </div>
-</div>
-
-

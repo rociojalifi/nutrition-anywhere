@@ -447,7 +447,7 @@ service_11 = Service.create!(
 service_12 = Service.create!(
   speciality: 'Vegan',
   price: 100,
-  user: user_26,
+  user: user_1,
   location: 'Córboba',
 )
 service_13 = Service.create!(
