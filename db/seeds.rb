@@ -447,7 +447,7 @@ service_11 = Service.create!(
 service_12 = Service.create!(
   speciality: 'Vegan',
   price: 100,
-  user: user_12,
+  user: user_26,
   location: 'Córboba',
 )
 service_13 = Service.create!(
@@ -657,7 +657,7 @@ review_1 = Review.create!(
 )
 
 review_2 = Review.create!(
-  content: 'Vivo fuera de mi pais, y me es dificil encontrar profesionales de mi cultura, que puedan entender mi origen. Gracias Andres Garcia por tu atención y gracias Nutrition Anywhere',
+  content: 'Vivo fuera de mi pais, y me es dificil encontrar profesionales de mi cultura, que puedan entender mi origen. Gracias Rocio por tu atención y gracias Nutrition Anywhere',
   rating: 5,
   user: user_30,
   service: service_12,
