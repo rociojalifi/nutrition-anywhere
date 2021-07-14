@@ -52,3 +52,10 @@
   },
   "pre_schedule": false
 }
+{
+  "access_token": "...",
+  "token_type": "bearer",
+  "refresh_token": "...",
+  "expires_in": 3599,
+  "scope": "meeting:write"
+}
