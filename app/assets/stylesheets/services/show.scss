@@ -1,0 +1,26 @@
+#map {
+  position: sticky;
+  top: 80px;
+  z-index: 10;
+  width: 100%;
+  // height: calc(100vh - 80px);
+}
+
+.service-show-info {
+  font-size: 15px !important;
+  font-family:helvetica;
+  text-align:right;
+}
+
+
+
+.booking-layout {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin-top: 80px;
+}
+
+#booking-form {
+  margin-bottom: 1rem !important;
+  margin-top:40px;
+}

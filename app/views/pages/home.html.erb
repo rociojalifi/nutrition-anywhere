@@ -2,7 +2,7 @@
 <div class="mb-3">
       <%= simple_form_for :query, url: services_path, method: "GET", html: {class: 'form-inline search-bar'} do |form|%>
         <div class="form">
-          <%= form.input :speciality, label: 'Speciality', label: false, collection: ['Sports Nutritionism', 'Pediatric Nutritionism', 'Vegan Nutritionism', 'Keto Nutritionism',  'Oncology Nutritionism', 'Eating Disorder Nutritionism'], prompt: "All specialities" %>
+          <%= form.input :speciality, label: 'Speciality', label: false, collection: ['Sports', 'Pediatric', 'Vegan', 'Keto',  'Oncology', 'Eating Disorder'], prompt: "All specialities" %>
         </div>
         <div class="form">
           <%= form.input :price, label: 'Price', label: false, collection: ['70', '90', '100', '120', '150'], prompt: "All prices in USD"%>
@@ -22,108 +22,7 @@
   <%= render 'slider' %>
   <br>
    
-<section class="sections">
-<div class="works-wraper pb-4">
-  <h4 class=" pt-5 ml-3">How does it work <span style="font-family: 'Otomanopee One', sans-serif; color: #0030ff">Nutrition Anywhere<span>?</h4>
-
-  <div class="container text-center pt-3 ">
-    <!-- cards produc -->
-    <div class="d-flex justify-content-center">
-      <!-- card produc 1 -->
-      <div class="card ml-3 rounded shadow" style="width: 18rem">
-        <%= image_tag "sing-in", class:"card-img-top", alt:"Third slide"%>
-
-        <div class="card-body">
-          <h5 class="card-title">Sign Up</h5>
-          <p class="card-text">
-           Do you have an account? Make sure you have one to check our Nutritionists!
-          </p>
-        </div>
-      </div>
-
-      <!-- card produc 2 -->
-      <div class="card ml-3 rounded shadow" style="width: 18rem">
-        <%= image_tag "search", class:"card-img-top", alt:"Third slide"%>
-        <div class="card-body">
-          <h5 class="card-title">Find a Nutritionist</h5>
-          <p class="card-text">
-            Are you an expats and you want a Nutritionist that speaks your language? Find the Nutritionist according to your needs!
-          </p>
-        </div>
-      </div>
-
-      <!-- card produc 3 -->
-      <div class="card ml-3 rounded shadow" style="width: 18rem">
-        <%= image_tag "booking", class:"card-img-top", alt:"Third slide"%>
-        <div class="card-body">
-          <h5 class="card-title">Book the Appointmet</h5>
-          <p class="card-text">
-            Did you find the perfect Nutritionist? It is time to book the appointment!
-          </p>
-        </div>
-      </div>
-
-      <div class="card ml-3 rounded shadow" style="width: 18rem">
-        <%= image_tag "feedback", class:"card-img-top", alt:"Third slide"%>
-        <div class="card-body">
-          <h5 class="card-title">Leave a feedback</h5>
-          <p class="card-text">
-            Are you happy with the service provided by our Nutritionist? We want to know your opinion!
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-  </section>
-  <section class= "mb-5">
-  <h4 class="mt-5 ml-3">Are you a Nutritionist and want to be part of <span style="font-family: 'Otomanopee One', sans-serif; color: #0030ff">Nutrition Anywhere<span>?</h4>
-
-  <div class="container text-center pt-3 ">
-    <!-- cards produc -->
-    <div class="d-flex justify-content-center">
-      <!-- card produc 1 -->
-      <div class="card ml-3 rounded shadow" style="width: 18rem">
-        <%= image_tag "singup-nutri", class:"card-img-top", alt:"Third slide"%>
-
-        <div class="card-body">
-          <h5 class="card-title">Sign Up</h5>
-          <p class="card-text">
-            We are happy you want to be part of Nutrition Anywhere! First step is to create your account.</p>
-        </div>
-      </div>
-
-      <!-- card produc 2 -->
-      <div class="card ml-3 rounded shadow" style="width: 18rem">
-        <%= image_tag "post", class:"card-img-top", alt:"Third slide"%>
-        <div class="card-body">
-          <h5 class="card-title">Post a Service</h5>
-          <p class="card-text">
-            Time to post your service! After that one of our specialist will be in touch with you to certificate your knowledge.
-          </p>
-        </div>
-      </div>
-
-      <!-- card produc 3 -->
-      <div class="card ml-3 rounded shadow" style="width: 18rem">
-        <%= image_tag "connect", class:"card-img-top", alt:"Third slide"%>
-        <div class="card-body">
-          <h5 class="card-title">Connect with People</h5>
-          <p class="card-text">
-          Your profile has been aproved! Time to start connecting with people from around the world.         </p>
-        </div>
-      </div>
-
-      <div class="card ml-3 rounded shadow" style="width: 18rem">
-        <%= image_tag "receive-feedback", class:"card-img-top", alt:"Third slide"%>
-        <div class="card-body">
-          <h5 class="card-title">Receive feedback</h5>
-          <p class="card-text">
-            Be willing to receive feedback! Is the only way to know you are on the right way! Keep going!
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+ 
 
 <section class=" sections ">
   <h4 class=" pt-3 ml-3 pb-3">What people say about <span style="font-family: 'Otomanopee One', sans-serif; color: #0030ff">Nutrition Anywhere<span></h4>

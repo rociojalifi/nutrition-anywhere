@@ -19,6 +19,7 @@ class ServicesController < ApplicationController
         @search_params = {
           service: @service,
           nationality: @nationality,
+          language: @language,
           speciality: @speciality,
           price: @price
           }
@@ -45,7 +46,7 @@ class ServicesController < ApplicationController
               @services << service
             end
           elsif !@price.empty?
-            user.services.where(price: @price).each do |service|
+            user.services.where("price <= ?", @price).each do |service|
               @services << service
             end
           else

@@ -1,79 +1,87 @@
-<hr />
-<div class="container">
-  <div class="mt-5 ml-3">
-    <h3>Book an Appointmet with <%= @service.user.full_name %></h3>
-    <div class="w-100 mt-3">
+
+<div class="container mb-5" id="booking-form">
+  <div class="d-flex justify-content-around row">
+    <div class="col-6">
+      <h3 class="blue-titles">Book an Appointment with <%= @service.user.full_name %></h3>
+    </div>
+    <div class="col-6">
       <%= simple_form_for [@service, @booking] do |form| %> <%= form.input :booking_date, label: false %>
-      <div class="d-flex justify-content-end mb-5">
-        <%= form.submit class:'btn btn-booking' %> <%= link_to "Choose Another",
-        services_path, class:'btn ml-3b btn-booking ml-3' %> <% end %>
-      </div>
+        <div class="d-flex justify-content-end mb-5">
+          <%= form.submit class:'btn btn-booking' %> <%= link_to "Go back",
+          services_path, class:'btn ml-3b btn-booking ml-3' %> 
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
 
-<style>
-  .btn-booking {
-    background-color: #0030ff;
-    color: white;
-  }
-  .btn-booking:hover {
-    background-color: #3f61f7;
-    color: white;
-  }
-</style>
-
 <div class="container mb-5">
-  <div class="d-flex justify-content-around">
-    <%= render 'shared/card_booking' %>
-    <div
-      id="map"
-      style="width: 40vw; height: calc(80vh - 80px)"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-      class="shadow border"
-    ></div>
-  </div>
-  <br />
-  <br />
-
-  <div class="pb-5 ml-3">
-    <div class="d-flex justify-content-between booking-content">
-      <div id="reviews">
-        <% if @service.reviews.blank? %>
-        <div class="reviews-title">
-          <h4 class="mb-3">
-            Be the first to leave a review for <%= @service.user.full_name %>
-          </h4>
-        </div>
-        <% else %>
-        <div>
-          <h4>What people say about <%= @service.user.full_name %>?</h4>
-          <% @service.reviews.each do |review| %>
-          <div class="mt-4 mb-4">
-            <p style="color: #3a3a3a"><%= review.content %></p>
-            <p class="mb-0">
-              <%= content_tag( :i, '', :class=>'fa fa-star', :style=>'color:
-              #E7A142') * review.rating %>
-            </p>
-            <p style="color: #3a3a3a">
-              <small>By: <%= review.user.full_name %></small>
-            </p>
+  <div class="d-flex justify-content-around row">
+    <div class="user-avatar col-3">
+      <%= cl_image_tag @service.user.photo.key, class:
+            "img-fluid rounded-start avatar-square" %>
+    </div>
+    <div class="col-3">
+      <h4 class="service-show-info">Nutritionist</h4>
+      <h4 class="service-show-info" style="color:#0030ff"><strong><%= @service.user.full_name %></strong></h4>
+      <h4 class="service-show-info">Nationality</h4>
+      <h4 class="service-show-info" style="color:#0030ff"><strong><%= @service.user.nationality %></strong></h4>
+      <h4 class="service-show-info">Language</h4>
+      <h4 class="service-show-info"style="color:#0030ff"><strong><%= @service.user.language %></strong></h4>
+      <h4 class="service-show-info">Price</h4>
+      <h4 class="service-show-info"style="color:#0030ff"><strong>USD <%= @service.price %></strong></h4>
+      <h4 class="service-show-info">Office Location</h4>
+      <h4 class="service-show-info"style="color:#0030ff"><strong><%= @service.location %></strong></h4>
+      <div id="id" class="service-show-info carousel slide" data-ride="carousel" data-interval="2000">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="pl-3 pt-3 service-show-carrousel">
+              <h4 style="color:#0030ff"><strong>We Recommend</strong></h4>
+            </div>
           </div>
-          <% end %>
+          <div class="carousel-item">
+            <div class="pl-3 pt-3 service-show-carrousel">
+              <h4 style="color:#0030ff"><strong>This Service</strong></h4>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <div
+      id="map"
+      class="col-6" style="height: 360px"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
   </div>
-  <% end %>
+</div>
+<div class="pb-5 ml-3">
+  <div class="d-flex justify-content-between booking-content">
+    <div id="reviews">
+      <% if @service.reviews.blank? %>
+      <div class="reviews-title">
+        <h4 class="mb-3">
+          If you book an appointment with <%= @service.user.full_name %>, you can be the first to leave a review for this service!
+        </h4>
+      </div>
+      <% else %>
+      <div>
+        <h4>What people say about <%= @service.user.full_name %></h4>
+        <% @service.reviews.each do |review| %>
+        <div class="mt-4 mb-4">
+          <p style="color: #3a3a3a"><%= review.content %></p>
+          <p class="mb-0">
+            <%= content_tag( :i, '', :class=>'fa fa-star', :style=>'color:
+            #E7A142') * review.rating %>
+          </p>
+          <p style="color: #3a3a3a">
+            <small>By: <%= review.user.full_name %></small>
+          </p>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
   </div>
- 
-  </div>
+</div>
 
- <div class=" mb-5">
-    <%= simple_form_for [ @service, @review ] do |f| %>
-    <%= f.input :content,
-    as: :text, label: false, style: "font-size:20px", placeholder: "I am very happy"%> 
-    <%= f.input :rating, label: false, collection: 1..5, include_blank: false%> <%= f.button :submit,
-    class:'btn btn-booking' %> <% end %>
-  </div>
