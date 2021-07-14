@@ -8,7 +8,7 @@
         <%= form.input :speciality, label: 'Speciality', label: false, collection: ['Sports', 'Pediatric', 'Vegan', 'Keto',  'Oncology', 'Eating Disorder'], prompt: "All specialities" %>
       </div>
       <div class="form">
-        <%= form.input :price, label: 'Price', label: false, collection: ['70', '90', '100', '120', '150'], prompt: "All prices in USD"%>
+        <%= form.input :price, label: 'Price', label: false, collection: ['70', '90', '100', '120', '150'], prompt: "Max prices in USD"%>
       </div>
       <div class="form">
         <%= form.input :nationality, label: 'Nutritionist Nationality', label: false, collection: ['Argentinian', 'Spanish', 'French', 'Italian', 'Portuguese', 'Chinese'], prompt: "All nationalities" %>
@@ -34,7 +34,7 @@
 
         <% if "#{@search_params[:price]}" == "" %>
         <% else %>
-          <p><strong>Price in USD:</strong> <%="#{@search_params[:price]}" %> </p>
+          <p><strong>Max price in USD:</strong> <%="#{@search_params[:price]}" %> </p>
         <% end %>
 
         <% if "#{@search_params[:nationality]}" == "" %>
