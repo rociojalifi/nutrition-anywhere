@@ -46,7 +46,7 @@ class ServicesController < ApplicationController
               @services << service
             end
           elsif !@price.empty?
-            user.services.where(price: @price).each do |service|
+            user.services.where("price <= ?", @price).each do |service|
               @services << service
             end
           else
