@@ -22,31 +22,32 @@
     <%end%> 
   </div>
 
-  <div class= "" style="padding-top: 50px; padding-bottom: 50px">
-    <h5 class= "titles">Find a nutritionist of</h5>
-    <h1 class= "blue-titles"><span id="index-title-typed-text" ></span></h1>
+  <div style="padding-top: 50px; padding-bottom: 50px">
+    <div class= "titles col-9">
+      <h5>Find a nutritionist of</h5>
+      <h1 class= "blue-titles"><span id="index-title-typed-text" ></span></h1>
+      <div class="index-filter-titles"> 
+        <% if "#{@search_params[:speciality]}" == "" %>
+        <% else %>
+          <p><strong>Speciality:</strong> <%="#{@search_params[:speciality]}" %> </p>
+        <% end %>
 
-    <div class="d-flex justify-content-start"> 
-      <% if "#{@search_params[:speciality]}" == "" %>
-      <% else %>
-        <p class= "mr-3"><strong>Service Speciality:</strong> <%="#{@search_params[:speciality]}" %> </p>
-      <% end %>
+        <% if "#{@search_params[:price]}" == "" %>
+        <% else %>
+          <p><strong>Price in USD:</strong> <%="#{@search_params[:price]}" %> </p>
+        <% end %>
 
-      <% if "#{@search_params[:price]}" == "" %>
-      <% else %>
-        <p class= "mr-3"><strong>Service Price in USD:</strong> <%="#{@search_params[:price]}" %> </p>
-      <% end %>
+        <% if "#{@search_params[:nationality]}" == "" %>
+        <% else %>
+          <p><strong>Nationality:</strong> <%="#{@search_params[:nationality]}" %> </p>
+        <% end %>
 
-      <% if "#{@search_params[:nationality]}" == "" %>
-      <% else %>
-        <p class= "mr-3"><strong>Nutritionist Nationality:</strong> <%="#{@search_params[:nationality]}" %> </p>
-      <% end %>
-
-      <% if "#{@search_params[:language]}" == "" %>
-      <% else %>
-        <p class= "mr-3"><strong>Nutritionist Language:</strong> <%="#{@search_params[:language]}" %> </p>
-      <% end %>
-    </div> 
+        <% if "#{@search_params[:language]}" == "" %>
+        <% else %>
+          <p><strong>Language:</strong> <%="#{@search_params[:language]}" %> </p>
+        <% end %>
+      </div> 
+    </div>
   </div>
 
   <div class="cards">
@@ -57,10 +58,10 @@
           </div>
           <div class="row index-card-info">
             <div>
-              <p><i class="far fa-credit-card"></i>USD <%= service.price %> p/ appt.</p>
+              <p><i class="fas fa-male p-1"></i><%= service.user.full_name %></p>
             </div>
             <div>
-              <p><i class="fas fa-male p-1"></i><%= service.user.full_name %></p>
+              <p><i class="far fa-credit-card"></i>USD <%= service.price %> /appt</p>
             </div>
             <div>
               <p><i class="fas fa-globe-americas"></i><%= service.user.nationality %></p>
