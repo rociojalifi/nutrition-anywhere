@@ -1,24 +1,24 @@
 
 <div class="container mb-5" id="booking-form">
   <div class="d-flex justify-content-around row">
-    <div class="col-6">
-      <h3 class="blue-titles">Your Booked Appointment with <%= @service.user.full_name %></h3>
-    </div>
-    <div class="col-6" style="padding-top: 30px; text-align: right">
-      <%= link_to "Go to my bookings", bookings_requested_path, class:'btn btn-dark-blue', style: 'margin-right: -11px;' %>
-    </div>
+
   </div>
 </div>
 
 <div class="container mb-5">
   <div class="d-flex justify-content-around row">
-    <div class="user-avatar col-2">
-      <%= cl_image_tag @service.user.photo.key, class:
-            "img-fluid rounded-start avatar-square", style: "margin-left: 16px;" %>
+    <div class="col-5">
+      <h3 class="medium-blue-titles">Your Booked Appointment</h3>
+      <h3 class="medium-blue-titles">with <%= @service.user.full_name %></h3>
+      <div>
+        <%= cl_image_tag @service.user.photo.key, class:
+              "img-fluid rounded-start avatar-square", style: "width: 250px" %>
+      </div>
+      <div class="" style="padding-top: 30px">
+        <%= link_to "Go to my bookings", bookings_requested_path, class:'btn btn-dark-blue', style: 'padding-top: 10px; padding-bottom: 10px' %>
+      </div>
     </div>
-    <div class="col-4">
-      <h4 class="service-show-info">Nutritionist</h4>
-      <h4 class="service-show-info" style="color:#0030ff"><strong><%= @service.user.full_name %></strong></h4>
+    <div class="col-3">
       <h4 class="service-show-info">Nationality</h4>
       <h4 class="service-show-info" style="color:#0030ff"><strong><%= @service.user.nationality %></strong></h4>
       <h4 class="service-show-info">Language</h4>
@@ -33,12 +33,12 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <div class="pl-3 pt-3 service-show-carrousel">
-              <h4 style="color:#0030ff"><strong>Congratulations!</strong></h4>
+              <h4 style="color:#0030ff; padding-top:20px"><strong>Congratulations!</strong></h4>
             </div>
           </div>
           <div class="carousel-item">
             <div class="pl-3 pt-3 service-show-carrousel">
-              <h4 style="color:#0030ff"><strong>Good luck with your nutritionist!</strong></h4>
+              <h4 style="color:#0030ff; padding-top:8px"><strong>Good luck with your nutritionist!</strong></h4>
             </div>
           </div>
         </div>
@@ -46,7 +46,7 @@
     </div>
   <div
     id="map"
-    class="col-6" style="height: 395px"
+    class="col-4" style="height: 420px"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
