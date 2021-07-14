@@ -148,7 +148,7 @@ user_11 = User.create!(
 user_11.photo.attach(io: file_11, filename: 'nes_11.jpg', content_type: 'image/jpg')
 user_11.save
 
-file_12 = URI.open('https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80')
+file_12 = URI.open('https://images.unsplash.com/photo-1625241189662-2980453ebffc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=801&q=80')
 user_12 = User.create!(
   email: 'andresnutricion@gmail.com',
   password: '123456',
@@ -379,124 +379,124 @@ user_30.save
 
 
 service_1 = Service.create!(
-  speciality: 'Oncology Nutritionism',
+  speciality: 'Oncology',
   price: 100,
   location: 'Buenos Aires',
   user: user_1,
 )
 service_2 = Service.create!(
-  speciality: 'Sports Nutritionism',
+  speciality: 'Sports',
   price: 70,
   location: 'Dubai',
   user: user_2,
 )
 service_3 = Service.create!(
-  speciality: 'Eating Disorder Nutritionism',
+  speciality: 'Eating Disorder',
   price: 100,
   location: 'Lisboa',
   user: user_3,
 )
 service_4 = Service.create!(
-  speciality: 'Vegan Nutritionism',
+  speciality: 'Vegan',
   price: 100,
   location: 'París',
   user: user_4,
 )
 service_5 = Service.create!(
-  speciality: 'Oncology Nutritionism',
+  speciality: 'Oncology',
   price: 150,
   location: 'Roma',
   user: user_5,
 )
 service_6 = Service.create!(
-  speciality: 'Keto Nutritionism',
+  speciality: 'Keto',
   price: 90,
   user: user_6,
   location: 'Venecia',
 )
 service_7 = Service.create!(
-  speciality: 'Sports Nutritionism',
+  speciality: 'Sports',
   price: 100,
   user: user_7,
   location: 'Pekin',
 )
 service_8 = Service.create!(
-  speciality: 'Oncology Nutritionism',
+  speciality: 'Oncology',
   price: 70,
   user: user_8,
   location: 'Shangai',
 )
 service_9 = Service.create!(
-  speciality: 'Pediatric Nutritionism',
+  speciality: 'Pediatric',
   price: 90,
   user: user_9,
   location: 'Oporto',
 )
 service_10 = Service.create!(
-  speciality: 'Sports Nutritionism',
+  speciality: 'Sports',
   price: 100,
   user: user_10,
   location: 'Madrid',
 )
 service_11 = Service.create!(
-  speciality: 'Eating Disorder Nutritionism',
+  speciality: 'Eating Disorder',
   price: 90,
   user: user_11,
   location: 'Barcelona',
 )
 service_12 = Service.create!(
-  speciality: 'Vegan Nutritionism',
+  speciality: 'Vegan',
   price: 100,
   user: user_12,
-  location: 'Mendoza',
+  location: 'Córboba',
 )
 service_13 = Service.create!(
-  speciality: 'Sports Nutritionism',
+  speciality: 'Sports',
   price: 120,
   user: user_13,
   location: 'Roma',
 )
 service_14 = Service.create!(
-  speciality: 'Keto Nutritionism',
+  speciality: 'Keto',
   price: 120,
   user: user_14,
   location: 'New York',
 )
 service_15 = Service.create!(
-  speciality: 'Pediatric Nutritionism',
+  speciality: 'Pediatric',
   price: 140,
   user: user_15,
   location: 'Miami',
 )
 service_16 = Service.create!(
-  speciality: 'Vegan Nutritionism',
+  speciality: 'Vegan',
   price: 120,
   user: user_16,
   location: 'París',
 )
 service_17 = Service.create!(
-  speciality: 'Sports Nutritionism',
+  speciality: 'Sports',
   price: 120,
   user: user_17,
   location: 'Florence',
 )
 service_18 = Service.create!(
-  speciality: 'Oncology Nutritionism',
+  speciality: 'Oncology',
   price: 120,
   user: user_18,
   location: 'Sevilla',
 )
 service_19 = Service.create!(
-  speciality: 'Eating Disorder Nutritionism',
+  speciality: 'Eating Disorder',
   price: 120,
   user: user_19,
   location: 'Dubái',
 )
 service_20 = Service.create!(
-  speciality: 'Keto Nutritionism',
+  speciality: 'Keto',
   price: 120,
   user: user_20,
-  location: 'Córdoba',
+  location: 'Mendoza',
 )
 booking_1 = Booking.create!(
   booking_date: '2021-07-22 11:00:00 UTC',
@@ -648,3 +648,32 @@ booking_30 = Booking.create!(
   user: user_27,
   service: service_1,
 )
+
+review_1 = Review.create!(
+  content: 'This nutritionist was sublime. Fully Recommend',
+  rating: 5,
+  user_id: 21,
+  service_id: 12,
+)
+
+review_2 = Review.create!(
+  content: 'Vivo fuera de mi pais, y me es dificil encontrar profesionales de mi cultura, que puedan entender mi origen. Gracias Andres Garcia por tu atención y gracias Nutrition Anywhere',
+  rating: 5,
+  user_id: 30,
+  service_id: 12,
+)
+
+review_3 = Review.create!(
+  content: 'Very Professional',
+  rating: 4,
+  user_id: 26,
+  service_id: 12,
+)
+
+review_4 = Review.create!(
+  content: "Ero in ritardo per l'appuntamento e mi ha assistito per l'intera ora. Grazie.",
+  rating: 4,
+  user_id: 25,
+  service_id: 12,
+)
+
