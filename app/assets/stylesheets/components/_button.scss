@@ -1,3 +1,16 @@
+.btn-dark-blue {
+  background-color: #0030ff;
+  color: white;
+  transition: 0.5s;
+}
+
+.btn-dark-blue:hover {
+  background-color: #2e3d7e;
+  color: white;
+  transform: scale(1.05);
+}
+
+
 .btn-booking {
   background-color: #0030ff;
   color: white;
@@ -7,14 +20,4 @@
   color: white;
 }
 
-.btn-index-booking {
-  background-color: #0030ff;
-  color: white;
-  transition: 0.5s;
-}
 
-.btn-index-booking:hover {
-  background-color: #2e3d7e;
-  color: white;
-  transform: scale(1.05);
-}
