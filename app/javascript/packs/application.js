@@ -41,7 +41,6 @@ document.addEventListener("turbolinks:load", () => {
 // myModal.forEach((button) => {
 //   button.addEventListener("click", () => {
 $("#myModal").on("shown.bs.modal", function () {
-  console.log("click");
   $("#myInput").trigger("focus");
 });
 //   });
