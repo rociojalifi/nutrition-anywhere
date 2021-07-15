@@ -38,7 +38,7 @@ class ServicesController < ApplicationController
 
         @users.each do |user|
           if !@speciality.empty? && !@price.empty?
-            user.services.where(speciality: @speciality, price: @price).each do |service|
+            user.services.where(speciality: @speciality).where("price <= ?", @price).each do |service|
               @services << service
             end
           elsif !@speciality.empty?
