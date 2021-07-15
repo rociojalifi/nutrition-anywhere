@@ -2,6 +2,12 @@
   margin-bottom: 24px;
 }
 
+.bookings-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16 px;
+}
+
 @media(max-width: 992px) {
   .bookings-cards {
     display: grid;
