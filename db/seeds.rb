@@ -1104,27 +1104,27 @@ review_1 = Review.create!(
   content: 'This nutritionist was sublime. Fully Recommend',
   rating: 5,
   user: user_21,
-  service: service_12,
+  service: service_1,
 )
 
 review_2 = Review.create!(
   content: 'Vivo fuera de mi pais, y me es dificil encontrar profesionales de mi cultura, que puedan entender mi origen. Gracias Rocio por tu atención y gracias Nutrition Anywhere',
   rating: 5,
   user: user_30,
-  service: service_12,
+  service: service_1,
 )
 
 review_3 = Review.create!(
   content: 'Very Professional',
   rating: 4,
   user: user_26,
-  service: service_12,
+  service: service_1,
 )
 
 review_4 = Review.create!(
   content: "Ero in ritardo per l'appuntamento e mi ha assistito per l'intera ora. Grazie.",
   rating: 4,
   user: user_25,
-  service: service_12,
+  service: service_1,
 )
 
