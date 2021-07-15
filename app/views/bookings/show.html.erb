@@ -12,13 +12,15 @@
       <h3 class="medium-blue-titles">with <%= @service.user.full_name %></h3>
       <div>
         <%= cl_image_tag @service.user.photo.key, class:
-              "img-fluid rounded-start avatar-square", style: "width: 250px" %>
+              "img-fluid rounded-start avatar-square", style: "width: 300px" %>
       </div>
-      <div class="" style="padding-top: 30px">
-        <%= link_to "Go to my bookings", bookings_requested_path, class:'btn btn-dark-blue', style: 'padding-top: 10px; padding-bottom: 10px' %>
+      <div class="" style="padding-top: 25px">
+        <%= link_to "Go to my bookings", bookings_requested_path, class:'btn btn-dark-blue', style: 'padding-top: 12px; padding-bottom: 12px; margin-bottom: 20px' %>
       </div>
     </div>
     <div class="col-3">
+      <h4 class="service-show-info">Speciality</h4>
+      <h4 class="service-show-info" style="color:#0030ff"><strong><%= @service.speciality %></strong></h4>
       <h4 class="service-show-info">Nationality</h4>
       <h4 class="service-show-info" style="color:#0030ff"><strong><%= @service.user.nationality %></strong></h4>
       <h4 class="service-show-info">Language</h4>
@@ -38,7 +40,7 @@
           </div>
           <div class="carousel-item">
             <div class="pl-3 pt-3 service-show-carrousel">
-              <h4 style="color:#0030ff; padding-top:8px"><strong>Good luck with your nutritionist!</strong></h4>
+              <h4 style="color:#0030ff; padding-top:18px"><strong>Good luck with your nutritionist!</strong></h4>
             </div>
           </div>
         </div>
@@ -46,7 +48,7 @@
     </div>
   <div
     id="map"
-    class="col-4" style="height: 420px"
+    class="col-4" style="height: 472px"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
