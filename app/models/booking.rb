@@ -9,4 +9,5 @@ class Booking < ApplicationRecord
     self.meeting_metadata = meta
     self.save
   end
+
 end
