@@ -1,6 +1,7 @@
 <div class="container mb-5">
-  <h1><span id="title-typed-text" ></span></h1>
-  
+  <div>
+    <h1 class="bookings-title"><span id="title-typed-text" ></span></h1>
+  </div>
   <div class="cards">
     <% @bookings_requested.each do |booking_requested| %>
       <div class="col card-product-bookings text-center">
@@ -13,21 +14,10 @@
           </div>
           <div>
             <p><i class="fas fa-male p-1"></i><%= booking_requested.service.user.full_name %></p>
-            <p><i class="fas fa-calendar-day p-1"></i><%= booking_requested.booking_date.strftime(" %B %d, %Y ") %></p>
             <p><i class="fas fa-apple-alt p-1"></i><%= booking_requested.service.speciality %></p>
-            <p><i class="far fa-credit-card"></i>USD <%= booking_requested.service.price %></p>       
-          </div>
-          <div>
-            <p><i class="far fa-credit-card"></i>USD <%= booking_requested.service.price %> /appt</p>
-          </div>
-          <div>
             <p><i class="fas fa-globe-americas"></i><%= booking_requested.service.user.nationality %></p>
-          </div>
-          <div>
             <p><i class="fas fa-font"></i></i><%= booking_requested.service.user.language %></p>
-          </div>
-          <div>
-            <p><i class="fas fa-calendar-day p-1"></i></i><%= booking_requested.booking_date %></p>
+            <p><i class="fas fa-calendar-day p-1"></i><%= booking_requested.booking_date.strftime(" %B %d, %Y | %I:%M %P") %></p>     
           </div>
         </div>
         <div class="index-card-btn text-center" >
@@ -35,14 +25,12 @@
             <% if booking_requested.booking_date > Time.now %> <%= link_to "Join meeting", booking_requested.meeting_url, class: 'btn btn-booking' %>
             <%= link_to "Cancel appointment", booking_path(booking_requested),
             method: :delete, data: { confirm: "Are you sure you want to cancel this appointment?" }, class:"btn btn-cancel-booking" %>
+            <% else %>
+              <%= link_to 'Leave a Review', booking_path(booking_requested), class:'btn btn-booking', style:'margin-top: 35px' %>
+            <% end %>
           </div>
-          <% else %>
-            <%= link_to 'Leave a Review', booking_path(booking_requested), class:'btn btn-booking', style:'margin-top: 35px' %>
-          <% end %>
         </div>
       </div>
     <% end %>
-    </div>
+  </div>
 </div>
-<h1></h1>
-
