@@ -6,10 +6,9 @@ class ReviewsController < ApplicationController
     @review.service = @service
     authorize @review
     if @review.save
-      redirect_to service_path(@service, anchor: "review-#{@review.id}")
+      redirect_to service_path(@service)
     else
-      @booking = Booking.new
-      redirect_to bookings_requested_path
+      render :new
     end
   end
 
