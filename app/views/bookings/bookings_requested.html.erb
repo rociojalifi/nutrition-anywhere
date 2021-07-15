@@ -9,7 +9,7 @@
           </div>
           <div class="card-info col-sm-6 d-flex flex-column justify-content-center">
             <p><i class="fas fa-male p-1"></i><%= booking_requested.service.user.full_name %></p>
-            <p><i class="fas fa-calendar-day p-1"></i><%= booking_requested.booking_date %></p>
+            <p><i class="fas fa-calendar-day p-1"></i><%= booking_requested.booking_date.strftime(" %B %d, %Y ") %></p>
             <p><i class="fas fa-apple-alt p-1"></i><%= booking_requested.service.speciality %></p>
             <p><i class="far fa-credit-card"></i>USD <%= booking_requested.service.price %></p>       
           </div>
