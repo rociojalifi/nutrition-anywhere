@@ -27,12 +27,11 @@
             <%= link_to "Cancel appointment", booking_path(booking_requested),
             method: :delete, data: { confirm: "Are you sure you want to cancel this appointment?" }, class:"btn btn-cancel-booking" %>
           </div>
-          <% else %>
-            <%= link_to 'Leave a Review', booking_path(booking_requested), class:'btn btn-booking', style:'margin-top: 35px' %>
-          <% end %>
+            <% else %>
+              <%= link_to 'Leave a Review', booking_path(booking_requested), class:'btn btn-booking', style:'margin-top: 35px' %>
+            <% end %>
         </div>
       </div>
     <% end %>
-    </div>
+  </div>
 </div>
-
