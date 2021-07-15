@@ -10,14 +10,30 @@
   transform: scale(1.05);
 }
 
-
 .btn-booking {
   background-color: #0030ff;
   color: white;
+  transition: 0.5s;
+  width: 185px;
+  margin: 10px;  
 }
 .btn-booking:hover {
-  background-color: #3f61f7;
+  background-color: #2e3d7e;
   color: white;
+  transform: scale(1.05);
 }
 
+.btn-cancel-booking {
+  background-color: #eeeff3;
+  color: blue;
+  transition: 0.5s;
+  width: 185px;
+  margin: 10px;
+  border-color: blue;
+}
 
+.btn-cancel-booking:hover {
+  background-color: #3f61f7;
+  color: white;
+  transform: scale(1.05);
+}
