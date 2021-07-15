@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mb-5">
   <h1><span id="title-typed-text" ></span></h1>
     <div class="container">
       <% @bookings_given.each do |booking_given| %>
@@ -9,7 +9,7 @@
           </div>
           <div class="card-info col-sm-6 d-flex flex-column justify-content-center">
             <p><i class="fas fa-male p-1"></i><%= booking_given.user.full_name %></p>
-            <p><i class="fas fa-calendar-day p-1"></i><%= booking_given.booking_date %></p>
+            <p><i class="fas fa-calendar-day p-1"></i><%= booking_given.booking_date.strftime(" %B %d, %Y | %I:%M %P") %></p>
             <p><i class="fas fa-apple-alt p-1"></i><%= booking_given.service.speciality %></p>       
           </div>
           <div class="btn col-sm-3">

@@ -1,0 +1,39 @@
+.bookings-title {
+  margin-bottom: 24px;
+}
+
+.bookings-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16 px;
+}
+
+@media(max-width: 992px) {
+  .bookings-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 16 px;
+  }
+}
+
+@media(max-width: 768px) {
+  .bookings-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 16 px;
+  }
+}
+
+@media(max-width: 600px) {
+  .bookings-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 16 px;
+  }
+
+  #title-typed-text {
+    margin: 26px;
+    font-size: 1.2rem;
+  }
+
+}

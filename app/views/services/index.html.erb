@@ -1,6 +1,6 @@
 
 
-<div class="container">
+<div class="container mb-5">
 
   <div class="mb-3">
     <%= simple_form_for :query, url: services_path, method: "GET", html: {class: 'form-inline search-bar'} do |form|%>
@@ -11,10 +11,10 @@
         <%= form.input :price, label: 'Price', label: false, collection: ['70', '90', '100', '120', '150'], prompt: "Max prices in USD"%>
       </div>
       <div class="form">
-        <%= form.input :nationality, label: 'Nutritionist Nationality', label: false, collection: ['Argentinian', 'Spanish', 'French', 'Italian', 'Portuguese', 'Chinese'], prompt: "All nationalities" %>
+        <%= form.input :nationality, label: 'Nutritionist Nationality', label: false, collection: ['Argentinian', 'Chinese', 'Colombian', 'French', 'Italian', 'Portuguese', 'Spanish' ], prompt: "All nationalities" %>
       </div>
       <div class="form">
-        <%= form.input :language, label: 'Nutritionist Language', label: false, collection: ['Spanish', 'French', 'Italian', 'Portuguese', 'Mandarin Chinese'], prompt: "All languages"%>
+        <%= form.input :language, label: 'Nutritionist Language', label: false, collection: ['French', 'Italian', 'Mandarin Chinese', 'Portuguese', 'Spanish' ], prompt: "All languages"%>
       </div>
       <div class="form">
         <%= form.submit "Find a nutritionist", class:"btn btn-dark-blue" %>
@@ -58,16 +58,56 @@
           </div>
           <div class="row index-card-info">
             <div>
-              <p><i class="fas fa-male p-1"></i><%= service.user.full_name %></p>
+              <p><i class="fas fa-male p-1"></i><%= service.user.full_name %>
+               <% if service.user.full_name == "Rocio Jalifi" %>
+                <i class="fas fa-star review-stars" type="button" data-toggle="modal" data-target="#exampleModal"></i>
+              <% end %>
+              </p>
             </div>
             <div>
               <p><i class="far fa-credit-card"></i>USD <%= service.price %> /appt</p>
             </div>
+            <% if service.user.nationality == "English" %>
+              <div>
+                <p><%= image_tag 'english.jpg', class:'flag' %><%= service.user.nationality %></p>
+              </div>
+            <% elsif service.user.nationality == "Arabic" %>
+              <div>
+                <p><%= image_tag 'arabic.jpg', class:'flag' %><%= service.user.nationality %></p>
+              </div>
+            <% elsif service.user.language == "Mandarin Chinese" %>
+              <div>
+                <p><%= image_tag 'chinese-mandarin.jpg', class:'flag' %><%= service.user.nationality %></p>
+              </div>
+            <% elsif service.user.nationality == "French" %>
+              <div>
+                <p><%= image_tag 'french.jpg', class:'flag' %><%= service.user.nationality %></p>
+              </div>
+            <% elsif service.user.nationality == "Italian" %>
+              <div>
+                <p><%= image_tag 'italian.jpg', class:'flag' %><%= service.user.nationality %></p>
+              </div>
+            <% elsif service.user.nationality == "Portuguese" %>
+              <div>
+                <p><%= image_tag 'portuguese.jpg', class:'flag' %><%= service.user.nationality %></p>
+              </div>
+            <% elsif service.user.nationality == "Spanish" %>
+              <div>
+                <p><%= image_tag 'spanish.png', class:'flag' %><%= service.user.nationality %></p>
+              </div>
+            <% elsif service.user.nationality == "Argentinian" %>
+              <div>
+                <p><%= image_tag 'argentinian.png', class:'flag' %><%= service.user.nationality %></p>
+              </div>
+            <% elsif service.user.nationality == "Colombian" %>
+              <div>
+                <p><%= image_tag 'colombian.png', class:'flag' %><%= service.user.nationality %></p>
+              </div>
+            <% end %>
+               <div>
+                <p><i class="fas fa-font"></i><%= service.user.language %></p>
+              </div>
             <div>
-              <p><i class="fas fa-globe-americas"></i><%= service.user.nationality %></p>
-            </div>
-            <div>
-              <p><i class="fas fa-font"></i></i><%= service.user.language %></p>
             </div>
           </div>
           <div class="index-card-btn text-center" >
@@ -83,10 +123,27 @@
               <% else %>
                 <%= link_to 'Book', service_path(service), class:'btn btn-dark-blue' %>
               <% end %>
-
-
           </div>
       </div>
     <% end %>
+  </div>
+</div>
+
+      
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center mb-3">
+        <i class="fas fa-star review-stars"></i>
+        Top rated nutritionist of the month
+        <i class="fas fa-star review-stars"></i>
+      </div>
+    
+    </div>
   </div>
 </div>

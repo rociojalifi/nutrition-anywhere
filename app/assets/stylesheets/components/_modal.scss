@@ -1,0 +1,18 @@
+
+.modal-index {
+  position: absolute;
+  top: 400px;
+  right: 100px;
+  bottom: 0;
+  left: 0;
+  z-index: 10040;
+  overflow: auto;
+  overflow-y: auto;
+  font-family: helvetica;
+  color: #828282;
+}
+
+.modal.show .modal-dialog {
+  transform: none;
+  margin-top: 280px;
+}

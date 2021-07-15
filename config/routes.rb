@@ -5,13 +5,13 @@ Rails.application.routes.draw do
   get '/bookings_given', to: 'bookings#bookings_given'
   get '/users/settings', to: 'users#settings'
   get '/auth/zoom/callback', to: 'omniauth#zoom'
+  get '/about', to: 'users#about'
 
   resources :services do
     resources :bookings, only: [:create]
-    resources :reviews, only: [:create]
   end
 
   resources :bookings, only: [:index, :show, :destroy]
-  resources :reviews, only: [:destroy]
+  resources :reviews, only: [:destroy, :create]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

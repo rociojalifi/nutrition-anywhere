@@ -1,26 +1,64 @@
-<div class="container">
-  <h1><span id="title-typed-text" ></span></h1>
-    <div class="container">
-      <% @bookings_requested.each do |booking_requested| %>
-        <div class="card-product col-sm-12">
-          <div class="card-img col-sm-3">
-            <%= cl_image_tag booking_requested.service.user.photo.key, class:
-            "img-fluid rounded-start avatar-square" %>
+<div class="container mb-5">
+  <div>
+    <h1 class="bookings-title"><span id="title-typed-text" ></span></h1>
+  </div>
+  
+  <div class="bookings-cards">
+    <% @bookings_requested.each do |booking_requested| %>
+      <div class="col card-product-bookings text-center">
+        <div>
+          <h5 class="index-card-title"><%= booking_requested.service.speciality %></h5>
+        </div>
+        <div class="row index-card-info">
+          <div class="card-img">
+            <%= cl_image_tag booking_requested.service.user.photo.key, class:"img-fluid rounded-circle avatar-square", style: "margin-bottom: 25px" %>
           </div>
-          <div class="card-info col-sm-6 d-flex flex-column justify-content-center">
+          <div>
             <p><i class="fas fa-male p-1"></i><%= booking_requested.service.user.full_name %></p>
-            <p><i class="fas fa-calendar-day p-1"></i><%= booking_requested.booking_date %></p>
             <p><i class="fas fa-apple-alt p-1"></i><%= booking_requested.service.speciality %></p>
-            <p><i class="far fa-credit-card"></i>USD <%= booking_requested.service.price %></p>       
-          </div>
-          <div class="btn col-sm-3">
-            <%= link_to "Join meeting", booking_requested.meeting_url, class: 'btn btn-booking ' %>
-            <%= link_to "I need to cancel", booking_path(booking_requested),
-            method: :delete, data: { confirm: "Are you sure you want to delete this
-            booking?" }, class:"btn btn-booking d-flex justify-content-center" %>
+            <p><i class="fas fa-globe-americas"></i><%= booking_requested.service.user.nationality %></p>
+            <p><i class="fas fa-font"></i></i><%= booking_requested.service.user.language %></p>
+            <p><i class="fas fa-calendar-day p-1"></i><%= booking_requested.booking_date.strftime(" %B %d, %Y | %I:%M %P") %></p>     
           </div>
         </div>
-      <% end %>
-    </div>
+        <div class="index-card-btn text-center" >
+          <div class="user-button-actions mb-5">
+            <% if booking_requested.booking_date > Time.now %> <%= link_to "Join meeting", booking_requested.meeting_url, class: "btn btn-booking" %>
+            <%= link_to "Cancel appointment", booking_path(booking_requested),
+            method: :delete, data: { confirm: "Are you sure you want to cancel this appointment?" }, class:"btn btn-cancel-booking" %>
+            <% else %>
+              <button type="button" data-service-id="<%= booking_requested.service.id %>" class="modal-button btn btn-booking" data-toggle="modal" data-target="#exampleModal">
+                Leave a Review
+              </button>
+              <%= link_to "Delete appointment", booking_path(booking_requested),
+            method: :delete, data: { confirm: "Are you sure you want to delete the register of this appointment?" }, class:"btn btn-cancel-booking" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
 
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document" style="margin-top: 265px">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Leave a Review</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for Review.new do |f|%>
+          <%= f.input :content, as: :text, label: false, style: "font-size:20px", placeholder: "..."%> 
+          <%= f.input :rating, label: false, collection: 1..5, include_blank: false %> 
+          <%= hidden_field_tag 'service', 'id', class:"service-id-param" %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>

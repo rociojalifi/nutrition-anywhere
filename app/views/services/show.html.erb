@@ -1,13 +1,14 @@
 
-<div class="container mb-5" id="booking-form">
+<div class="container mb-5" id="booking-form" style="margin-bottom: 0rem !important">
   <div class="d-flex justify-content-around row">
     <div class="col-6">
-      <h3 class="blue-titles">Book an Appointment with <%= @service.user.full_name %></h3>
+      <h4 class="" style="color: rgb(45, 43, 43)">Book an Appointment with</h4>
+      <h3 class="medium-blue-titles" style="margin-bottom:7px"><%= @service.user.full_name %></h3>
     </div>
     <div class="col-6">
       <%= simple_form_for [@service, @booking] do |form| %> <%= form.input :booking_date, label: false %>
         <div class="d-flex justify-content-end mb-5">
-          <%= form.submit class:'btn btn-dark-blue' %> <%= link_to "Go back",
+          <%= form.button :submit, 'Book', class:'btn btn-dark-blue' %> <%= link_to "Go back",
           services_path, class:'btn ml-3b btn-dark-blue ml-3' %> 
         </div>
       <% end %>
@@ -19,29 +20,28 @@
   <div class="d-flex justify-content-around row">
     <div class="user-avatar col-3">
       <%= cl_image_tag @service.user.photo.key, class:
-            "img-fluid rounded-start avatar-square" %>
+            "img-fluid rounded-start avatar-square", style: "width: 250px" %>
     </div>
     <div class="col-3">
-      <h4 class="service-show-info">Nutritionist</h4>
-      <h4 class="service-show-info" style="color:#0030ff"><strong><%= @service.user.full_name %></strong></h4>
-      <h4 class="service-show-info">Nationality</h4>
-      <h4 class="service-show-info" style="color:#0030ff"><strong><%= @service.user.nationality %></strong></h4>
-      <h4 class="service-show-info">Language</h4>
-      <h4 class="service-show-info"style="color:#0030ff"><strong><%= @service.user.language %></strong></h4>
-      <h4 class="service-show-info">Price</h4>
-      <h4 class="service-show-info"style="color:#0030ff"><strong>USD <%= @service.price %></strong></h4>
-      <h4 class="service-show-info">Office Location</h4>
-      <h4 class="service-show-info"style="color:#0030ff"><strong><%= @service.location %></strong></h4>
+      <h4 class="service-show-info" style="color: rgb(45, 43, 43)">Speciality</h4>
+      <h4 class="service-show-info" style="color:#0030ff"><strong><%= @service.speciality %></strong></h4>
+      <h4 class="service-show-info" style="color: rgb(45, 43, 43)">Language</h4>
+      <h4 class="service-show-info" style="color:#0030ff"><strong><%= @service.user.language %></strong></h4>
+      <h4 class="service-show-info" style="color: rgb(45, 43, 43)">Price</h4>
+      <h4 class="service-show-info" style="color:#0030ff"><strong>USD <%= @service.price %></strong></h4>
+      <h4 class="service-show-info" style="color: rgb(45, 43, 43)">Office Location</h4>
+      <h4 class="service-show-info" style="color:#0030ff"><strong><%= @service.location %></strong></h4>
+      
       <div id="id" class="service-show-info carousel slide" data-ride="carousel" data-interval="2000">
         <div class="carousel-inner">
           <div class="carousel-item active">
             <div class="pl-3 pt-3 service-show-carrousel">
-              <h4 style="color:#0030ff"><strong>We Recommend</strong></h4>
+              <h4 style="color:#0030ff; padding-top: 15px"><strong>Top rated nutritionist!</strong></h4>
             </div>
           </div>
           <div class="carousel-item">
             <div class="pl-3 pt-3 service-show-carrousel">
-              <h4 style="color:#0030ff"><strong>This Service</strong></h4>
+              <h4 style="color:#0030ff; padding-top: 20px"><strong>We recommend this service</strong></h4>
             </div>
           </div>
         </div>
@@ -49,24 +49,22 @@
     </div>
     <div
       id="map"
-      class="col-6" style="height: 360px"
+      class="col-6" style="height: 350px"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>
   </div>
 </div>
-<div class="pb-5 ml-3">
-  <div class="d-flex justify-content-between booking-content">
+
+<div class="container mb-5 text-center">
+  <div class="text-center booking-content">
     <div id="reviews">
       <% if @service.reviews.blank? %>
-      <div>
-        <h4 class="smaller-blue-titles" style="margin-left: 67px">
-          If you book an appointment with <%= @service.user.full_name %>, you can be the first to leave a review for this service!
-        </h4>
-      </div>
+        <p class="text-center smaller-blue-titles">
+            If you book an appointment with <%= @service.user.full_name %>, you can be the first to leave a review for this service!
+        </p>
       <% else %>
-      <div>
-        <h4>What people say about <%= @service.user.full_name %></h4>
+        <h4 class="black-medium-titles"><%= @service.user.full_name %>´s last month reviews</h4>
         <% @service.reviews.each do |review| %>
         <div class="mt-4 mb-4">
           <p style="color: #3a3a3a"><%= review.content %></p>
@@ -79,7 +77,6 @@
           </p>
         </div>
         <% end %>
-      </div>
       <% end %>
     </div>
   </div>

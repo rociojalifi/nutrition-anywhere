@@ -1,0 +1,32 @@
+.card-about {
+  height: 350px;
+  width: 350px;
+  border-radius: 20px;
+  background-color: #c5d3f5;
+}
+
+.avatar-about {
+  width: 150px;
+  border-radius: 50%;
+}
+
+.name-about {
+  margin-left: 40px;
+  margin-top: 60px;
+  margin-right: 40px;
+
+  h5 {
+    color: white;
+  }
+  h6 {
+    color: #003ff0;
+  }
+}
+.color-link {
+  color: #003ff0;
+  font-size: 20px;
+}
+
+.color-link:hover {
+  color: #2a5fee;
+}
