@@ -60,7 +60,7 @@
             <div>
               <p><i class="fas fa-male p-1"></i><%= service.user.full_name %>
               <% if service.user.full_name == "Rocio Jalifi" %>
-               <i class="fas fa-star review-stars"></i>
+          
               <% end %>
               </p>
             </div>
@@ -87,10 +87,9 @@
               <% else %>
                 <%= link_to 'Book', service_path(service), class:'btn btn-dark-blue' %>
               <% end %>
-
-
           </div>
       </div>
     <% end %>
   </div>
 </div>
+
