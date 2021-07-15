@@ -1,4 +1,5 @@
-.modal-dialog {
+
+.modal-index {
   position: absolute;
   top: 400px;
   right: 100px;
@@ -9,4 +10,9 @@
   overflow-y: auto;
   font-family: helvetica;
   color: #828282;
+}
+
+.modal.show .modal-dialog {
+  transform: none;
+  margin-top: 280px;
 }

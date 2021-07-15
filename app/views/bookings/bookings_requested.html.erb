@@ -23,11 +23,13 @@
         </div>
         <div class="index-card-btn text-center" >
           <div class="user-button-actions mb-5">
-            <% if booking_requested.booking_date > Time.now %> <%= link_to "Join meeting", booking_requested.meeting_url, class: 'btn btn-booking' %>
+            <% if booking_requested.booking_date > Time.now %> <%= link_to "Join meeting", booking_requested.meeting_url, class: "btn btn-booking" %>
             <%= link_to "Cancel appointment", booking_path(booking_requested),
             method: :delete, data: { confirm: "Are you sure you want to cancel this appointment?" }, class:"btn btn-cancel-booking" %>
             <% else %>
-              <%= link_to 'Leave a Review', booking_path(booking_requested), class:'btn btn-booking' %>
+              <button type="button" data-service-id="<%= booking_requested.service.id %>" class="modal-button btn btn-booking" data-toggle="modal" data-target="#exampleModal">
+                Leave a Review
+              </button>
               <%= link_to "Delete appointment", booking_path(booking_requested),
             method: :delete, data: { confirm: "Are you sure you want to delete the register of this appointment?" }, class:"btn btn-cancel-booking" %>
             <% end %>
@@ -36,5 +38,29 @@
       </div>
     <% end %>
   </div>
+</div>
 
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document" style="margin-top: 265px">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Leave a Review</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for Review.new do |f|%>
+          <%= f.input :content, as: :text, label: false, style: "font-size:20px", placeholder: "..."%> 
+          <%= f.input :rating, label: false, collection: 1..5, include_blank: false %> 
+          <%= f.simple_fields_for :service do |r| %>
+          <%= r.input :id, class:"service-id-param", :as => :hidden  %>
+        <% end %>
+        <%= f.submit %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
 </div>

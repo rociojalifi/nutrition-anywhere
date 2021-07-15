@@ -1,7 +1,6 @@
 class ReviewsController < ApplicationController
   def create
-    @service = Service.find(params[:service_id])
-
+    @service = Service.find(params[:review][:service][:id])
     @review = Review.new(review_params)
     @review.user = current_user
     @review.service = @service

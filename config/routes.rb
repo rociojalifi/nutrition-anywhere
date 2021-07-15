@@ -9,10 +9,9 @@ Rails.application.routes.draw do
 
   resources :services do
     resources :bookings, only: [:create]
-    resources :reviews, only: [:create]
   end
 
   resources :bookings, only: [:index, :show, :destroy]
-  resources :reviews, only: [:destroy]
+  resources :reviews, only: [:destroy, :create]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

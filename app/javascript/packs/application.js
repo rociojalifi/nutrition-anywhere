@@ -45,3 +45,14 @@ $("#myModal").on("shown.bs.modal", function () {
 });
 //   });
 // });
+
+document.querySelectorAll(".modal-button").forEach((button) => {
+  button.addEventListener("click", (event) => {
+    const service_id = event.currentTarget.dataset.serviceId
+    const modalBody = document.querySelector(".modal-body")
+    const serviceInput = document.querySelector("#review_service_id")
+    serviceInput.value = service_id
+  })
+})
+
+
