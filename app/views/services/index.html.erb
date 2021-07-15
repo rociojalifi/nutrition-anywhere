@@ -67,12 +67,46 @@
             <div>
               <p><i class="far fa-credit-card"></i>USD <%= service.price %> /appt</p>
             </div>
-            <div>
-              <p><i class="fas fa-globe-americas"></i><%= service.user.nationality %></p>
-            </div>
-            <div>
-              <p><i class="fas fa-font"></i></i><%= service.user.language %></p>
-            </div>
+            <% if service.user.nationality == "English" %>
+              <div>
+                <p><%= image_tag 'english.jpg', class:'flag' %><%= service.user.nationality %></p>
+              </div>
+            <% elsif service.user.nationality == "Arabic" %>
+              <div>
+                <p><%= image_tag 'arabic.jpg', class:'flag' %><%= service.user.nationality %></p>
+              </div>
+            <% elsif service.user.language == "Mandarin Chinese" %>
+              <div>
+                <p><%= image_tag 'chinese-mandarin.jpg', class:'flag' %><%= service.user.nationality %></p>
+              </div>
+            <% elsif service.user.nationality == "French" %>
+              <div>
+                <p><%= image_tag 'french.jpg', class:'flag' %><%= service.user.nationality %></p>
+              </div>
+            <% elsif service.user.nationality == "Italian" %>
+              <div>
+                <p><%= image_tag 'italian.jpg', class:'flag' %><%= service.user.nationality %></p>
+              </div>
+            <% elsif service.user.nationality == "Portuguese" %>
+              <div>
+                <p><%= image_tag 'portuguese.jpg', class:'flag' %><%= service.user.nationality %></p>
+              </div>
+            <% elsif service.user.nationality == "Spanish" %>
+              <div>
+                <p><%= image_tag 'spanish.png', class:'flag' %><%= service.user.nationality %></p>
+              </div>
+            <% elsif service.user.nationality == "Argentinian" %>
+              <div>
+                <p><%= image_tag 'argentinian.png', class:'flag' %><%= service.user.nationality %></p>
+              </div>
+            <% elsif service.user.nationality == "Colombian" %>
+              <div>
+                <p><%= image_tag 'colombian.png', class:'flag' %><%= service.user.nationality %></p>
+              </div>
+            <% end %>
+               <div>
+                <p><i class="fas fa-font"></i><%= service.user.language %></p>
+              </div>
             <div>
             </div>
           </div>
