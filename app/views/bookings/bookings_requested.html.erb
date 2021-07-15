@@ -1,5 +1,7 @@
 <div class="container mb-5">
-  <h1><span id="title-typed-text" ></span></h1>
+  <div>
+    <h1 class="bookings-title"><span id="title-typed-text" ></span></h1>
+  </div>
   
   <div class="cards">
     <% @bookings_requested.each do |booking_requested| %>
@@ -13,21 +15,10 @@
           </div>
           <div>
             <p><i class="fas fa-male p-1"></i><%= booking_requested.service.user.full_name %></p>
-            <p><i class="fas fa-calendar-day p-1"></i><%= booking_requested.booking_date.strftime(" %B %d, %Y ") %></p>
             <p><i class="fas fa-apple-alt p-1"></i><%= booking_requested.service.speciality %></p>
-            <p><i class="far fa-credit-card"></i>USD <%= booking_requested.service.price %></p>       
-          </div>
-          <div>
-            <p><i class="far fa-credit-card"></i>USD <%= booking_requested.service.price %> /appt</p>
-          </div>
-          <div>
             <p><i class="fas fa-globe-americas"></i><%= booking_requested.service.user.nationality %></p>
-          </div>
-          <div>
             <p><i class="fas fa-font"></i></i><%= booking_requested.service.user.language %></p>
-          </div>
-          <div>
-            <p><i class="fas fa-calendar-day p-1"></i></i><%= booking_requested.booking_date %></p>
+            <p><i class="fas fa-calendar-day p-1"></i><%= booking_requested.booking_date.strftime(" %B %d, %Y ") %></p>     
           </div>
         </div>
         <div class="index-card-btn text-center" >
