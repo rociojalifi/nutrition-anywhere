@@ -28,7 +28,7 @@
       <h4 class="service-show-info">Office Location</h4>
       <h4 class="service-show-info"style="color:#0030ff"><strong><%= @service.location %></strong></h4>
       <h4 class="service-show-info">Date & Time</h4>
-      <h4 class="service-show-info"style="color:#0030ff"><strong><%= @booking.booking_date %></strong></h4>
+      <h4 class="service-show-info"style="color:#0030ff"><strong><%= @booking.booking_date.strftime(" %B %d, %Y ") %></strong></h4>
       <div id="id" class="service-show-info carousel slide" data-ride="carousel" data-interval="2000">
         <div class="carousel-inner">
           <div class="carousel-item active">
