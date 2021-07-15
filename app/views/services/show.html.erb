@@ -64,7 +64,6 @@
             If you book an appointment with <%= @service.user.full_name %>, you can be the first to leave a review for this service!
         </p>
       <% else %>
-      <div>
         <h4 class="black-medium-titles"><%= @service.user.full_name %>´s last month reviews</h4>
         <% @service.reviews.each do |review| %>
         <div class="mt-4 mb-4">
@@ -78,7 +77,6 @@
           </p>
         </div>
         <% end %>
-      </div>
       <% end %>
     </div>
   </div>
