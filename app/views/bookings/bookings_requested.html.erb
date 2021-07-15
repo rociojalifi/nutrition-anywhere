@@ -3,7 +3,7 @@
     <h1 class="bookings-title"><span id="title-typed-text" ></span></h1>
   </div>
 
-  <div class="cards">
+  <div class="bookings-cards">
     <% @bookings_requested.each do |booking_requested| %>
       <div class="col card-product-bookings text-center">
         <div>
@@ -27,7 +27,9 @@
             <%= link_to "Cancel appointment", booking_path(booking_requested),
             method: :delete, data: { confirm: "Are you sure you want to cancel this appointment?" }, class:"btn btn-cancel-booking" %>
             <% else %>
-              <%= link_to 'Leave a Review', booking_path(booking_requested), class:'btn btn-booking', style:'margin-top: 35px' %>
+              <%= link_to 'Leave a Review', booking_path(booking_requested), class:'btn btn-booking' %>
+              <%= link_to "Delete appointment", booking_path(booking_requested),
+            method: :delete, data: { confirm: "Are you sure you want to delete the register of this appointment?" }, class:"btn btn-cancel-booking" %>
             <% end %>
           </div>
         </div>
