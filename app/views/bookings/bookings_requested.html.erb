@@ -53,10 +53,8 @@
         <%= simple_form_for Review.new do |f|%>
           <%= f.input :content, as: :text, label: false, style: "font-size:20px", placeholder: "..."%> 
           <%= f.input :rating, label: false, collection: 1..5, include_blank: false %> 
-          <%= f.simple_fields_for :service do |r| %>
-          <%= r.input :id, class:"service-id-param", :as => :hidden  %>
-        <% end %>
-        <%= f.submit %>
+          <%= hidden_field_tag 'service', 'id', class:"service-id-param" %>
+          <%= f.submit %>
         <% end %>
       </div>
       <div class="modal-footer">
