@@ -612,14 +612,73 @@ user_50 = User.create!(
   full_name: 'Alejandra Torres',
   role: 'Nutritionist',
   language: 'Spanish',
-  nationality: 'Argentinian' 
+  nationality: 'Spanish' 
 )
 user_50.photo.attach(io: file_50, filename: 'nes_50.jpg', content_type: 'image/jpg')
 user_50.save
 
+file_51 = URI.open('https://live.staticflickr.com/7813/46283037575_ab8953575e.jpg')
+user_51 = User.create!(
+  email: 'molinapedron@gmail.com',
+  password: '123456',
+  full_name: 'Pedro Molina',
+  role: 'Nutritionist',
+  language: 'Spanish',
+  nationality: 'Spanish' 
+)
+user_51.photo.attach(io: file_51, filename: 'nes_51.jpg', content_type: 'image/jpg')
+user_51.save
+
+file_52 = URI.open('https://live.staticflickr.com/7813/46283037575_ab8953575e.jpg')
+user_52 = User.create!(
+  email: 'bernardoguillen@gmail.com',
+  password: '123456',
+  full_name: 'Bernardo Guillén',
+  role: 'Nutritionist',
+  language: 'Spanish',
+  nationality: 'Spanish' 
+)
+user_52.photo.attach(io: file_52, filename: 'nes_52.jpg', content_type: 'image/jpg')
+user_52.save
+
+file_53 = URI.open('https://live.staticflickr.com/422/19631016743_2444e25250.jpg')
+user_53 = User.create!(
+  email: 'andrescoria@gmail.com',
+  password: '123456',
+  full_name: 'Andrés Coria',
+  role: 'Nutritionist',
+  language: 'Spanish',
+  nationality: 'Spanish' 
+)
+user_53.photo.attach(io: file_53, filename: 'nes_53.jpg', content_type: 'image/jpg')
+user_53.save
+
+file_54 = URI.open('https://live.staticflickr.com/4791/26859767928_9670d5cd0e_n.jpg')
+user_54 = User.create!(
+  email: 'miguelsantamaria@gmail.com',
+  password: '123456',
+  full_name: 'Miguel Santamaria',
+  role: 'Nutritionist',
+  language: 'Spanish',
+  nationality: 'Colombian' 
+)
+user_54.photo.attach(io: file_54, filename: 'nes_54.jpg', content_type: 'image/jpg')
+user_54.save
+
+file_55 = URI.open('https://live.staticflickr.com/3810/9014344828_fc5e96463e.jpg')
+user_55 = User.create!(
+  email: 'andreacastañonutricion@gmail.com',
+  password: '123456',
+  full_name: 'Andrea Castaño',
+  role: 'Nutritionist',
+  language: 'Spanish',
+  nationality: 'Spanish' 
+)
+user_55.photo.attach(io: file_55, filename: 'nes_55.jpg', content_type: 'image/jpg')
+user_55.save
 
 service_1 = Service.create!(
-  speciality: 'Oncology',
+  speciality: 'Vegan',
   price: 100, 
   location: 'Ámsterdam',
   user: user_1,
@@ -687,7 +746,7 @@ service_11 = Service.create!(
 service_12 = Service.create!(
   speciality: 'Vegan',
   price: 100,
-  user: user_1,
+  user: user_12,
   location: 'Córboba',
 )
 service_13 = Service.create!(
@@ -856,8 +915,39 @@ service_40 = Service.create!(
   speciality: 'Vegan',
   price: 90,
   user: user_50,
-  location: 'Mar de Plata',
+  location: 'Valladolid',
 )
+service_41 = Service.create!(
+  speciality: 'Vegan',
+  price: 90,
+  user: user_51,
+  location: 'Segovia',
+)
+service_42 = Service.create!(
+  speciality: 'Vegan',
+  price: 90,
+  user: user_52,
+  location: 'Bilbao',
+)
+service_43 = Service.create!(
+  speciality: 'Vegan',
+  price: 100,
+  user: user_53,
+  location: 'Málaga',
+)
+service_44 = Service.create!(
+  speciality: 'Vegan',
+  price: 100,
+  user: user_54,
+  location: 'Bogotá',
+)
+service_45 = Service.create!(
+  speciality: 'Vegan',
+  price: 100,
+  user: user_55,
+  location: 'Cádiz',
+)
+
 
 booking_1 = Booking.create!(
   booking_date: '2021-07-22 11:00:00 UTC',
@@ -891,7 +981,7 @@ booking_6 = Booking.create!(
 )
   booking_7 = Booking.create!(
   booking_date: '2021-08-20 9:00:00 UTC',
-  user: user_27,
+  user: user_22,
   service: service_1,
 )
 booking_8 = Booking.create!(
@@ -916,7 +1006,7 @@ booking_11 = Booking.create!(
 )
 booking_12 = Booking.create!(
   booking_date: '2021-08-30 10:00:00 UTC',
-  user: user_27,
+  user: user_23,
   service: service_1,
 )
 booking_13 = Booking.create!(
@@ -986,7 +1076,7 @@ booking_25 = Booking.create!(
 )
 booking_26 = Booking.create!(
   booking_date: '2021-09-25 15:00:00 UTC',
-  user: user_27,
+  user: user_24,
   service: service_10,
 )
 booking_27 = Booking.create!(
@@ -1006,7 +1096,7 @@ booking_29 = Booking.create!(
 )
 booking_30 = Booking.create!(
   booking_date: '2021-10-2 11:00:00 UTC',
-  user: user_27,
+  user: user_21,
   service: service_1,
 )
 
