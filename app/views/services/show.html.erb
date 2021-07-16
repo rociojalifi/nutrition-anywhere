@@ -1,5 +1,5 @@
 
-<div class="container mb-5" id="booking-form" style="margin-bottom: 0rem !important">
+<div class="container mb-5 d-none d-md-block" id="booking-form" style="margin-bottom: 0rem !important">
   <div class="d-flex justify-content-around row">
     <div class="col-6">
       <h4 class="" style="color: rgb(45, 43, 43)">Book an Appointment with</h4>
@@ -16,7 +16,7 @@
   </div>
 </div>
 
-<div class="container mb-5">
+<div class="container mb-5 d-none d-md-block">
   <div class="d-flex justify-content-around row">
     <div class="user-avatar col-3">
       <%= cl_image_tag @service.user.photo.key, class:
@@ -81,4 +81,3 @@
     </div>
   </div>
 </div>
-
