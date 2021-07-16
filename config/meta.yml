@@ -1,0 +1,5 @@
+meta_product_name: "Nutrition Anywhere"
+meta_title: "Nutrition Anywhere - Find a nutritionist of your culture"
+meta_description: "Nutrition Anywhere gives you the posibility of finding a nutritionist of your culture, language and budget."
+meta_image: "logo-nutrition.png" # should exist in `app/assets/images/`
+twitter_account: "@senoritanutri"   # required for Twitter Cards
