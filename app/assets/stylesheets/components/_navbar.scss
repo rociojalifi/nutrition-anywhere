@@ -31,3 +31,32 @@
   background-color: #3758eb;
   border-color: #3758eb;
 }
+@media (max-width: 480px) {
+  .navbar-lewagon {
+    width: 100%;
+  }
+  .navbar-nav {
+    margin-left: 260px;
+  }
+ .user-photo {
+   display: none;
+ }
+  .title-nav {
+    display: none;
+  }
+  .form.simple-form {
+    width: 100px;
+  }
+  .form-inline {
+    width: 100px;
+  }
+  .search-bar {
+    width: 334px;
+  }
+  
+}
+@media (max-width: 992px) {
+  .navbar-lewagon {
+    
+  }
+}

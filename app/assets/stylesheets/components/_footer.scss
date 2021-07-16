@@ -27,3 +27,11 @@
   color: #0030ff;
   font-size: 20px;
 }
+@media (max-width: 480px) {
+  .footertitle {
+    font-size: 14px;
+  }
+  .footer-img {
+    display: none;
+  }
+}
