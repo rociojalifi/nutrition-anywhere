@@ -4,6 +4,7 @@ class BookingsController < ApplicationController
   after_action :create_meeting, only: :create
   skip_before_action :authenticate_user!, only: [:index, :show]
   skip_after_action :verify_policy_scoped, only: :index
+  before_action :booking_params, only: [:create, :update, :destroy]
   before_action :set_booking, only: [:show, :update, :destroy]
   before_action :set_service, only: [:new, :create]
 
