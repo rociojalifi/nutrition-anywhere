@@ -1,25 +1,29 @@
 <div class="container mb-5">
-  <h1><span id="title-typed-text" ></span></h1>
-    <div class="container">
-      <% @bookings_given.each do |booking_given| %>
-        <div class="card-product col-sm-12">
-          <div class="card-img col-sm-3">
-            <%= cl_image_tag booking_given.user.photo.key, class:
-            "img-fluid rounded-start avatar-square" %>
+  <% if @bookings_given.count != 0 %>
+    <h1><span id="title-typed-text" ></span></h1>
+      <div class="container">
+        <% @bookings_given.each do |booking_given| %>
+          <div class="card-product col-sm-12">
+            <div class="card-img col-sm-3">
+              <%= cl_image_tag booking_given.user.photo.key, class:
+              "img-fluid rounded-start avatar-square" %>
+            </div>
+            <div class="card-info col-sm-6 d-flex flex-column justify-content-center">
+              <p><i class="fas fa-male p-1"></i><%= booking_given.user.full_name %></p>
+              <p><i class="fas fa-calendar-day p-1"></i><%= booking_given.booking_date.strftime(" %B %d, %Y | %I:%M %P") %></p>
+              <p><i class="fas fa-apple-alt p-1"></i><%= booking_given.service.speciality %></p>       
+            </div>
+            <div class="btn col-sm-3">
+              <%= link_to "I need to cancel", booking_path(booking_given), method:
+              :delete, data: { confirm: "Are you sure you want to cancel this
+              booking?" }, class:"btn btn-booking d-flex justify-content-center" %>
+            </div>
           </div>
-          <div class="card-info col-sm-6 d-flex flex-column justify-content-center">
-            <p><i class="fas fa-male p-1"></i><%= booking_given.user.full_name %></p>
-            <p><i class="fas fa-calendar-day p-1"></i><%= booking_given.booking_date.strftime(" %B %d, %Y | %I:%M %P") %></p>
-            <p><i class="fas fa-apple-alt p-1"></i><%= booking_given.service.speciality %></p>       
-          </div>
-          <div class="btn col-sm-3">
-            <%= link_to "I need to cancel", booking_path(booking_given), method:
-            :delete, data: { confirm: "Are you sure you want to cancel this
-            booking?" }, class:"btn btn-booking d-flex justify-content-center" %>
-          </div>
-        </div>
-      <% end %>
-    </div>
+        <% end %>
+      </div>
+  <% else %>
+    <h1 class="blue-titles" style="text-align: center;">You have no bookings yet</h1>
+  <% end %>
 </div>
 
 
